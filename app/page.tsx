@@ -409,7 +409,7 @@ export default function HomePage() {
                 <div className="p-8 border-b border-white/10 flex items-center justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">Infrastructure Cost Analysis</h3>
-                    <p className="text-slate-300">Enterprise-grade components serving 10,000+ users</p>
+                    <p className="text-slate-300">System serving 10,000+ users</p>
                   </div>
                   <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 px-3 py-1.5 text-sm">Production Ready</Badge>
                 </div>
@@ -417,7 +417,7 @@ export default function HomePage() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-white/10">
-                        <th className="text-left py-4 px-4 text-blue-400 font-semibold">Enterprise Component</th>
+                        <th className="text-left py-4 px-4 text-blue-400 font-semibold"> Component</th>
                         <th className="text-left py-4 px-4 text-blue-400 font-semibold">Specifications</th>
                         <th className="text-right py-4 px-4 text-blue-400 font-semibold">Monthly Investment</th>
                       </tr>
@@ -453,8 +453,8 @@ export default function HomePage() {
                         <td className="py-4 px-4 text-right font-mono text-white">$5.00</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Enterprise Backup Solution</td>
-                        <td className="py-4 px-4">Backblaze B2 Enterprise Storage</td>
+                        <td className="py-4 px-4 font-medium">Backup Solution</td>
+                        <td className="py-4 px-4">Backblaze B2 Storage</td>
                         <td className="py-4 px-4 text-right font-mono text-white">$2.00</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
@@ -481,7 +481,7 @@ export default function HomePage() {
                         <h4 className="font-bold text-white text-lg">Cost Efficiency</h4>
                       </div>
                       <p className="text-slate-300 mb-4">
-                        Enterprise infrastructure costs distributed across users for maximum affordability:
+                        Infrastructure costs distributed across users for maximum affordability:
                       </p>
                       <div className="p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-center mb-2">
                         <p className="text-white font-mono">
@@ -511,7 +511,7 @@ export default function HomePage() {
                       </div>
                       <p className="text-center text-yellow-200 text-sm mt-4 flex items-center justify-center">
                         <AlertTriangle className="w-4 h-4 mr-2" />
-                        The more users join, the more we all benefit from shared enterprise infrastructure!
+                        The more users join, the more we all benefit from shared infrastructure!
                       </p>
                     </div>
                   </div>
@@ -637,11 +637,11 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-500/20 shadow-lg">
               <Shield className="w-4 h-4" />
-              Enterprise Leadership
+              Teams
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Engineering Team</span></h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Built by enterprise architects who understand the real needs of monitoring infrastructure.
+              I am the only one working on BareUptime.
             </p>
           </div>
 
@@ -701,7 +701,7 @@ export default function HomePage() {
             </div>
             
             <div className="md:w-7/12 space-y-8">
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
+              {/* <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-blue-500/20">
                     <Server className="w-5 h-5 text-blue-400" />
@@ -716,7 +716,7 @@ export default function HomePage() {
                   <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">Real-time Backends</Badge>
                   <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">Microsoft OpenAI</Badge>
                 </div>
-              </div>
+              </div> */}
               
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -726,14 +726,14 @@ export default function HomePage() {
                   The Genesis of BareUptime
                 </h3>
                 <p className="text-slate-300">
-                  After launching an enterprise-focused startup, we encountered the same costly barrier to reliable monitoring that many organizations face. The market offered two choices: overpay for basic functionality or build a custom solution.
+                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we encountered the same costly barrier to reliable monitoring that many organizations face. The market offered two choices: overpay for basic functionality or build a custom solution.
                 </p>
                 <p className="text-slate-300 mt-4">
                   So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability without the enterprise markup. We're opening our architecture, costs, and deployment strategy to demonstrate how organizational monitoring should be priced.
                 </p>
               </div>
               
-              <div className="flex gap-4">
+              {/* <div className="flex gap-4">
                 <Button className="flex-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/30">
                   <Globe className="w-4 h-4 mr-2" />
                   View Architecture
@@ -742,7 +742,7 @@ export default function HomePage() {
                   <Code className="w-4 h-4 mr-2" />
                   Technical Documentation
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -758,7 +758,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
               </div>
               <p className="text-slate-400 max-w-md text-center md:text-left">
-                Enterprise-grade monitoring infrastructure without the enterprise pricing model.
+                Enterprise-grade monitoring infrastructure at peanut price.
               </p>
             </div>
             
@@ -807,8 +807,8 @@ export default function HomePage() {
               <div className="col-span-2 md:col-span-1">
                 <h4 className="text-white font-medium mb-3">Legal</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service</a></li>
+                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy[I will add]</a></li>
+                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service[I will add]</a></li>
                 </ul>
               </div>
             </div>
