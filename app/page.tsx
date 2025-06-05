@@ -82,9 +82,9 @@ export default function HomePage() {
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
             <div className="hidden md:flex items-center gap-6 ml-8">
-              <button onClick={() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Features</button>
-              <button onClick={() => document.getElementById('pricing')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Pricing</button>
-              <button onClick={() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</button>
+              <a href="#features" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Features</a>
+              <a href="#pricing" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Pricing</a>
+              <a href="#about" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -133,17 +133,17 @@ export default function HomePage() {
               </h1>
 
               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why are Uptime Monitors charging <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features that should be affordable for everyone?
+                Why Uptime Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features that should be affordable for everyone?
               </p>
               
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-md text-sm">
                   <CheckCircle className="w-4 h-4" />
-                  <span>99.9% Reliability</span>
+                  <span>Practically free</span>
                 </div>
                 <div className="flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-md text-sm">
                   <Server className="w-4 h-4" />
-                  <span>Enterprise Infrastructure</span>
+                  <span>Startup Focussed</span>
                 </div>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function HomePage() {
                       </span>
                       <div>
                         <h3 className="font-semibold text-white mb-1">Instant Notifications</h3>
-                        <p className="text-slate-300">Immediate alerts via <span className="text-emerald-400 font-medium">Android, iOS, Discord, Slack, or email</span> when issues arise</p>
+                        <p className="text-slate-300">Immediate alerts via <span className="text-emerald-400 font-medium">Android, iOS, Discord, Slack, or Email and Webhook</span> when issues arise</p>
                       </div>
                     </li>
                   </ol>
@@ -244,7 +244,7 @@ export default function HomePage() {
                       </li>
                     </ul>
                     <div className="p-4 border border-red-500/20 rounded-lg mt-4 bg-white/5">
-                      <p className="text-center">For functionality that costs pennies to operate, the industry markup is <span className="text-red-400 font-semibold">absurd</span>.</p>
+                      <p className="text-center">For features that costs pennies to operate, the industry markup is <span className="text-red-400 font-semibold">absurd</span>.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -261,11 +261,11 @@ export default function HomePage() {
           <div className="mb-16 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/20 shadow-lg mb-4">
               <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-              Enterprise-Ready Solution
+              For the early stage Startups
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">The Enterprise <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Solution</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">The Startup <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Solution</span></h2>
             <p className="text-xl text-slate-300 leading-relaxed">
-              A powerful, self-hosted monitoring system engineered for enterprise needs without the enterprise cost.
+              A hosted monitoring system engineered for early-startup needs at a cheap price.
             </p>
           </div>
 
@@ -293,7 +293,7 @@ export default function HomePage() {
                     <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
                     </div>
-                    <p className="text-slate-300">Self-hosted infrastructure with enterprise-grade security</p>
+                    <p className="text-slate-300">Critical alerts through Android and IOs App</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
@@ -305,7 +305,7 @@ export default function HomePage() {
                     <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
                     </div>
-                    <p className="text-slate-300">Intuitive admin dashboard to manage all endpoints</p>
+                    <p className="text-slate-300">Basic dashboard to manage all endpoints</p>
                   </div>
                 </CardContent>
               </Card>
@@ -320,7 +320,7 @@ export default function HomePage() {
                     <div className="p-2.5 rounded-lg bg-amber-500/20 flex items-center justify-center">
                       <Clock className="w-6 h-6 text-amber-400" />
                     </div>
-                    <span className="text-xl">Future Roadmap</span>
+                    <span className="text-xl">Will not be focussing on</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-5">
@@ -328,26 +328,21 @@ export default function HomePage() {
                     <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <Clock className="w-3.5 h-3.5 text-amber-400" />
                     </div>
-                    <p className="text-slate-300">SMS and priority call notifications for critical alerts</p>
+                    <p className="text-slate-300">SMS and call notifications</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <Clock className="w-3.5 h-3.5 text-amber-400" />
                     </div>
-                    <p className="text-slate-300">Advanced analytics dashboards with performance metrics</p>
+                    <p className="text-slate-300">Advanced analytics dashboards</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <Clock className="w-3.5 h-3.5 text-amber-400" />
                     </div>
-                    <p className="text-slate-300">Interactive visualization tools with real-time data</p>
+                    <p className="text-slate-300">Interactive visualization with real-time data</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
-                    </div>
-                    <p className="text-slate-300">Advanced reporting without the unnecessary complexity</p>
-                  </div>
+                  
                 </CardContent>
               </Card>
             </div>
@@ -361,7 +356,7 @@ export default function HomePage() {
                     <div className="p-2.5 rounded-lg bg-green-500/20 flex items-center justify-center">
                       <DollarSign className="w-6 h-6 text-green-400" />
                     </div>
-                    <span className="text-xl">Enterprise Pricing</span>
+                    <span className="text-xl">Startup Pricing Focussed</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -379,7 +374,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-white mt-6">
                     <Shield className="w-4 h-4 text-green-400" />
-                    <span>Enterprise-grade, affordable price</span>
+                    <span>Enterprise-grade, Peanuts price!</span>
                   </div>
                 </CardContent>
               </Card>
@@ -398,11 +393,11 @@ export default function HomePage() {
           <div className="mb-20 max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-indigo-500/20 shadow-lg">
               <DollarSign className="w-4 h-4" />
-              Enterprise Transparency
+              Transparency
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Enterprise <span className="bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">Infrastructure</span> Breakdown</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"> <span className="bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">Infrastructure</span> Breakdown</h2>
             <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
-              Transparent cost structure with enterprise-grade infrastructure. No hidden fees, no venture capital bloatware.
+              Let's see what it takes to run BareUptime at an enterprise level, serving 1K+ users with a focus on cost efficiency and reliability.
             </p>
           </div>
 
@@ -490,7 +485,7 @@ export default function HomePage() {
                       </p>
                       <div className="p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-center mb-2">
                         <p className="text-white font-mono">
-                          <span className="text-emerald-400 font-semibold">$133.62</span> ÷ <span className="text-emerald-400 font-semibold">10,000</span> users = <span className="text-emerald-400 font-bold">$0.01337</span>/user/month
+                          <span className="text-emerald-400 font-semibold">$133.62</span> ÷ <span className="text-emerald-400 font-semibold">1000</span> users = <span className="text-emerald-400 font-bold">$0.1337</span>/user/month
                         </p>
                       </div>
                       <p className="text-center text-slate-300">
@@ -540,26 +535,22 @@ export default function HomePage() {
               <div className="md:w-3/5">
                 <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-blue-500/20">
                   <Shield className="w-4 h-4" />
-                  Enterprise Early Access
+                  Join the waitlist
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                  Ready for <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Enterprise-Grade</span> Monitoring Without the Markup?
+                  <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Kill the</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Downtime</span> without burning pockets!
                 </h2>
                 <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                  Join our priority access list for a notification when enterprise deployment is ready.
+                  Join our priority access list for a notification when Bareuptime is live.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-6">
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Priority Onboarding</span>
+                    <span>Only first 100 Signups are Free</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Founding Member Status</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>First-year Discount</span>
+                    <span>Keep your Business Alive</span>
                   </div>
                 </div>
               </div>
@@ -572,10 +563,10 @@ export default function HomePage() {
                       <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-8 h-8 text-green-400" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">Enterprise Access Secured</h3>
-                      <p className="text-slate-300 mb-6">Your place in our priority deployment queue is confirmed.</p>
+                      <h3 className="text-2xl font-bold text-white mb-3">Thanks for Joining!</h3>
+                      <p className="text-slate-300 mb-6">You can track the <a href="https://github.com/sumansaurabh/bareuptime/issues" target="_blank">status update here</a>.</p>
                       <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20 text-sm text-green-300">
-                        We'll contact you directly when enterprise deployment is ready.
+                        We'll contact you directly when our product is live.
                       </div>
                     </CardContent>
                   </Card>
@@ -583,7 +574,7 @@ export default function HomePage() {
                   <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
                     <CardContent className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-4">Reserve Enterprise Access</h3>
+                      <h3 className="text-lg font-bold text-white mb-4">Reserve Your Access</h3>
                       <form onSubmit={handleSubmit}>
                         <div className="space-y-4">
                           <div>
@@ -612,7 +603,7 @@ export default function HomePage() {
                                 Processing...
                               </span>
                             ) : (
-                              "Secure Enterprise Access"
+                              "Join the Waitlist"
                             )}
                           </Button>
                           
@@ -625,7 +616,7 @@ export default function HomePage() {
                         
                         <p className="text-xs text-slate-400 mt-4 flex items-center gap-1">
                           <Shield className="w-3 h-3" />
-                          <span>Enterprise-grade security. No marketing emails.</span>
+                          <span>No marketing emails. I hate it.</span>
                         </p>
                       </form>
                     </CardContent>
