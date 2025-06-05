@@ -256,10 +256,10 @@ export default function HomePage() {
 
       {/* Features Section */}
       <section id="features" className="py-24 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:40px_40px] opacity-10 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:40px_40px] opacity-10 backdrop-blur-sm" />
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/20 shadow-lg mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
               <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
               For the early stage Startups
             </div>
@@ -279,7 +279,7 @@ export default function HomePage() {
                     <div className="p-2.5 rounded-lg bg-emerald-500/20 flex items-center justify-center">
                       <CheckCircle className="w-6 h-6 text-emerald-400" />
                     </div>
-                    <span className="text-xl">Enterprise Features</span>
+                    <span className="text-xl">Features</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-5">
@@ -366,7 +366,7 @@ export default function HomePage() {
                       <DollarSign className="w-6 h-6 text-green-400" />
                       <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">6</span>
                     </div>
-                    <div className="text-lg text-slate-300 mb-2">per year</div>
+                    <div className="text-xl font-medium text-slate-300 mb-2">per year</div>
                     <div className="text-sm text-slate-400 flex items-center justify-center">
                       <span className="line-through mr-2">$120+/year</span> 
                       <span className="text-green-400 font-semibold">95% Savings</span>
@@ -501,7 +501,7 @@ export default function HomePage() {
                         <h4 className="font-bold text-white text-lg">Economy of Scale</h4>
                       </div>
                       <p className="text-slate-300 mb-4">
-                        Our enterprise pricing model relies on reaching critical mass for maximum cost efficiency:
+                        Our pricing model relies on reaching critical mass for maximum cost efficiency:
                       </p>
                       <div className="flex items-center">
                         <div className="w-full bg-black/30 rounded-full h-2.5 mr-2">
@@ -525,7 +525,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-lg"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl"></div>
         
