@@ -10,6 +10,14 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Shield, Clock } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 
+/**
+ * The main component for the uptime monitoring service website.
+ *
+ * This component renders the entire UI of the website, including the hero section,
+ * cost breakdown, and about section. It also handles form submissions for joining the waitlist.
+ *
+ * @returns {JSX.Element} - The JSX representation of the main component.
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -40,6 +48,15 @@ export default function HomePage() {
     fetchRepoData();
   }, []);
 
+  /**
+   * Handles form submission for subscribing to the newsletter.
+   *
+   * This function prevents the default form submission, checks if an email is provided,
+   * and then attempts to insert the email into the Supabase database. It updates the UI
+   * based on whether the operation succeeds or fails, setting appropriate messages and states.
+   *
+   * @param e - The React form event triggered by the form submission.
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
