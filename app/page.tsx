@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,6 +13,29 @@ export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [repoData, setRepoData] = useState<{ watchers: number, forks: number } | null>(null)
+  const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
+
+  useEffect(() => {
+    const fetchRepoData = async () => {
+      try {
+        const response = await fetch('https://api.github.com/repos/sumansaurabh/bareuptime');
+        if (response.ok) {
+          const data = await response.json();
+          setRepoData({
+            watchers: data.subscribers_count || data.watchers_count,
+            forks: data.forks_count
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch repository data:", error);
+      } finally {
+        setIsLoadingRepoData(false);
+      }
+    };
+    
+    fetchRepoData();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -41,10 +64,52 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      {/* GitHub Repository Banner - Thin Strip */}
+      <div className="w-full py-2 px-4 bg-white/5 border-b border-white/10 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto flex items-center justify-center md:justify-between">
+          <div className="flex items-center gap-2">
+            <Globe className="w-4 h-4 text-blue-400" />
+            <a 
+              href="https://github.com/sumansaurabh/bareuptime" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm text-white hover:text-blue-400 transition-colors"
+            >
+              Open source on GitHub: sumansaurabh/bareuptime
+            </a>
+          </div>
+          <div className="hidden md:flex items-center gap-4">
+            {!isLoadingRepoData && repoData && (
+              <>
+                <div className="flex items-center gap-1 text-xs text-slate-400">
+                  <Code className="w-3 h-3" />
+                  <span>{repoData.forks} fork{repoData.forks !== 1 ? 's' : ''}</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-slate-400">
+                  <Shield className="w-3 h-3" />
+                  <span>{repoData.watchers} watcher{repoData.watchers !== 1 ? 's' : ''}</span>
+                </div>
+              </>
+            )}
+            <a
+              href="https://github.com/sumansaurabh/bareuptime/subscription"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs text-slate-300 hover:text-blue-400"
+            >
+              <Shield className="w-3 h-3" />
+              <span>Watch</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
         <div className="relative max-w-7xl mx-auto px-4 py-20">
+          
+
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-red-500/20">
               <AlertTriangle className="w-4 h-4" />
