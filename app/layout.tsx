@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
 }
 
+/**
+ * Renders the root layout with theme provider and language settings.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
