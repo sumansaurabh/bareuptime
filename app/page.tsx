@@ -133,7 +133,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Why  Synthetic Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features?
+              Why  Uptime Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features?
             </p>
 
 
