@@ -8,11 +8,14 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Shield, Clock } from "lucide-react"
+import { supabase } from '@/lib/supabaseClient'
 
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [message, setMessage] = useState("")
+  const [messageType, setMessageType] = useState<"success" | "error" | "">("")
   const [repoData, setRepoData] = useState<{ watchers: number, forks: number } | null>(null)
   const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
 
@@ -42,21 +45,27 @@ export default function HomePage() {
     if (!email) return
 
     setIsSubmitting(true)
+    setMessage("")
+    
     try {
-      const response = await fetch("https://production-gateway.snorkell.ai/api/subscribe/bareuptime", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      })
+      const { error } = await supabase
+        .from('bareuptime_newsletter')  // Update the table name to match your Supabase table
+        .insert([{ email }])
 
-      if (response.ok) {
-        setIsSubmitted(true)
-        setEmail("")
-      }
-    } catch (error) {
+      if (error) throw error
+
+      setIsSubmitted(true)
+      setMessage("Thank you for subscribing!")
+      setMessageType("success")
+      setEmail("")
+    } catch (error: any) {
       console.error("Subscription failed:", error)
+      if (error.message?.includes("duplicate key value violates unique constraint")) {
+        setMessage("You are already subscribed!")
+      } else {
+        setMessage("Something went wrong. Please try again.")
+      }
+      setMessageType("error")
     } finally {
       setIsSubmitting(false)
     }
@@ -366,6 +375,11 @@ export default function HomePage() {
                   {isSubmitting ? "Joining..." : "Join Waitlist"}
                 </Button>
               </div>
+              {messageType && (
+                <div className={`mt-3 text-sm ${messageType === "success" ? "text-green-400" : "text-red-400"}`}>
+                  {message}
+                </div>
+              )}
               <p className="text-xs text-slate-400 mt-3">No spam, ever. Unsubscribe anytime.</p>
             </form>
           )}

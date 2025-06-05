@@ -1,30 +1,77 @@
-# New Project
+## DIY Uptime Monitoring System
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Why are synthetic monitoring tools so ridiculously priced?
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/akanshaakg19-gmailcoms-projects/v0-new-project-bomtn63w1jk)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/BomTN63W1jk)
+All we really need is a system that does two things:
 
-## Overview
+1. Is my website up?  
+2. Can it notify me immediately — on Android, iOS, Discord, Slack, or email?
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+That’s it.
 
-## Deployment
+We don’t need fancy dashboards. We don’t need animated graphs.  
+We just want to know when things break — immediately.
 
-Your project is live at:
+Most tools out there gate even this behind $10+/month paywalls:
 
-**[https://vercel.com/akanshaakg19-gmailcoms-projects/v0-new-project-bomtn63w1jk](https://vercel.com/akanshaakg19-gmailcoms-projects/v0-new-project-bomtn63w1jk)**
+- Critical push notifications? *Premium.*  
+- Webhooks? *Premium.*
 
-## Build your app
+Half the features you'd expect as basic are locked unless you pay up.  
+For something that costs less than cents to run, it's absurd.
 
-Continue building your app on:
+---
 
-**[https://v0.dev/chat/projects/BomTN63W1jk](https://v0.dev/chat/projects/BomTN63W1jk)**
+### 1. **Overview**
 
-## How It Works
+- **Purpose**: Replace overpriced uptime tools with a self-hosted, scalable system.
+- **Goal**: Send real-time alerts via Slack, Discord, Teams, mobile push, and webhook.
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+---
+
+### 2. **Results**
+
+- No support for SMS and Call Notifications — yet.
+- No dashboards. Just a UI to update your profile and add health check endpoints.
+- Expected Pricing: **$6 per year** instead of $10 per month. Why? Check below.
+
+---
+
+### 3. **Why it's priced at $6/year**
+
+This isn’t VC-backed bloatware. It's a minimal service with just enough reliability and scale to serve 10,000+ users without wasting infrastructure.
+
+Every part of this system is self-hosted to stay cost-efficient, scalable, and under control. No managed services, no vendor lock-in. Just bare compute, memory, and clean code.
+
+| Component                   | Quantity       | Specs                      | Provider                          | Monthly Cost |
+|-----------------------------|----------------|-----------------------------|-----------------------------------|--------------|
+| API + Config DB             | 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
+| Redis + Internal Queue      | 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
+| Worker Pools (Global)       | 8              | 4 vCPU, 8 GB RAM            | Hetzner VPS (globally distributed)| $92.00       |
+| Monitoring & Logs (Optional)| 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
+| DNS + SSL                   | 1 domain       | Certbot + Namecheap         | Self-managed                      | $1.00        |
+| Backups (DB, Queue, Logs)   | ~50–100 GB     | B2 or Bunny CDN             | Cloud Storage                     | $2.00        |
+| Email Alerts (SMTP Infra)   | transactional  | ~5K–10K emails/month        | SendGrid / Postmark               | $5.00        |
+| **Subtotal: Infra + Ops**   |                |                             |                                   | **$115.00**  |
+
+| Component                   | Quantity       | Specs                      | Provider                          | Monthly Cost |
+|-----------------------------|----------------|-----------------------------|-----------------------------------|--------------|
+| Apple Developer Program     | 1              | $99/year                    | Apple                             | $8.25        |
+| Google Play Dev Account     | one-time       | $25 (absorbed)              | Google                            | $0.00        |
+| Payment Gateway Fees        | -              | ~2.9% + $0.30 per txn       | Stripe / PayPal                   | ~$25.00      |
+| Estimated Taxes             | ~15% of gross  | Infra + income + processing | Govt. + SaaS locality             | $17.50       |
+| **Subtotal: Overhead**      |                |                             |                                   | **$50.75**   |
+
+| **Total Monthly Cost**      |                |                             |                                   | **$165.75**  |
+
+Serving 10,000 users at this cost means **~$0.0165 per user/month**.  
+Rounding to **$6/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
+
+---
+
+### 4. **Closing Thoughts**
+
+- Ridiculously cheap pricing only to accommodate server cost and my maintenance effort.  
+- My cost will only come down if there are a huge number of signups.  
+- With a weekend of code, I will complete this.  
+- To start this, I will use Upstash + Supabase to keep the price minimum. Only after 500 signups, I will move to managed DB instances.
