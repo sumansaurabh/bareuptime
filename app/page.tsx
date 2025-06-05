@@ -82,9 +82,9 @@ export default function HomePage() {
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
             <div className="hidden md:flex items-center gap-6 ml-8">
-              <a href="#features" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Features</a>
-              <a href="#pricing" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Pricing</a>
-              <a href="#about" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
+              <a onClick={() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">Features</a>
+              <a onClick={() => document.getElementById('pricing')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">Pricing</a>
+              <a onClick={() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">About</a>
             </div>
           </div>
           <div className="flex items-center gap-4">
