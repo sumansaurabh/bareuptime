@@ -48,35 +48,21 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-red-500/20">
               <AlertTriangle className="w-4 h-4" />
-              Industry Problem Alert
+              Startup Problem Alert
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              DIY Uptime
+              Uptime
               <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Monitoring
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Why pay <span className="text-red-400 font-bold">$120+/year</span> for basic uptime monitoring when you
-              can get enterprise-grade alerts for <span className="text-green-400 font-bold">$6/year</span>?
+              Why  Synthetic Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features?
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Badge variant="outline" className="bg-white/5 text-white border-white/20 px-4 py-2">
-                <Server className="w-4 h-4 mr-2" />
-                Self-hosted
-              </Badge>
-              <Badge variant="outline" className="bg-white/5 text-white border-white/20 px-4 py-2">
-                <Shield className="w-4 h-4 mr-2" />
-                No vendor lock-in
-              </Badge>
-              <Badge variant="outline" className="bg-white/5 text-white border-white/20 px-4 py-2">
-                <Globe className="w-4 h-4 mr-2" />
-                Global monitoring
-              </Badge>
-            </div>
+
           </div>
 
           {/* Problem Cards */}
@@ -100,7 +86,7 @@ export default function HomePage() {
                     <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
                       2
                     </span>
-                    Notify me immediately on Android, iOS, Discord, Slack, or email
+                    Notify <span className="text-green-400">immediately</span> on <span className="text-green-400">Android, iOS, Discord, Slack, or email</span>
                   </li>
                 </ol>
                 <p className="text-lg font-semibold text-white mt-6">That's it.</p>
@@ -141,7 +127,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">The Solution</h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              A minimal, self-hosted monitoring system that does exactly what you need—nothing more, nothing less.
+              A minimal, self-hosted monitoring system that does exactly what you need.
             </p>
           </div>
 
@@ -243,14 +229,19 @@ export default function HomePage() {
                       <td className="py-3 text-right font-mono">$2.00</td>
                     </tr>
                     <tr className="border-b border-white/10">
+                      <td className="py-3">Overhead</td>
+                      <td className="py-3">Taxes(18%) and Others</td>
+                      <td className="py-3 text-right font-mono">$19.62</td>
+                    </tr>
+                    {/* <tr className="border-b border-white/10">
                       <td className="py-3">Overhead (Apple Dev, Stripe, Taxes)</td>
                       <td className="py-3">Platform fees + processing</td>
                       <td className="py-3 text-right font-mono">$56.75</td>
-                    </tr>
+                    </tr> */}
                     <tr className="border-t-2 border-green-400/50 bg-green-500/10">
                       <td className="py-4 font-bold text-white">Total Monthly Cost</td>
                       <td className="py-4 text-slate-300">For 10,000+ users</td>
-                      <td className="py-4 text-right font-bold text-green-400 font-mono text-lg">$165.75</td>
+                      <td className="py-4 text-right font-bold text-green-400 font-mono text-lg">$133.62</td>
                     </tr>
                   </tbody>
                 </table>
@@ -258,11 +249,17 @@ export default function HomePage() {
 
               <div className="mt-8 p-6 bg-green-500/10 rounded-lg border border-green-500/20">
                 <p className="text-slate-300 text-center">
-                  <strong className="text-green-400">$165.75 ÷ 10,000 users = $0.0165/user/month</strong>
+                  <strong className="text-green-400">$133.62 ÷ 10,000 users = $0.013362/user/month</strong>
                   <br />
                   Rounded to <strong className="text-green-400">$6/year</strong> with buffer for maintenance and
-                  unexpected costs.
+                  unexpected costs. 
                 </p>
+                <div className="mt-4 p-3 bg-yellow-500/10 rounded-lg border border-yellow-500/20">
+                  <p className="text-yellow-200 text-center text-sm flex items-center justify-center">
+                    <AlertTriangle className="w-4 h-4 mr-2" />
+                    This price is only possible if we reach enough users. The more users join, the lower the cost will be!
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -272,9 +269,9 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Ditch Overpriced Monitoring?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ditch Overpriced Monitoring?</h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Join the waitlist for early access. No spam, just updates on development progress.
+            Join the waitlist. No spam, just updates on development progress.
           </p>
 
           {isSubmitted ? (
@@ -319,7 +316,7 @@ export default function HomePage() {
             </CardHeader>
             <CardContent className="space-y-4 text-slate-300">
               <p>
-                I'm a Senior Software Engineer at Microsoft OpenAI with 10+ years building distributed systems,
+                I'm <a href="https://www.linkedin.com/in/ssumansaurabh/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Suman Saurabh</a>, Senior Software Engineer at Microsoft OpenAI with 10+ years building distributed systems,
                 real-time backends, and scalable infrastructure.
               </p>
               <p>
@@ -327,7 +324,7 @@ export default function HomePage() {
                 monitoring. I didn't want to pay $10/month just to know if my service was up.
               </p>
               <p>
-                So I'm building it. And sharing everything—design, costs, deployment—for anyone else frustrated by
+                So I'm building it. And sharing everything - design, costs, deployment - for anyone else frustrated by
                 overpriced monitoring tools.
               </p>
 
