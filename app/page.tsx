@@ -133,7 +133,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why Uptime Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features that should be affordable for everyone?
+                Why Uptime Monitors are ridiculously priced <span className="text-red-400 font-bold">$120+/year</span> for basic uptime features that should be affordable to everyone?
               </p>
               
               <div className="flex items-center gap-3 mb-6">
