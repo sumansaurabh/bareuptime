@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
 }
 
+/**
+ * Renders the root HTML structure with theme provider and analytics.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
