@@ -61,6 +61,7 @@
     "zod": "^3.25.51"
   },
   "devDependencies": {
+    "@next/third-parties": "^15.3.3",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
