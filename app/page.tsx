@@ -541,12 +541,12 @@ export default function HomePage() {
                   <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Kill the</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Downtime</span> without burning pockets!
                 </h2>
                 <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                  Join our priority access list for a notification when Bareuptime is live.
+                  Join an access list for a notification when Bareuptime is live.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-6">
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Only first 100 Signups are Free</span>
+                    <span>Only First 100 Signups are Free</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
