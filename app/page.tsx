@@ -481,7 +481,7 @@ export default function HomePage() {
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            Mobile Apps (iOS/Android)
+                            OnCall Alerts (iOS/Android)
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
