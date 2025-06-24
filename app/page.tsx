@@ -971,8 +971,8 @@ export default function HomePage() {
               <div className="col-span-2 md:col-span-1">
                 <h4 className="text-white font-medium mb-3">Legal</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy[I will add]</a></li>
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service[I will add]</a></li>
+                  <li><a href="/privacy-policy" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
+                  <li><a href="/terms-of-service" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service</a></li>
                 </ul>
               </div>
             </div>
