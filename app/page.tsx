@@ -492,8 +492,10 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="text-red-400">Not available</span>
+                                <span className="text-red-400">Not available</span>
+                              
                             </div>
+                            <span className="text-slate-400 text-sm">In Free Plan</span>
                           </td>
                         </tr>
 
@@ -525,6 +527,27 @@ export default function HomePage() {
                               </div>
                               <span className="text-slate-400 text-sm">Limited channels</span>
                             </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
+                            SSL Monitor
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                                <span className="text-red-400">Not available</span>
+                              
+                            </div>
+                            <span className="text-slate-400 text-sm">In Free Plan</span>
                           </td>
                         </tr>
 
@@ -580,7 +603,7 @@ export default function HomePage() {
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-2xl font-bold text-slate-300">$120+ / Year</span>
+                              <span className="text-2xl font-bold text-slate-300">$180+ / Year</span>
                             </div>
                           </td>
                         </tr>
@@ -763,8 +786,30 @@ export default function HomePage() {
                   <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <div className="space-y-4">
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-400 transition-colors"
+                          required
+                        />
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting || !email}
+                          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? "Subscribing..." : "Subscribe Now"}
+                        </Button>
+                        {message && (
+                          <div className={`text-center text-sm ${
+                            messageType === "success" ? "text-green-400" : "text-red-400"
+                          }`}>
+                            {message}
+                          </div>
+                        )}
                       </div>
                     </form>
                   </CardContent>
