@@ -2,6 +2,10 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  distDir: 'dist',
   eslint: {
     ignoreDuringBuilds: true,
   },
