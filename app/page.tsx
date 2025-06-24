@@ -332,145 +332,81 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Problem Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 via-blue-500 to-indigo-600 rounded-xl opacity-20 blur-sm group-hover:opacity-40 transition duration-500"></div>
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 relative shadow-2xl group-hover:shadow-emerald-500/20 transition-all duration-500 h-full rounded-xl overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-blue-500 to-indigo-600"></div>
-                
-                <CardHeader className="pb-6 pt-8">
-                  <CardTitle className="text-white flex items-center gap-4 mb-2">
-                    <div className="relative">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-xl blur opacity-75"></div>
-                      <div className="relative p-3 rounded-xl bg-gradient-to-br from-emerald-500/30 to-blue-500/30 flex items-center justify-center border border-white/20">
-                        <CheckCircle className="w-6 h-6 text-emerald-300" />
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold bg-gradient-to-r from-emerald-300 to-blue-300 bg-clip-text text-transparent">What You Actually Need</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">The essentials for uptime monitoring</p>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="px-6 pb-8">
-                  <div className="space-y-6">
-                    <div className="relative group/item">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
-                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-400/30 transition-all duration-300">
-                        <div className="relative flex-shrink-0">
-                          <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
-                            <span className="text-white font-bold text-lg">1</span>
-                          </div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full animate-pulse"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-bold text-white mb-2 text-lg">Status Monitoring</h3>
-                          <p className="text-slate-300 leading-relaxed">Simple confirmation that your website or service is operational</p>
+          {/* Problem Statement */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                The Problem with <span className="text-red-400">Current Solutions</span>
+              </h2>
+              <p className="text-slate-300">Essential features locked behind expensive paywalls</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* What You Need */}
+              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <CheckCircle className="w-6 h-6 text-emerald-400" />
+                  <h3 className="text-lg font-bold text-emerald-400">What You Actually Need</h3>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-slate-300">Basic uptime monitoring</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-slate-300">Mobile notifications</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-slate-300">Webhook integrations</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1 mt-3">
+                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-xs">Android</span>
+                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-xs">iOS</span>
+                    <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">Discord</span>
+                    <span className="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">Slack</span>
+                    <span className="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">Telegram</span>
+                  </div>
+                </div>
+              </div>
 
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative group/item">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
-                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-blue-400/30 transition-all duration-300">
-                        <div className="relative flex-shrink-0">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                            <span className="text-white font-bold text-lg">2</span>
-                          </div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-bold text-white mb-2 text-lg">Instant Notifications</h3>
-                          <p className="text-slate-300 leading-relaxed mb-3">Immediate alerts when issues arise through </p>
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-medium border border-emerald-500/30">Android</span>
-                            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-medium border border-emerald-500/30">iOS</span>
-                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium border border-blue-500/30">Discord</span>
-                            <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-medium border border-indigo-500/30">Slack</span>
-                            <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30">Email</span>
-                            <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs font-medium border border-orange-500/30">Webhook</span>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
+              {/* What Industry Delivers */}
+              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <AlertTriangle className="w-6 h-6 text-red-400" />
+                  <h3 className="text-lg font-bold text-red-400">What Industry Delivers</h3>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
+                    <span className="text-slate-300 text-sm">Mobile apps</span>
+                    <span className="text-red-400 font-bold text-sm">$20/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
+                    <span className="text-slate-300 text-sm">API access</span>
+                    <span className="text-red-400 font-bold text-sm">$10/mo</span>
                   </div>
 
-                </CardContent>
-              </Card>
+                  <div className="pt-2 border-t border-red-500/20">
+                    <div className="flex items-center justify-between">
+                      <span className="text-red-300 font-medium">Total yearly cost</span>
+                      <span className="text-red-400 font-bold text-lg">$360+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl opacity-20 blur-sm group-hover:opacity-30 transition duration-500"></div>
-              <Card className="bg-black/40 backdrop-blur-sm border border-red-500/20 relative shadow-xl group-hover:shadow-red-500/10 transition duration-500 h-full rounded-xl overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-orange-500"></div>
-                
-                <CardHeader className="pb-6 pt-8">
-                  <CardTitle className="text-white flex items-center gap-4 mb-2">
-                    <div className="relative">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-75"></div>
-                      <div className="relative p-3 rounded-xl bg-gradient-to-br from-red-500/30 to-orange-500/30 flex items-center justify-center border border-white/20">
-                        <AlertTriangle className="w-6 h-6 text-red-300" />
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold bg-gradient-to-r from-red-300 to-orange-300 bg-clip-text text-transparent">What The Industry Delivers</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">The painful reality of uptime monitoring tools</p>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="px-6 pb-8">
-                  <div className="space-y-6">
-                    <div className="relative group/item">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
-                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-red-400/30 transition-all duration-300">
-                        <div className="relative flex-shrink-0">
-                          <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/25">
-                            <DollarSign className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-400 rounded-full animate-pulse"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-bold text-white mb-2 text-lg">Essential Features Paywalled</h3>
-                          <p className="text-slate-300 leading-relaxed mb-3">Basic monitoring features locked behind expensive subscription</p>
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
-                              <span className="text-slate-300">API & webhooks</span>
-                              <span className="text-red-400 font-bold">$10/mo</span>
-                            </div>
-                            <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
-                              <span className="text-slate-300">Android/iOS notifications</span>
-                              <span className="text-red-400 font-bold">$20/mo</span>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative group/item">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
-                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-orange-400/30 transition-all duration-300">
-                        <div className="relative flex-shrink-0">
-                          <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/25">
-                            <AlertTriangle className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-400 rounded-full animate-pulse"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-bold text-white mb-2 text-lg">Absurd Markup</h3>
-                          <p className="text-slate-300 leading-relaxed mb-3">Features costing pennies to operate marked up by thousands</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Solution highlight */}
+            <div className="mt-8 text-center">
+              <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-lg px-6 py-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400 font-medium">BareUptime Pricing:</span>
+                  <span className="text-white font-bold text-xl">$8/year</span>
+                </div>
+                <div className="w-px h-6 bg-white/20"></div>
+                <span className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-medium">98% savings</span>
+              </div>
             </div>
           </div>
 
@@ -607,6 +543,24 @@ export default function HomePage() {
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
                               <span className="font-bold text-emerald-400">30 seconds</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Code className="w-4 h-4 text-blue-400 mr-3" />
+                            Support
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">24 x 7*</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold">Basic Support</span>
                             </div>
                           </td>
                         </tr>
