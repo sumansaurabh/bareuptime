@@ -21,6 +21,18 @@ export default function HomePage() {
   const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
 
   useEffect(() => {
+  if (typeof window === 'undefined') return;
+
+  const script = document.createElement("script");
+  script.src = "https://embed.tawk.to/685acae35dc248190eead5f8/1iuhah2s1";
+  script.async = true;
+  script.charset = "UTF-8";
+  script.setAttribute("crossorigin", "*");
+
+  document.body.appendChild(script);
+}, []);
+
+  useEffect(() => {
     const fetchRepoData = async () => {
       try {
         const response = await fetch('https://api.github.com/repos/sumansaurabh/bareuptime');
@@ -73,6 +85,7 @@ export default function HomePage() {
   }
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
       {/* Enterprise Navigation Bar */}
       <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
@@ -529,7 +542,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-28 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-xl"></div>
@@ -830,25 +843,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
-
-      {/* Tawk.to Chat Widget */}
-      <Script
-        id="tawk-to-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-              s1.async=true;
-              s1.src='https://embed.tawk.to/68593f5b08902e190c936783/1iue9uvq0';
-              s1.charset='UTF-8';
-              s1.setAttribute('crossorigin','*');
-              s0.parentNode.insertBefore(s1,s0);
-            })();
-          `
-        }}
-      />
     </div>
+    </>
   )
 }

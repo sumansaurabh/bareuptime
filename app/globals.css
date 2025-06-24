@@ -84,6 +84,23 @@ body {
   }
 }
 
+html, body, #__next {
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  perspective: none !important;
+}
+
+/* iframe[src*="tawk.to"] {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 999999 !important;
+  transform: none !important;
+  display: block !important;
+} */
+
+
 @layer base {
   * {
     @apply border-border;
@@ -99,6 +116,13 @@ body {
     /* Optimize for GPU acceleration */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+  }
+
+  #tawkchat-container,
+  iframe[title="chat widget"] {
+    z-index: 999999 !important;
+    bottom: 0 !important;
+    right: 0 !important;
   }
   
   /* Optimize backdrop blur for better performance */
