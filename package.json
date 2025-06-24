@@ -70,6 +70,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8",
+    "serve": "^14.2.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
