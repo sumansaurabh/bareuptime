@@ -244,7 +244,7 @@ export default function HomePage() {
                       </li>
                     </ul>
                     <div className="p-4 border border-red-500/20 rounded-lg mt-4 bg-white/5">
-                      <p className="text-center">For features that costs pennies to operate, the industry markup is <span className="text-red-400 font-semibold">absurd</span>.</p>
+                      <p className="text-center">Features that costs pennies to operate, the industry markup is <span className="text-red-400 font-semibold">ABSURD</span>.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -397,7 +397,7 @@ export default function HomePage() {
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"> <span className="bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">Infrastructure</span> Breakdown</h2>
             <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
-              Let's see what it takes to run BareUptime at an enterprise level, serving 1K+ users with a focus on cost efficiency and reliability.
+              Let's see what will be my cost to run BareUptime at an enterprise level, serving 1K+ users with a focus on cost efficiency and reliability.
             </p>
           </div>
 
@@ -427,30 +427,30 @@ export default function HomePage() {
                         <td className="py-4 px-4 font-medium">API + Configuration Database</td>
                         <td className="py-4 px-4 flex items-center">
                           <Server className="w-4 h-4 text-blue-400 mr-2" />
-                          <span>2 vCPU, 4 GB RAM (Hetzner Cloud)</span>
+                          <span>4 vCPU, 16 GB RAM (Hetzner Cloud)</span>
                         </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$5.00</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$25</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-4 px-4 font-medium">Redis + Message Queue</td>
                         <td className="py-4 px-4 flex items-center">
                           <Server className="w-4 h-4 text-blue-400 mr-2" />
-                          <span>2 vCPU, 4 GB RAM (Hetzner Cloud)</span>
+                          <span>2 vCPU, 8 GB RAM (Hetzner Cloud)</span>
                         </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$5.00</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$13</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-indigo-500/5">
                         <td className="py-4 px-4 font-medium">Global Worker Distribution</td>
                         <td className="py-4 px-4 flex items-center">
                           <Globe className="w-4 h-4 text-indigo-400 mr-2" />
-                          <span>8x 4 vCPU, 8 GB RAM (Global Regions)</span>
+                          <span>1 x 8 vCPU, 32 GB RAM (Global Regions)</span>
                         </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$92.00</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$48.00</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-4 px-4 font-medium">Notification Infrastructure</td>
                         <td className="py-4 px-4">SendGrid Enterprise + Mobile Push Services</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$5.00</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$20.00</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-4 px-4 font-medium">Backup Solution</td>
@@ -458,14 +458,19 @@ export default function HomePage() {
                         <td className="py-4 px-4 text-right font-mono text-white">$2.00</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td className="py-4 px-4 font-medium">Egress Cost</td>
+                        <td className="py-4 px-4">5KB Data * 100,000 Urls * 1440 freq = 720 GB/day = 21.6 TB/ month</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$2.00</td>
+                      </tr>
+                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-4 px-4 font-medium">Operational Overhead</td>
                         <td className="py-4 px-4">Tax Requirements (18%) and Miscellaneous</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$19.62</td>
+                        <td className="py-4 px-4 text-right font-mono text-white">$30</td>
                       </tr>
                       <tr className="bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-md">
                         <td className="py-5 px-4 font-bold text-white">Total Infrastructure Cost</td>
                         <td className="py-5 px-4 text-white">Enterprise-grade, supporting 10,000+ users</td>
-                        <td className="py-5 px-4 text-right font-bold text-emerald-400 font-mono text-xl">$133.62</td>
+                        <td className="py-5 px-4 text-right font-bold text-emerald-400 font-mono text-xl">$140</td>
                       </tr>
                     </tbody>
                   </table>
@@ -485,7 +490,7 @@ export default function HomePage() {
                       </p>
                       <div className="p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-center mb-2">
                         <p className="text-white font-mono">
-                          <span className="text-emerald-400 font-semibold">$133.62</span> ÷ <span className="text-emerald-400 font-semibold">1000</span> users = <span className="text-emerald-400 font-bold">$0.1337</span>/user/month
+                          <span className="text-emerald-400 font-semibold">$140</span> ÷ <span className="text-emerald-400 font-semibold">1000</span> users = <span className="text-emerald-400 font-bold">$0.14</span>/user/month
                         </p>
                       </div>
                       <p className="text-center text-slate-300">
