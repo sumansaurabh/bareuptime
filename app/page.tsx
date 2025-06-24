@@ -74,7 +74,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
       {/* Enterprise Navigation Bar */}
-      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-lg sticky top-0 z-50 shadow-lg">
+      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
@@ -150,7 +150,7 @@ export default function HomePage() {
             
             <div className="md:w-1/2 relative">
               <div className="w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-2xl p-1">
-                <div className="bg-black/30 backdrop-blur-xl rounded-xl p-6 border border-white/10 shadow-2xl">
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-2xl">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -173,8 +173,8 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-2xl"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl"></div>
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"></div>
             </div>
           </div>
 
@@ -272,7 +272,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl opacity-20 blur group-hover:opacity-30 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-lg border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
+              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
                 <div className="h-2 bg-gradient-to-r from-emerald-500 to-green-500 w-full"></div>
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
@@ -313,7 +313,7 @@ export default function HomePage() {
 
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl opacity-20 blur group-hover:opacity-30 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-lg border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
+              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
                 <div className="h-2 bg-gradient-to-r from-amber-400 to-yellow-500 w-full"></div>
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
@@ -349,7 +349,7 @@ export default function HomePage() {
 
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-lg border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
+              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
                 <div className="h-2 bg-gradient-to-r from-green-400 to-emerald-500 w-full"></div>
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
@@ -385,7 +385,7 @@ export default function HomePage() {
 
       {/* Cost Breakdown */}
       <section id="pricing" className="py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-indigo-950/20 to-blue-950/20 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-indigo-950/20 to-blue-950/20"></div>
         <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
         <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
         
@@ -402,8 +402,8 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl opacity-20 blur-xl"></div>
-            <Card className="bg-black/70 backdrop-blur-xl border border-white/10 shadow-2xl max-w-5xl mx-auto rounded-xl overflow-hidden">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl opacity-20 blur-lg"></div>
+            <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl max-w-5xl mx-auto rounded-xl overflow-hidden">
               <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-300 w-full"></div>
               <CardContent className="p-0">
                 <div className="p-8 border-b border-white/10 flex items-center justify-between">
@@ -524,10 +524,10 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-lg"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-xl"></div>
         
         <div className="max-w-5xl mx-auto px-4 relative">
           <div className="bg-gradient-to-r from-blue-500/5 to-indigo-500/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm">
@@ -749,7 +749,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-white/10 bg-black/40 backdrop-blur-md">
+      <footer className="py-16 border-t border-white/10 bg-black/40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-8 md:mb-0">
