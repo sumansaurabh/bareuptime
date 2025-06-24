@@ -136,7 +136,7 @@ export default function HomePage() {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-24 pb-16">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:60px_60px] opacity-20" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:60px_60px] opacity-20" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
@@ -292,7 +292,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        <div className="text-xs text-green-400 font-semibold">Monitor upto 50 URLs for Free</div>
+                        <div className="text-xs text-green-400 font-semibold">50 Monitors are Free</div>
                       </div>
                       <div className="flex items-center gap-1">
                         <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
@@ -387,30 +387,533 @@ export default function HomePage() {
 
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl opacity-20 blur-sm group-hover:opacity-30 transition duration-500"></div>
-              <Card className="bg-black/40 backdrop-blur-sm border border-red-500/20 relative shadow-xl group-hover:shadow-red-500/10 transition duration-500 h-full rounded-xl">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-white flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-red-500/20 flex items-center justify-center">
-                      <AlertTriangle className="w-5 h-5 text-red-400" />
+              <Card className="bg-black/40 backdrop-blur-sm border border-red-500/20 relative shadow-xl group-hover:shadow-red-500/10 transition duration-500 h-full rounded-xl overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-orange-500"></div>
+                
+                <CardHeader className="pb-6 pt-8">
+                  <CardTitle className="text-white flex items-center gap-4 mb-2">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-75"></div>
+                      <div className="relative p-3 rounded-xl bg-gradient-to-br from-red-500/30 to-orange-500/30 flex items-center justify-center border border-white/20">
+                        <AlertTriangle className="w-6 h-6 text-red-300" />
+                      </div>
                     </div>
-                    <span className="text-xl">What The Industry Delivers</span>
+                    <div>
+                      <span className="text-2xl font-bold bg-gradient-to-r from-red-300 to-orange-300 bg-clip-text text-transparent">What The Industry Delivers</span>
+                      <p className="text-sm text-slate-400 font-normal mt-1">The painful reality of uptime monitoring</p>
+                    </div>
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-5 text-slate-300">
-                    <p className="text-lg">Most tools gate essential features behind expensive paywalls:</p>
-                    <ul className="space-y-4">
-                      <li className="flex items-center gap-3 p-3 bg-red-500/10 rounded-lg">
-                        <span className="w-3 h-3 bg-red-400 rounded-full"></span>
-                        <span>Critical push notifications? <span className="text-white font-semibold">$10/mo</span> <span className="text-red-400 font-medium">Premium tier</span></span>
-                      </li>
-                      <li className="flex items-center gap-3 p-3 bg-red-500/10 rounded-lg">
-                        <span className="w-3 h-3 bg-red-400 rounded-full"></span>
-                        <span>API & webhook integration? <span className="text-white font-semibold">$20/mo</span> <span className="text-red-400 font-medium">Business tier</span></span>
-                      </li>
-                    </ul>
-                    <div className="p-4 border border-red-500/20 rounded-lg mt-4 bg-white/5">
-                      <p className="text-center">Features that costs pennies to operate, the industry markup is <span className="text-red-400 font-semibold">ABSURD</span>.</p>
+                
+                <CardContent className="px-6 pb-8">
+                  <div className="space-y-6">
+                    <div className="relative group/item">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
+                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-red-400/30 transition-all duration-300">
+                        <div className="relative flex-shrink-0">
+                          <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/25">
+                            <DollarSign className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-400 rounded-full animate-pulse"></div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-white mb-2 text-lg">Essential Features Paywalled</h3>
+                          <p className="text-slate-300 leading-relaxed mb-3">Basic monitoring features locked behind expensive subscription tiers</p>
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
+                              <span className="text-slate-300">Push notifications</span>
+                              <span className="text-red-400 font-bold">$10/mo</span>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
+                              <span className="text-slate-300">API & webhooks</span>
+                              <span className="text-red-400 font-bold">$20/mo</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="relative group/item">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl opacity-0 group-hover/item:opacity-100 transition duration-300"></div>
+                      <div className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-orange-400/30 transition-all duration-300">
+                        <div className="relative flex-shrink-0">
+                          <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/25">
+                            <AlertTriangle className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-400 rounded-full animate-pulse"></div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-white mb-2 text-lg">Absurd Markup</h3>
+                          <p className="text-slate-300 leading-relaxed mb-3">Features costing pennies to operate marked up by thousands of percent</p>
+                          <div className="p-3 bg-orange-500/10 rounded-lg border border-orange-500/20">
+                            <p className="text-center text-orange-300">
+                              Industry markup: <span className="text-red-400 font-bold text-lg">2000%+</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Comparison Chart Section */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-500/20 shadow-lg">
+                <Server className="w-4 h-4" />
+                Head-to-Head Comparison
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
+                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                See how we compare to the most popular uptime monitoring service
+              </p>
+            </div>
+
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-lg"></div>
+              <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl rounded-xl overflow-hidden">
+                <div className="h-1.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 w-full"></div>
+                
+                <CardContent className="p-0">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-white/10 bg-gradient-to-r from-blue-950/30 to-purple-950/30">
+                          <th className="text-left py-6 px-6 text-slate-400 font-medium text-lg">Feature</th>
+                          <th className="text-center py-6 px-6">
+                            <div className="flex flex-col items-center">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Shield className="w-5 h-5 text-blue-400" />
+                                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
+                              </div>
+                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Our Solution</Badge>
+                            </div>
+                          </th>
+                          <th className="text-center py-6 px-6">
+                            <div className="flex flex-col items-center">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="w-5 h-5 bg-green-500 rounded-full"></div>
+                                <span className="text-xl font-bold text-green-400">UptimeRobot</span>
+                              </div>
+                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Popular Choice</Badge>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-slate-300">
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
+                            Free Plan Monitors
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">50 URLs</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                              <span className="font-mono text-white">50 monitors</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
+                            Mobile Apps (iOS/Android)
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not available</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Server className="w-4 h-4 text-blue-400 mr-3" />
+                            Notification Channels
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex flex-col items-center gap-2">
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">Android</Badge>
+                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">iOS</Badge>
+                                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs px-2 py-1">Discord</Badge>
+                              </div>
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs px-2 py-1">Slack</Badge>
+                                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs px-2 py-1">Email</Badge>
+                                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs px-2 py-1">Webhook</Badge>
+                              </div>
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 text-xs px-2 py-1">Teams</Badge>
+                                <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30 text-xs px-2 py-1">SMS</Badge>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex flex-col items-center gap-2">
+                              <div className="flex items-center justify-center">
+                                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                                <span className="text-green-400">Live chat & email</span>
+                              </div>
+                              <span className="text-slate-400 text-sm">Limited channels</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Code className="w-4 h-4 text-blue-400 mr-3" />
+                            Setup Complexity
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">30 seconds</span>
+                            </div>
+                            <p className="text-xs text-slate-400 mt-1">Cloud-based</p>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-amber-400 mr-2" />
+                              <span className="text-amber-400">Self-hosted</span>
+                            </div>
+                            <p className="text-xs text-slate-400 mt-1">Requires technical expertise</p>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Clock className="w-4 h-4 text-blue-400 mr-3" />
+                            Cron Job Monitoring
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Included</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not available</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Server className="w-4 h-4 text-blue-400 mr-3" />
+                            Keyword Monitoring
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Included</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not included</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
+                          <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
+                            <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
+                            Annual Pricing
+                          </td>
+                          <td className="py-6 px-6 text-center">
+                            <div className="flex flex-col items-center">
+                              <span className="text-3xl font-bold text-emerald-400">$6</span>
+                              <span className="text-sm text-slate-300">per year</span>
+                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">95% Savings</Badge>
+                            </div>
+                          </td>
+                          <td className="py-6 px-6 text-center">
+                            <div className="flex flex-col items-center">
+                              <span className="text-2xl font-bold text-slate-300">$120+</span>
+                              <span className="text-sm text-slate-400">per year</span>
+                              <span className="text-xs text-red-400 mt-2">Industry standard</span>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="p-8 bg-gradient-to-br from-blue-950/30 to-purple-950/30 border-t border-white/10">
+                    <div className="text-center">
+                      <h3 className="text-xl font-bold text-white mb-4">The Bottom Line</h3>
+                      <p className="text-slate-300 mb-6 max-w-3xl mx-auto">
+                        BareUptime delivers enterprise-grade monitoring with comprehensive notification support at a fraction of the industry cost, 
+                        without the complexity of self-hosting solutions.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a 
+                          href="https://app.bareuptime.co" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200">
+                            Start Free Monitoring
+                          </Button>
+                        </a>
+                        <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 py-3 px-8 rounded-lg">
+                          View Full Features
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Comparison Chart Section */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-500/20 shadow-lg">
+                <Server className="w-4 h-4" />
+                Head-to-Head Comparison
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
+                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                See how we compare to the most popular uptime monitoring service
+              </p>
+            </div>
+
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-lg"></div>
+              <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl rounded-xl overflow-hidden">
+                <div className="h-1.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 w-full"></div>
+                
+                <CardContent className="p-0">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-white/10 bg-gradient-to-r from-blue-950/30 to-purple-950/30">
+                          <th className="text-left py-6 px-6 text-slate-400 font-medium text-lg">Feature</th>
+                          <th className="text-center py-6 px-6">
+                            <div className="flex flex-col items-center">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Shield className="w-5 h-5 text-blue-400" />
+                                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
+                              </div>
+                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Our Solution</Badge>
+                            </div>
+                          </th>
+                          <th className="text-center py-6 px-6">
+                            <div className="flex flex-col items-center">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="w-5 h-5 bg-green-500 rounded-full"></div>
+                                <span className="text-xl font-bold text-green-400">UptimeRobot</span>
+                              </div>
+                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Popular Choice</Badge>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-slate-300">
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
+                            Free Plan Monitors
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">50 URLs</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                              <span className="font-mono text-white">50 monitors</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
+                            Mobile Apps (iOS/Android)
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not available</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Server className="w-4 h-4 text-blue-400 mr-3" />
+                            Notification Channels
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex flex-col items-center gap-2">
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">Android</Badge>
+                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">iOS</Badge>
+                                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs px-2 py-1">Discord</Badge>
+                              </div>
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs px-2 py-1">Slack</Badge>
+                                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs px-2 py-1">Email</Badge>
+                                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs px-2 py-1">Webhook</Badge>
+                              </div>
+                              <div className="flex flex-wrap justify-center gap-1">
+                                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 text-xs px-2 py-1">Teams</Badge>
+                                <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30 text-xs px-2 py-1">SMS</Badge>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex flex-col items-center gap-2">
+                              <div className="flex items-center justify-center">
+                                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                                <span className="text-green-400">Live chat & email</span>
+                              </div>
+                              <span className="text-slate-400 text-sm">Limited channels</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Code className="w-4 h-4 text-blue-400 mr-3" />
+                            Setup Complexity
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">30 seconds</span>
+                            </div>
+                            <p className="text-xs text-slate-400 mt-1">Cloud-based</p>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-amber-400 mr-2" />
+                              <span className="text-amber-400">Self-hosted</span>
+                            </div>
+                            <p className="text-xs text-slate-400 mt-1">Requires technical expertise</p>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Clock className="w-4 h-4 text-blue-400 mr-3" />
+                            Cron Job Monitoring
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Included</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not available</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Server className="w-4 h-4 text-blue-400 mr-3" />
+                            Keyword Monitoring
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Included</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="text-red-400">Not included</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
+                          <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
+                            <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
+                            Annual Pricing
+                          </td>
+                          <td className="py-6 px-6 text-center">
+                            <div className="flex flex-col items-center">
+                              <span className="text-3xl font-bold text-emerald-400">$6</span>
+                              <span className="text-sm text-slate-300">per year</span>
+                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">95% Savings</Badge>
+                            </div>
+                          </td>
+                          <td className="py-6 px-6 text-center">
+                            <div className="flex flex-col items-center">
+                              <span className="text-2xl font-bold text-slate-300">$120+</span>
+                              <span className="text-sm text-slate-400">per year</span>
+                              <span className="text-xs text-red-400 mt-2">Industry standard</span>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="p-8 bg-gradient-to-br from-blue-950/30 to-purple-950/30 border-t border-white/10">
+                    <div className="text-center">
+                      <h3 className="text-xl font-bold text-white mb-4">The Bottom Line</h3>
+                      <p className="text-slate-300 mb-6 max-w-3xl mx-auto">
+                        BareUptime delivers enterprise-grade monitoring with comprehensive notification support at a fraction of the industry cost, 
+                        without the complexity of self-hosting solutions.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a 
+                          href="https://app.bareuptime.co" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200">
+                            Start Free Monitoring
+                          </Button>
+                        </a>
+                        <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 py-3 px-8 rounded-lg">
+                          View Full Features
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -422,7 +925,7 @@ export default function HomePage() {
 
       {/* Features Section */}
       <section id="features" className="py-24 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:40px_40px] opacity-10 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:40px_40px] opacity-10 backdrop-blur-sm" />
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="mb-16 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -549,154 +1052,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Cost Breakdown */}
-      <section id="pricing" className="py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-indigo-950/20 to-blue-950/20"></div>
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
-        <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative">
-          <div className="mb-20 max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-indigo-500/20 shadow-lg">
-              <DollarSign className="w-4 h-4" />
-              Transparency
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"> <span className="bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">Infrastructure</span> Breakdown</h2>
-            <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
-              Let's see what will be my cost to run BareUptime at an enterprise level, serving 1K+ users with a focus on cost efficiency and reliability.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl opacity-20 blur-lg"></div>
-            <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl max-w-5xl mx-auto rounded-xl overflow-hidden">
-              <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-300 w-full"></div>
-              <CardContent className="p-0">
-                <div className="p-8 border-b border-white/10 flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Infrastructure Cost Analysis</h3>
-                    <p className="text-slate-300">System serving 10,000+ users</p>
-                  </div>
-                  <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 px-3 py-1.5 text-sm">Production Ready</Badge>
-                </div>
-                <div className="overflow-x-auto p-6">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-white/10">
-                        <th className="text-left py-4 px-4 text-blue-400 font-semibold"> Component</th>
-                        <th className="text-left py-4 px-4 text-blue-400 font-semibold">Specifications</th>
-                        <th className="text-right py-4 px-4 text-blue-400 font-semibold">Monthly Investment</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-slate-300">
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">API + Configuration Database</td>
-                        <td className="py-4 px-4 flex items-center">
-                          <Server className="w-4 h-4 text-blue-400 mr-2" />
-                          <span>4 vCPU, 16 GB RAM (Hetzner Cloud)</span>
-                        </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$25</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Redis + Message Queue</td>
-                        <td className="py-4 px-4 flex items-center">
-                          <Server className="w-4 h-4 text-blue-400 mr-2" />
-                          <span>2 vCPU, 8 GB RAM (Hetzner Cloud)</span>
-                        </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$13</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-indigo-500/5">
-                        <td className="py-4 px-4 font-medium">Global Worker Distribution</td>
-                        <td className="py-4 px-4 flex items-center">
-                          <Globe className="w-4 h-4 text-indigo-400 mr-2" />
-                          <span>1 x 8 vCPU, 32 GB RAM (Global Regions)</span>
-                        </td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$48.00</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Notification Infrastructure</td>
-                        <td className="py-4 px-4">SendGrid Enterprise + Mobile Push Services</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$20.00</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Backup Solution</td>
-                        <td className="py-4 px-4">Backblaze B2 Storage</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$2.00</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Egress Cost</td>
-                        <td className="py-4 px-4">5KB Data * 100,000 Urls * 1440 freq = 720 GB/day = 21.6 TB/ month</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$2.00</td>
-                      </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-4 font-medium">Operational Overhead</td>
-                        <td className="py-4 px-4">Tax Requirements (18%) and Miscellaneous</td>
-                        <td className="py-4 px-4 text-right font-mono text-white">$30</td>
-                      </tr>
-                      <tr className="bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-md">
-                        <td className="py-5 px-4 font-bold text-white">Total Infrastructure Cost</td>
-                        <td className="py-5 px-4 text-white">Enterprise-grade, supporting 10,000+ users</td>
-                        <td className="py-5 px-4 text-right font-bold text-emerald-400 font-mono text-xl">$140</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="p-8 bg-gradient-to-br from-blue-950/30 to-indigo-950/30 border-t border-white/10">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1 bg-black/40 p-6 rounded-xl border border-emerald-500/20">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 rounded-lg bg-emerald-500/20">
-                          <DollarSign className="w-5 h-5 text-emerald-400" />
-                        </div>
-                        <h4 className="font-bold text-white text-lg">Cost Efficiency</h4>
-                      </div>
-                      <p className="text-slate-300 mb-4">
-                        Infrastructure costs distributed across users for maximum affordability:
-                      </p>
-                      <div className="p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-center mb-2">
-                        <p className="text-white font-mono">
-                          <span className="text-emerald-400 font-semibold">$140</span> ÷ <span className="text-emerald-400 font-semibold">1000</span> users = <span className="text-emerald-400 font-bold">$0.14</span>/user/month
-                        </p>
-                      </div>
-                      <p className="text-center text-slate-300">
-                        Only <span className="text-emerald-400 font-semibold">$6/year</span> with buffer for maintenance and unexpected costs
-                      </p>
-                    </div>
-                    
-                    <div className="flex-1 bg-black/40 p-6 rounded-xl border border-yellow-500/20">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 rounded-lg bg-yellow-500/20">
-                          <AlertTriangle className="w-5 h-5 text-yellow-400" />
-                        </div>
-                        <h4 className="font-bold text-white text-lg">Economy of Scale</h4>
-                      </div>
-                      <p className="text-slate-300 mb-4">
-                        Our pricing model relies on reaching critical mass for maximum cost efficiency:
-                      </p>
-                      <div className="flex items-center">
-                        <div className="w-full bg-black/30 rounded-full h-2.5 mr-2">
-                          <div className="bg-gradient-to-r from-yellow-500 to-amber-500 h-2.5 rounded-full w-[65%]"></div>
-                        </div>
-                        <span className="text-amber-400 font-semibold">65%</span>
-                      </div>
-                      <p className="text-center text-yellow-200 text-sm mt-4 flex items-center justify-center">
-                        <AlertTriangle className="w-4 h-4 mr-2" />
-                        The more users join, the more we all benefit from shared infrastructure!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-xl"></div>
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-xl"></div>
         
@@ -727,193 +1086,17 @@ export default function HomePage() {
               </div>
 
               <div className="md:w-2/5">
-                {isSubmitted ? (
-                  <Card className="bg-black/50 border-green-500/30 shadow-xl shadow-green-500/5 overflow-hidden">
-                    <div className="h-1 bg-gradient-to-r from-green-400 to-emerald-500"></div>
-                    <CardContent className="p-8 text-center">
-                      <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle className="w-8 h-8 text-green-400" />
+                <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
+                  <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
+                    <form>
+                      <div className="space-y-4">
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">Thanks for Subscribing!</h3>
-                      <p className="text-slate-300 mb-6">You'll receive updates about new features, monitoring tips, and product insights.</p>
-                      <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20 text-sm text-green-300">
-                        Check your email for a confirmation and follow us for real-time updates.
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
-                    <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
-                    <CardContent className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
-                      <form onSubmit={handleSubmit}>
-                        <div className="space-y-4">
-                          <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1.5">
-                              Email Address
-                            </label>
-                            <Input
-                              id="email"
-                              type="email"
-                              placeholder="your@email.com"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
-                              className="w-full bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30"
-                              required
-                            />
-                          </div>
-                          
-                          <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200"
-                          >
-                            {isSubmitting ? (
-                              <span className="flex items-center justify-center gap-2">
-                                <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
-                                Subscribing...
-                              </span>
-                            ) : (
-                              "Subscribe to Newsletter"
-                            )}
-                          </Button>
-                          
-                          {messageType && (
-                            <div className={`text-sm ${messageType === "success" ? "text-green-400" : "text-red-400"}`}>
-                              {message}
-                            </div>
-                          )}
-                        </div>
-                        
-                        <p className="text-xs text-slate-400 mt-4 flex items-center gap-1">
-                          <Shield className="w-3 h-3" />
-                          <span>No spam. Unsubscribe anytime.</span>
-                        </p>
-                      </form>
-                    </CardContent>
-                  </Card>
-                )}
+                    </form>
+                  </CardContent>
+                </Card>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-950/20 to-black/0"></div>
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-        
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-500/20 shadow-lg">
-              <Shield className="w-4 h-4" />
-              Teams
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Engineering Team</span></h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              I am the only one working on BareUptime.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-5/12">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-lg rounded-2xl"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-                  <div className="h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 w-full"></div>
-                  <div className="p-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Suman Saurabh</h3>
-                    <p className="text-blue-400 font-medium mb-5">Senior Software Engineer at Microsoft OpenAI</p>
-                    
-                    <div className="flex items-center gap-2 mb-6">
-                      <a 
-                        href="https://www.linkedin.com/in/ssumansaurabh/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="LinkedIn Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
-                        </svg>
-                      </a>
-                      <a 
-                        href="https://github.com/sumansaurabh" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="GitHub Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                    
-                    <div className="grid grid-cols-3 gap-4 mt-8 mb-2">
-                      <div className="text-center p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                        <div className="text-2xl font-bold text-white">10+</div>
-                        <div className="text-sm text-slate-400">Years Enterprise Experience</div>
-                      </div>
-                      <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                        <div className="text-2xl font-bold text-white">1</div>
-                        <div className="text-sm text-slate-400">Weekend MVP Development</div>
-                      </div>
-                      <div className="text-center p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-                        <div className="text-2xl font-bold text-white">95%</div>
-                        <div className="text-sm text-slate-400">Industry Cost Reduction</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="md:w-7/12 space-y-8">
-              {/* <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-500/20">
-                    <Server className="w-5 h-5 text-blue-400" />
-                  </div>
-                  Enterprise Engineering Background
-                </h3>
-                <p className="text-slate-300 mb-4">
-                  With over a decade building distributed systems, real-time backends, and scalable infrastructure for major enterprise deployments, our leadership understands mission-critical monitoring requirements.
-                </p>
-                <div className="flex items-center gap-2 text-sm text-blue-400">
-                  <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">Distributed Systems</Badge>
-                  <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">Real-time Backends</Badge>
-                  <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">Microsoft OpenAI</Badge>
-                </div>
-              </div> */}
-              
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Code className="w-5 h-5 text-purple-400" />
-                  </div>
-                  The Genesis of BareUptime
-                </h3>
-                <p className="text-slate-300">
-                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we encountered the same costly barrier to reliable monitoring that many organizations face. The market offered two choices: overpay for basic functionality or build a custom solution.
-                </p>
-                <p className="text-slate-300 mt-4">
-                  So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability without the enterprise markup. We're opening our architecture, costs, and deployment strategy to demonstrate how organizational monitoring should be priced.
-                </p>
-              </div>
-              
-              {/* <div className="flex gap-4">
-                <Button className="flex-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/30">
-                  <Globe className="w-4 h-4 mr-2" />
-                  View Architecture
-                </Button>
-                <Button className="flex-1 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 border border-purple-500/30">
-                  <Code className="w-4 h-4 mr-2" />
-                  Technical Documentation
-                </Button>
-              </div> */}
             </div>
           </div>
         </div>
@@ -934,64 +1117,10 @@ export default function HomePage() {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-white font-medium mb-3">Resources</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><a href="#features" className="text-slate-400 hover:text-blue-400 transition-colors">Features</a></li>
-                  <li><a href="#pricing" className="text-slate-400 hover:text-blue-400 transition-colors">Pricing</a></li>
-                  <li><a href="#about" className="text-slate-400 hover:text-blue-400 transition-colors">About</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="text-white font-medium mb-3">Connect</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <a 
-                      href="https://github.com/sumansaurabh/bareuptime" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                      </svg>
-                      GitHub
-                    </a>
-                  </li>
-                  <li>
-                    <a 
-                      href="https://www.linkedin.com/in/ssumansaurabh/" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
-                      </svg>
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="col-span-2 md:col-span-1">
-                <h4 className="text-white font-medium mb-3">Legal</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy[I will add]</a></li>
-                  <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service[I will add]</a></li>
-                </ul>
-              </div>
             </div>
           </div>
           
           <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-slate-500 mb-4 md:mb-0">
-              &copy; 2025 BareUptime. All rights reserved.
-            </p>
-            <p className="text-sm text-slate-500">
-              Built by enterprise engineers, for organizations tired of overpriced monitoring.
-            </p>
           </div>
         </div>
       </footer>
