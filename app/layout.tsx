@@ -51,10 +51,26 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <GoogleTagManager gtmId="G-T84N8LHVQB" />
-        {/* Tawk.to Live Chat */}
+        <Script
+          id="tawk-to-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/68593f5b08902e190c936783/1iue9uvq0';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `
+          }}
+        />
         
         {/* Script to remove Tawk.to branding */}
-        {/* <Script
+        <Script
           id="remove-tawk-branding"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -108,7 +124,7 @@ export default function RootLayout({
               }, 1500);
             `
           }}
-        /> */}
+        />
       </body>
     </html>
   )
