@@ -87,6 +87,16 @@ export default function HomePage() {
   return (
     <>
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
+      {/* Launch Banner */}
+      <div className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMyIvPjxjaXJjbGUgY3g9IjEzIiBjeT0iMTMiIHI9IjMiLz48L2c+PC9nPjwvc3ZnPg==')] bg-[size:20px_20px] opacity-20"></div>
+        <div className="relative flex items-center justify-center gap-2 text-white font-medium">
+          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <span className="text-sm">🎉 BareUptime is now LIVE! Start monitoring your services today.</span>
+          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+        </div>
+      </div>
+      
       {/* Enterprise Navigation Bar */}
       <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -102,18 +112,6 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            {!isLoadingRepoData && repoData && (
-              <div className="hidden md:flex items-center gap-4 mr-2">
-                <div className="flex items-center gap-1 text-xs text-slate-400 bg-white/5 py-1 px-2 rounded-full">
-                  <Code className="w-3 h-3" />
-                  <span>{repoData.forks} fork{repoData.forks !== 1 ? 's' : ''}</span>
-                </div>
-                <div className="flex items-center gap-1 text-xs text-slate-400 bg-white/5 py-1 px-2 rounded-full">
-                  <Shield className="w-3 h-3" />
-                  <span>{repoData.watchers} watcher{repoData.watchers !== 1 ? 's' : ''}</span>
-                </div>
-              </div>
-            )}
             <a 
               href="https://github.com/sumansaurabh/bareuptime" 
               target="_blank" 
@@ -122,6 +120,15 @@ export default function HomePage() {
             >
               <Globe className="w-4 h-4 text-blue-400" />
               <span>GitHub</span>
+            </a>
+            <a 
+              href="https://app.bareuptime.co" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200">
+                Sign In
+              </Button>
             </a>
           </div>
         </div>
@@ -134,9 +141,9 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
             <div className="md:w-1/2 text-left">
-              <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-red-500/20 shadow-lg shadow-red-500/5">
-                <AlertTriangle className="w-4 h-4" />
-                <span className="font-semibold">Startup Problem Alert</span>
+              <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-500/20 shadow-lg shadow-green-500/5">
+                <CheckCircle className="w-4 h-4" />
+                <span className="font-semibold">Now Live & Monitoring</span>
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -158,6 +165,23 @@ export default function HomePage() {
                 <div className="flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-md text-sm">
                   <Server className="w-4 h-4" />
                   <span>Startup Focussed</span>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <a 
+                  href="https://app.bareuptime.co" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 text-lg">
+                    Start Monitoring Now
+                  </Button>
+                </a>
+                <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-4 flex flex-col items-center justify-center text-center min-w-[200px]">
+                  <div className="text-2xl font-bold text-white mb-1">$6/year</div>
+                  <div className="text-sm text-slate-300 mb-2">Monitor up to 50 URLs</div>
+                  <div className="text-xs text-green-400 font-medium">First 100 signups FREE</div>
                 </div>
               </div>
             </div>
@@ -554,22 +578,22 @@ export default function HomePage() {
               <div className="md:w-3/5">
                 <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-blue-500/20">
                   <Shield className="w-4 h-4" />
-                  Join the waitlist
+                  Stay Updated
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Kill the</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Downtime</span> without burning pockets!
+                  <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Start</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Monitoring</span> Today!
                 </h2>
                 <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                  Join an access list for a notification when Bareuptime is live.
+                  BareUptime is live! Subscribe to our newsletter for product updates, monitoring tips, and exclusive insights.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-6">
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Only First 100 Signups are Free</span>
+                    <span>No Spam, Just Updates</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
                     <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Keep your Business Alive</span>
+                    <span>Monitoring Tips & Insights</span>
                   </div>
                 </div>
               </div>
@@ -582,10 +606,10 @@ export default function HomePage() {
                       <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-8 h-8 text-green-400" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">Thanks for Joining!</h3>
-                      <p className="text-slate-300 mb-6">You can track the <a href="https://github.com/sumansaurabh/bareuptime/issues" target="_blank">status update here</a>.</p>
+                      <h3 className="text-2xl font-bold text-white mb-3">Thanks for Subscribing!</h3>
+                      <p className="text-slate-300 mb-6">You'll receive updates about new features, monitoring tips, and product insights.</p>
                       <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20 text-sm text-green-300">
-                        We'll contact you directly when our product is live.
+                        Check your email for a confirmation and follow us for real-time updates.
                       </div>
                     </CardContent>
                   </Card>
@@ -593,17 +617,17 @@ export default function HomePage() {
                   <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
                     <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
                     <CardContent className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-4">Reserve Your Access</h3>
+                      <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
                       <form onSubmit={handleSubmit}>
                         <div className="space-y-4">
                           <div>
                             <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1.5">
-                              Business Email
+                              Email Address
                             </label>
                             <Input
                               id="email"
                               type="email"
-                              placeholder="name@company.com"
+                              placeholder="your@email.com"
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               className="w-full bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30"
@@ -619,10 +643,10 @@ export default function HomePage() {
                             {isSubmitting ? (
                               <span className="flex items-center justify-center gap-2">
                                 <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
-                                Processing...
+                                Subscribing...
                               </span>
                             ) : (
-                              "Join the Waitlist"
+                              "Subscribe to Newsletter"
                             )}
                           </Button>
                           
@@ -635,7 +659,7 @@ export default function HomePage() {
                         
                         <p className="text-xs text-slate-400 mt-4 flex items-center gap-1">
                           <Shield className="w-3 h-3" />
-                          <span>No marketing emails. I hate it.</span>
+                          <span>No spam. Unsubscribe anytime.</span>
                         </p>
                       </form>
                     </CardContent>
