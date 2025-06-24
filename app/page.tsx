@@ -712,7 +712,7 @@ export default function HomePage() {
               </Card>
             </div>
 
-            <div className="group relative">
+            <div id="pricing" className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
               <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
                 <div className="h-2 bg-gradient-to-r from-green-400 to-emerald-500 w-full"></div>
@@ -729,11 +729,11 @@ export default function HomePage() {
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-1 rounded-full text-sm font-medium">Annual Subscription</div>
                     <div className="text-5xl font-bold text-white mb-2 mt-3 flex items-center justify-center">
                       <DollarSign className="w-6 h-6 text-green-400" />
-                      <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">6</span>
+                      <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">8</span>
                     </div>
                     <div className="text-xl font-medium text-slate-300 mb-2">per year</div>
                     <div className="text-sm text-slate-400 flex items-center justify-center">
-                      <span className="line-through mr-2">$120+/year</span> 
+                      <span className="line-through mr-2">$180+/year</span> 
                       <span className="text-green-400 font-semibold">95% Savings</span>
                     </div>
                   </div>
