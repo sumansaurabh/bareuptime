@@ -8,8 +8,26 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Shield, Clock } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
+
+// Custom Activity Icon to replace Shield
+const ActivityIcon = ({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/>
+  </svg>
+)
 
 export default function HomePage() {
   const [email, setEmail] = useState("")
@@ -102,7 +120,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
-              <Shield className="w-6 h-6 text-blue-400 mr-2" />
+              <ActivityIcon className="w-6 h-6 text-blue-400 mr-2" />
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
             <div className="hidden md:flex items-center gap-6 ml-8">
@@ -199,7 +217,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
-                          <Shield className="w-5 h-5 text-white" />
+                          <ActivityIcon className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <div className="text-sm font-semibold text-white">BareUptime</div>
@@ -400,7 +418,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <span className="text-2xl font-bold bg-gradient-to-r from-red-300 to-orange-300 bg-clip-text text-transparent">What The Industry Delivers</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">The painful reality of uptime monitoring</p>
+                      <p className="text-sm text-slate-400 font-normal mt-1">The painful reality of uptime monitoring tools</p>
                     </div>
                   </CardTitle>
                 </CardHeader>
@@ -418,16 +436,17 @@ export default function HomePage() {
                         </div>
                         <div className="flex-1">
                           <h3 className="font-bold text-white mb-2 text-lg">Essential Features Paywalled</h3>
-                          <p className="text-slate-300 leading-relaxed mb-3">Basic monitoring features locked behind expensive subscription tiers</p>
+                          <p className="text-slate-300 leading-relaxed mb-3">Basic monitoring features locked behind expensive subscription</p>
                           <div className="space-y-2">
                             <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
-                              <span className="text-slate-300">Push notifications</span>
+                              <span className="text-slate-300">API & webhooks</span>
                               <span className="text-red-400 font-bold">$10/mo</span>
                             </div>
                             <div className="flex items-center justify-between p-2 bg-red-500/10 rounded-lg border border-red-500/20">
-                              <span className="text-slate-300">API & webhooks</span>
+                              <span className="text-slate-300">Android/iOS notifications</span>
                               <span className="text-red-400 font-bold">$20/mo</span>
                             </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -444,12 +463,8 @@ export default function HomePage() {
                         </div>
                         <div className="flex-1">
                           <h3 className="font-bold text-white mb-2 text-lg">Absurd Markup</h3>
-                          <p className="text-slate-300 leading-relaxed mb-3">Features costing pennies to operate marked up by thousands of percent</p>
-                          <div className="p-3 bg-orange-500/10 rounded-lg border border-orange-500/20">
-                            <p className="text-center text-orange-300">
-                              Industry markup: <span className="text-red-400 font-bold text-lg">2000%+</span>
-                            </p>
-                          </div>
+                          <p className="text-slate-300 leading-relaxed mb-3">Features costing pennies to operate marked up by thousands</p>
+                          
                         </div>
                       </div>
                     </div>
@@ -459,6 +474,7 @@ export default function HomePage() {
             </div>
           </div>
 
+          
           {/* Comparison Chart Section */}
           <div className="mb-24">
             <div className="text-center mb-12">
@@ -489,238 +505,7 @@ export default function HomePage() {
                           <th className="text-center py-6 px-6">
                             <div className="flex flex-col items-center">
                               <div className="flex items-center gap-2 mb-2">
-                                <Shield className="w-5 h-5 text-blue-400" />
-                                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
-                              </div>
-                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Our Solution</Badge>
-                            </div>
-                          </th>
-                          <th className="text-center py-6 px-6">
-                            <div className="flex flex-col items-center">
-                              <div className="flex items-center gap-2 mb-2">
-                                <div className="w-5 h-5 bg-green-500 rounded-full"></div>
-                                <span className="text-xl font-bold text-green-400">UptimeRobot</span>
-                              </div>
-                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Popular Choice</Badge>
-                            </div>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-slate-300">
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Free Plan Monitors
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">50 URLs</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">50 monitors</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            Mobile Apps (iOS/Android)
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="text-red-400">Not available</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Server className="w-4 h-4 text-blue-400 mr-3" />
-                            Notification Channels
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="flex flex-wrap justify-center gap-1">
-                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">Android</Badge>
-                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">iOS</Badge>
-                                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs px-2 py-1">Discord</Badge>
-                              </div>
-                              <div className="flex flex-wrap justify-center gap-1">
-                                <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs px-2 py-1">Slack</Badge>
-                                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs px-2 py-1">Email</Badge>
-                                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs px-2 py-1">Webhook</Badge>
-                              </div>
-                              <div className="flex flex-wrap justify-center gap-1">
-                                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 text-xs px-2 py-1">Teams</Badge>
-                                <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30 text-xs px-2 py-1">SMS</Badge>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="flex items-center justify-center">
-                                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                                <span className="text-green-400">Live chat & email</span>
-                              </div>
-                              <span className="text-slate-400 text-sm">Limited channels</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Setup Complexity
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">30 seconds</span>
-                            </div>
-                            <p className="text-xs text-slate-400 mt-1">Cloud-based</p>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-amber-400 mr-2" />
-                              <span className="text-amber-400">Self-hosted</span>
-                            </div>
-                            <p className="text-xs text-slate-400 mt-1">Requires technical expertise</p>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Clock className="w-4 h-4 text-blue-400 mr-3" />
-                            Cron Job Monitoring
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Included</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="text-red-400">Not available</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Server className="w-4 h-4 text-blue-400 mr-3" />
-                            Keyword Monitoring
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Included</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="text-red-400">Not included</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
-                          <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
-                            <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
-                            Annual Pricing
-                          </td>
-                          <td className="py-6 px-6 text-center">
-                            <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-emerald-400">$6</span>
-                              <span className="text-sm text-slate-300">per year</span>
-                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">95% Savings</Badge>
-                            </div>
-                          </td>
-                          <td className="py-6 px-6 text-center">
-                            <div className="flex flex-col items-center">
-                              <span className="text-2xl font-bold text-slate-300">$120+</span>
-                              <span className="text-sm text-slate-400">per year</span>
-                              <span className="text-xs text-red-400 mt-2">Industry standard</span>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div className="p-8 bg-gradient-to-br from-blue-950/30 to-purple-950/30 border-t border-white/10">
-                    <div className="text-center">
-                      <h3 className="text-xl font-bold text-white mb-4">The Bottom Line</h3>
-                      <p className="text-slate-300 mb-6 max-w-3xl mx-auto">
-                        BareUptime delivers enterprise-grade monitoring with comprehensive notification support at a fraction of the industry cost, 
-                        without the complexity of self-hosting solutions.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a 
-                          href="https://app.bareuptime.co" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200">
-                            Start Free Monitoring
-                          </Button>
-                        </a>
-                        <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 py-3 px-8 rounded-lg">
-                          View Full Features
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Comparison Chart Section */}
-          <div className="mb-24">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-500/20 shadow-lg">
-                <Server className="w-4 h-4" />
-                Head-to-Head Comparison
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
-                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
-              </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                See how we compare to the most popular uptime monitoring service
-              </p>
-            </div>
-
-            <div className="relative max-w-6xl mx-auto">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-lg"></div>
-              <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl rounded-xl overflow-hidden">
-                <div className="h-1.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 w-full"></div>
-                
-                <CardContent className="p-0">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="border-b border-white/10 bg-gradient-to-r from-blue-950/30 to-purple-950/30">
-                          <th className="text-left py-6 px-6 text-slate-400 font-medium text-lg">Feature</th>
-                          <th className="text-center py-6 px-6">
-                            <div className="flex flex-col items-center">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Shield className="w-5 h-5 text-blue-400" />
+                                <ActivityIcon className="w-5 h-5 text-blue-400" />
                                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
                               </div>
                               <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Our Solution</Badge>
@@ -1042,7 +827,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-white mt-6">
-                    <Shield className="w-4 h-4 text-green-400" />
+                    <ActivityIcon className="w-5 h-5 text-blue-400" />
                     <span>Enterprise-grade, Peanuts price!</span>
                   </div>
                 </CardContent>
@@ -1064,7 +849,7 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
               <div className="md:w-3/5">
                 <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-blue-500/20">
-                  <Shield className="w-4 h-4" />
+                  <ActivityIcon className="w-5 h-5 text-blue-400" />
                   Stay Updated
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
@@ -1108,7 +893,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-8 md:mb-0">
               <div className="flex items-center justify-center md:justify-start mb-4">
-                <Shield className="w-6 h-6 text-blue-400 mr-2" />
+                <ActivityIcon className="w-5 h-5 text-blue-400" />
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
               </div>
               <p className="text-slate-400 max-w-md text-center md:text-left">
