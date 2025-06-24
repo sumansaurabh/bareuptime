@@ -2,17 +2,26 @@
 
 import type React from "react"
 import Script from "next/script"
+import dynamic from "next/dynamic"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, useMemo, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
+import { useIntersectionObserver } from '@/hooks/usePerformance'
+import AnimateOnScroll from './components/AnimateOnScroll'
 
-// Custom Activity Icon to replace Shield
-const ActivityIcon = ({ className }: { className?: string }) => (
+// Lazy load heavy components for better performance
+const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
+  loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
+  ssr: false
+})
+
+// Custom Activity Icon to replace Shield - Memoized for performance
+const ActivityIcon = memo(({ className }: { className?: string }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     width="24" 
@@ -27,7 +36,22 @@ const ActivityIcon = ({ className }: { className?: string }) => (
   >
     <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/>
   </svg>
-)
+))
+ActivityIcon.displayName = 'ActivityIcon'
+
+// Optimized smooth scroll function with requestAnimationFrame
+const smoothScrollTo = (elementId: string) => {
+  const element = document.getElementById(elementId)
+  if (element) {
+    requestAnimationFrame(() => {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest'
+      })
+    })
+  }
+}
 
 export default function HomePage() {
   const [email, setEmail] = useState("")
@@ -38,49 +62,86 @@ export default function HomePage() {
   const [repoData, setRepoData] = useState<{ watchers: number, forks: number } | null>(null)
   const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
 
+  // Optimized script loading with error handling
   useEffect(() => {
-  if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') return
 
-  const script = document.createElement("script");
-  script.src = "https://embed.tawk.to/685acae35dc248190eead5f8/1iuhah2s1";
-  script.async = true;
-  script.charset = "UTF-8";
-  script.setAttribute("crossorigin", "*");
-
-  document.body.appendChild(script);
-}, []);
-
-  useEffect(() => {
-    const fetchRepoData = async () => {
-      try {
-        const response = await fetch('https://api.github.com/repos/sumansaurabh/bareuptime');
-        if (response.ok) {
-          const data = await response.json();
-          setRepoData({
-            watchers: data.subscribers_count || data.watchers_count,
-            forks: data.forks_count
-          });
+    const loadScript = () => {
+      const script = document.createElement("script")
+      script.src = "https://embed.tawk.to/685acae35dc248190eead5f8/1iuhah2s1"
+      script.async = true
+      script.charset = "UTF-8"
+      script.setAttribute("crossorigin", "*")
+      script.defer = true // Use defer for better performance
+      
+      // Add error handling
+      script.onerror = () => console.warn('Failed to load chat script')
+      
+      document.body.appendChild(script)
+      
+      return () => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script)
         }
-      } catch (error) {
-        console.error("Failed to fetch repository data:", error);
-      } finally {
-        setIsLoadingRepoData(false);
       }
-    };
-    
-    fetchRepoData();
-  }, []);
+    }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    // Defer script loading to avoid blocking
+    const timeoutId = setTimeout(loadScript, 1000)
+    
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [])
+
+  // Memoized fetch function to prevent recreation
+  const fetchRepoData = useCallback(async () => {
+    try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5000) // 5s timeout
+      
+      const response = await fetch('https://api.github.com/repos/sumansaurabh/bareuptime', {
+        signal: controller.signal,
+        headers: {
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      })
+      
+      clearTimeout(timeoutId)
+      
+      if (response.ok) {
+        const data = await response.json()
+        setRepoData({
+          watchers: data.subscribers_count || data.watchers_count || 0,
+          forks: data.forks_count || 0
+        })
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.error("Failed to fetch repository data:", error)
+      }
+    } finally {
+      setIsLoadingRepoData(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    // Defer API call to not block initial render
+    const timeoutId = setTimeout(fetchRepoData, 500)
+    return () => clearTimeout(timeoutId)
+  }, [fetchRepoData])
+
+  // Memoized form submission handler
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
+    if (!email || isSubmitting) return
 
     setIsSubmitting(true)
     setMessage("")
     
     try {
       const { error } = await supabase
-        .from('bareuptime_newsletter')  // Update the table name to match your Supabase table
+        .from('bareuptime_newsletter')
         .insert([{ email }])
 
       if (error) throw error
@@ -100,41 +161,59 @@ export default function HomePage() {
     } finally {
       setIsSubmitting(false)
     }
-  }
+  }, [email, isSubmitting])
 
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
-      {/* Launch Banner */}
-      <div className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMyIvPjxjaXJjbGUgY3g9IjEzIiBjeT0iMTMiIHI9IjMiLz48L2c+PC9nPjwvc3ZnPg==')] bg-[size:20px_20px] opacity-20"></div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950 will-change-scroll">
+      {/* Launch Banner - Optimized */}
+      <div className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden will-change-transform">
         <div className="relative flex items-center justify-center gap-2 text-white font-medium">
-          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
           <span className="text-sm">🎉 BareUptime is now LIVE! Start monitoring your services today.</span>
-          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
         </div>
       </div>
       
-      {/* Enterprise Navigation Bar */}
-      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+      {/* Enterprise Navigation Bar - Optimized */}
+      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg will-change-transform">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
               <ActivityIcon className="w-6 h-6 text-blue-400 mr-2" />
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
-            <div className="hidden md:flex items-center gap-6 ml-8">
-              <a onClick={() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">Features</a>
-              <a onClick={() => document.getElementById('pricing')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">Pricing</a>
-              <a onClick={() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'})} className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer">About</a>
-            </div>
+            <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">
+              <button 
+                onClick={() => smoothScrollTo('features')} 
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
+                aria-label="Navigate to Features section"
+              >
+                Features
+              </button>
+              <button 
+                onClick={() => smoothScrollTo('pricing')} 
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
+                aria-label="Navigate to Pricing section"
+              >
+                Pricing
+              </button>
+              <button 
+                onClick={() => smoothScrollTo('about')} 
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
+                aria-label="Navigate to About section"
+              >
+                About
+              </button>
+            </nav>
           </div>
           <div className="flex items-center gap-4">
             <a 
               href="https://github.com/sumansaurabh/bareuptime" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-1 py-1.5 px-3 bg-white/10 hover:bg-white/15 rounded-lg text-sm font-medium text-white transition-all"
+              className="flex items-center gap-1 py-1.5 px-3 bg-white/10 hover:bg-white/15 rounded-lg text-sm font-medium text-white transition-all transform hover:scale-105"
+              aria-label="View BareUptime on GitHub"
             >
               <Globe className="w-4 h-4 text-blue-400" />
               <span>GitHub</span>
@@ -143,8 +222,9 @@ export default function HomePage() {
               href="https://app.bareuptime.co" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="Sign in to BareUptime"
             >
-              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200">
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 transform hover:scale-105">
                 Sign In
               </Button>
             </a>
@@ -209,135 +289,11 @@ export default function HomePage() {
             </div>
             
             <div className="md:w-1/2 relative">
-              <div className="w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-2xl p-1">
-                <div className="bg-black/40 backdrop-blur-sm rounded-xl border border-white/10 shadow-2xl overflow-hidden">
-                  {/* Browser-style header */}
-                  <div className="flex items-center justify-between p-4 bg-black/30 border-b border-white/10">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div className="text-xs text-slate-400 bg-white/5 px-2 py-1 rounded">Dashboard Preview</div>
-                  </div>
-
-                  {/* Dashboard Header */}
-                  <div className="p-4 bg-gradient-to-r from-blue-950/50 to-indigo-950/50 border-b border-white/5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
-                          <ActivityIcon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-white">BareUptime</div>
-                          <div className="text-xs text-slate-400">Monitoring Dashboard</div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-
-                  {/* Stats Overview */}
-                  <div className="p-4 border-b border-white/5">
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-2 text-center">
-                        <div className="text-lg font-bold text-green-400">12</div>
-                        <div className="text-xs text-green-300/80">Online</div>
-                      </div>
-                      <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-2 text-center">
-                        <div className="text-lg font-bold text-red-400">1</div>
-                        <div className="text-xs text-red-300/80">Down</div>
-                      </div>
-                      <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-2 text-center">
-                        <div className="text-lg font-bold text-blue-400">99.2%</div>
-                        <div className="text-xs text-blue-300/80">Uptime</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Service List */}
-                  <div className="p-4 space-y-2">
-                    <div className="text-xs font-medium text-slate-400 mb-3">Your Services</div>
-                    
-                    {/* Service Item 1 */}
-                    <div className="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div className="w-4 h-4 rounded-full bg-green-500 animate-pulse"></div>
-                          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-300 rounded-full"></div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">api.example.com</div>
-                          <div className="text-xs text-slate-400">Last checked 30s ago</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="text-xs text-green-400 font-medium">200ms</div>
-                        <div className="text-xs text-green-400 font-bold">99.9%</div>
-                      </div>
-                    </div>
-
-                    {/* Service Item 2 */}
-                    <div className="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-300 rounded-full"></div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">app.example.com</div>
-                          <div className="text-xs text-slate-400">Last checked 45s ago</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="text-xs text-green-400 font-medium">150ms</div>
-                        <div className="text-xs text-green-400 font-bold">100%</div>
-                      </div>
-                    </div>
-
-                    {/* Service Item 3 - Error State */}
-                    <div className="flex items-center justify-between p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div className="w-4 h-4 rounded-full bg-red-500 animate-pulse"></div>
-                          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-300 rounded-full"></div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">db.example.com</div>
-                          <div className="text-xs text-red-400">Down for 2m 15s</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="text-xs text-red-400 font-medium">Timeout</div>
-                        <div className="text-xs text-red-400 font-bold">98.1%</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Action Bar */}
-                  <div className="p-4 bg-gradient-to-r from-blue-950/30 to-indigo-950/30 border-t border-white/10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        <div className="text-xs text-green-400 font-semibold">50 Monitors are Free</div>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
-                        <div className="w-1 h-2 bg-blue-400/60 rounded-full"></div>
-                        <div className="w-1 h-4 bg-blue-400 rounded-full"></div>
-                        <div className="w-1 h-2 bg-blue-400/60 rounded-full"></div>
-                        <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <DashboardMockup />
               
-              {/* Background decorations */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"></div>
-              
-              
+              {/* Background decorations - Optimized */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl will-change-transform"></div>
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl will-change-transform"></div>
             </div>
           </div>
 
@@ -628,13 +584,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-24 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:40px_40px] opacity-10 backdrop-blur-sm" />
+      {/* Features Section - Optimized */}
+      <section id="features" className="py-24 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0 will-change-transform">
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="mb-16 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+              <span className="w-2 h-2 bg-blue-400 rounded-full opacity-80"></span>
               For the early stage Startups
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">The Startup <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Solution</span></h2>
@@ -645,8 +600,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl opacity-20 blur group-hover:opacity-30 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
+              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-200 hover:translate-y-[-2px] rounded-xl overflow-hidden will-change-transform">
                 <div className="h-2 bg-gradient-to-r from-emerald-500 to-green-500 w-full"></div>
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
@@ -656,7 +610,7 @@ export default function HomePage() {
                     <span className="text-xl">Features</span>
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-5">
+                <CardContent className="space-y-5">{/* ...existing code... */}
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
