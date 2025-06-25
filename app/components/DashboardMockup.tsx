@@ -51,7 +51,7 @@ const DashboardMockup = memo(() => {
         <div className="p-4 border-b border-white/5">
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-2 text-center">
-              <div className="text-lg font-bold text-green-400">12</div>
+              <div className="text-lg font-bold text-green-400">2</div>
               <div className="text-xs text-green-300/80">Online</div>
             </div>
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-2 text-center">
@@ -128,7 +128,7 @@ const DashboardMockup = memo(() => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-              <div className="text-xs text-green-400 font-semibold">50 Monitors are Free</div>
+              <div className="text-xs text-green-400 font-semibold">First 50 Monitors are Free</div>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-1 h-3 bg-blue-400 rounded-full"></div>

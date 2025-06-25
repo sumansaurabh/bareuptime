@@ -442,6 +442,24 @@ export default function HomePage() {
                             </div>
                           </td>
                         </tr>
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
+                            Frequency (Free Plan)
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">10min, 20min, 30min, 1hr</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                              <span className="font-mono text-white">5min, 10min, 15min</span>
+                            </div>
+                          </td>
+                        </tr>
 
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
                           <td className="py-5 px-6 font-medium flex items-center">
@@ -456,11 +474,9 @@ export default function HomePage() {
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                                <span className="text-red-400">Not available</span>
-                              
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Free</span>
                             </div>
-                            <span className="text-slate-400 text-sm">In Free Plan</span>
                           </td>
                         </tr>
 
@@ -524,13 +540,13 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">30 seconds</span>
+                              <span className="font-bold text-emerald-400">10 seconds</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">30 seconds</span>
+                              <span className="font-bold ">30 seconds</span>
                             </div>
                           </td>
                         </tr>
