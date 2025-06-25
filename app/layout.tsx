@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import './globals.css'
+import '../styles/performance.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -15,31 +16,46 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   useEffect(() => {
-    // Set metadata client-side
+    // Set metadata client-side for performance
     document.title = 'BareUptime - Simple Uptime Monitoring';
     
-    // Set meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Simple, reliable uptime monitoring solution');
-    
-    // Set generator meta
-    let metaGenerator = document.querySelector('meta[name="generator"]');
-    if (!metaGenerator) {
-      metaGenerator = document.createElement('meta');
-      metaGenerator.setAttribute('name', 'generator');
-      document.head.appendChild(metaGenerator);
-    }
-    metaGenerator.setAttribute('content', 'v0.dev');
+    // Performance optimizations
+    const performanceOptimizations = [
+      { name: 'description', content: 'Simple, reliable uptime monitoring solution' },
+      { name: 'generator', content: 'v0.dev' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+      { name: 'theme-color', content: '#1e40af' },
+      { name: 'color-scheme', content: 'dark light' }
+    ];
+
+    performanceOptimizations.forEach(({ name, content }) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    });
+
+    // Add preload hints for critical resources
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.href = '/placeholder-logo.svg';
+    preloadLink.as = 'image';
+    document.head.appendChild(preloadLink);
   }, []);
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#1e40af" />
+        <meta name="color-scheme" content="dark light" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="antialiased overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
