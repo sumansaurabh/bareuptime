@@ -568,6 +568,24 @@ export default function HomePage() {
                             </div>
                           </td>
                         </tr>
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Code className="w-4 h-4 text-blue-400 mr-3" />
+                            Maintenance Downtime
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">99.8% SLA</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold">99.1% SLA</span>
+                            </div>
+                          </td>
+                        </tr>
 
                        
                        
