@@ -641,128 +641,232 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section - Optimized */}
-      <section id="features" className="py-24 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0 will-change-transform">
+      {/* Features Section - Enterprise Grade */}
+      <section id="features" className="py-32 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0 will-change-transform">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
+        </div>
+        
         <div className="max-w-7xl mx-auto px-4 relative">
-          <div className="mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <span className="w-2 h-2 bg-blue-400 rounded-full opacity-80"></span>
-              For the early stage Startups
+          {/* Header Section */}
+          <div className="text-center mb-20 max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-3 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-blue-500/20 backdrop-blur-sm shadow-lg">
+              <span className="w-2.5 h-2.5 bg-blue-400 rounded-full animate-pulse"></span>
+              Enterprise Solutions for Early-Stage Startups
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">The Startup <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Solution</span></h2>
-            <p className="text-xl text-slate-300 leading-relaxed">
-              A hosted monitoring system engineered for early-startup needs at a cheap price.
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
+              The Complete 
+              <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mt-2">
+                Monitoring Solution
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light max-w-3xl mx-auto">
+              Enterprise-grade monitoring infrastructure engineered for startups who demand reliability without enterprise pricing
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Cards Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
+            {/* Features Card */}
             <div className="group relative">
-              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-200 hover:translate-y-[-2px] rounded-xl overflow-hidden will-change-transform">
-                <div className="h-2 bg-gradient-to-r from-emerald-500 to-green-500 w-full"></div>
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-emerald-400" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition-all duration-500"></div>
+              <Card className="relative bg-black/60 backdrop-blur-xl border border-white/10 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-emerald-500/10 rounded-2xl overflow-hidden group-hover:border-emerald-500/30">
+                <div className="h-1 bg-gradient-to-r from-emerald-500 to-green-500 w-full"></div>
+                
+                <CardHeader className="pb-6 pt-8 px-8">
+                  <CardTitle className="text-white flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-500/30 shadow-lg">
+                      <CheckCircle className="w-7 h-7 text-emerald-400" />
                     </div>
-                    <span className="text-xl">Features</span>
+                    <div>
+                      <span className="text-2xl font-bold">Core Features</span>
+                      <p className="text-sm text-slate-400 font-normal mt-1">Production-ready monitoring</p>
+                    </div>
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-5">{/* ...existing code... */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                
+                <CardContent className="px-8 pb-8 space-y-6">
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
-                    <p className="text-slate-300">Real-time alerts via Slack, Discord, Teams, mobile push, and webhooks</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                    <div>
+                      <p className="text-slate-200 font-medium leading-relaxed">Real-time alerts via Slack, Discord, Teams, mobile push, and webhooks</p>
+                      <p className="text-slate-500 text-sm mt-1">Instant notifications when it matters</p>
                     </div>
-                    <p className="text-slate-300">Critical alerts through Android and IOs App</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                    </div>
-                    <p className="text-slate-300">Distributed global worker pools for consistent monitoring</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                    </div>
-                    <p className="text-slate-300">Basic dashboard to manage all endpoints</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl opacity-20 blur group-hover:opacity-30 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-amber-400 to-yellow-500 w-full"></div>
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-amber-400" />
-                    </div>
-                    <span className="text-xl">Will not be focussing on</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-5">
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
-                    </div>
-                    <p className="text-slate-300">SMS and call notifications</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
-                    </div>
-                    <p className="text-slate-300">Advanced analytics dashboards</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
-                    </div>
-                    <p className="text-slate-300">Interactive visualization with real-time data</p>
                   </div>
                   
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-200 font-medium leading-relaxed">Critical alerts through Android and iOS mobile apps</p>
+                      <p className="text-slate-500 text-sm mt-1">Never miss a critical incident</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-200 font-medium leading-relaxed">Distributed global worker pools for consistent monitoring</p>
+                      <p className="text-slate-500 text-sm mt-1">99.9% uptime monitoring reliability</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-200 font-medium leading-relaxed">Intuitive dashboard to manage all endpoints</p>
+                      <p className="text-slate-500 text-sm mt-1">Centralized monitoring control</p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
 
-            <div id="pricing" className="group relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
-              <Card className="bg-black/50 backdrop-blur-sm border-white/10 h-full shadow-xl transition-all duration-300 group-hover:translate-y-[-5px] rounded-xl overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-green-400 to-emerald-500 w-full"></div>
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-green-500/20 flex items-center justify-center">
-                      <DollarSign className="w-6 h-6 text-green-400" />
+            {/* Future Focus Card */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl opacity-15 blur-lg group-hover:opacity-25 transition-all duration-500"></div>
+              <Card className="relative bg-black/60 backdrop-blur-xl border border-white/10 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-amber-500/10 rounded-2xl overflow-hidden group-hover:border-amber-500/30">
+                <div className="h-1 bg-gradient-to-r from-amber-400 to-yellow-500 w-full"></div>
+                
+                <CardHeader className="pb-6 pt-8 px-8">
+                  <CardTitle className="text-white flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500/20 to-yellow-500/20 border border-amber-500/30 shadow-lg">
+                      <Clock className="w-7 h-7 text-amber-400" />
                     </div>
-                    <span className="text-xl">Startup Pricing Focussed</span>
+                    <div>
+                      <span className="text-2xl font-bold">Future Roadmap</span>
+                      <p className="text-sm text-slate-400 font-normal mt-1">Not our current focus</p>
+                    </div>
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="relative p-6 bg-green-500/10 rounded-xl border border-green-500/20 text-center mb-4">
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-1 rounded-full text-sm font-medium">Annual Subscription</div>
-                    <div className="text-5xl font-bold text-white mb-2 mt-3 flex items-center justify-center">
-                      <DollarSign className="w-6 h-6 text-green-400" />
-                      <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">8</span>
+                
+                <CardContent className="px-8 pb-8 space-y-6">
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                      <Clock className="w-4 h-4 text-amber-400" />
                     </div>
-                    <div className="text-xl font-medium text-slate-300 mb-2">per year</div>
-                    <div className="text-sm text-slate-400 flex items-center justify-center">
-                      <span className="line-through mr-2">$180+/year</span> 
-                      <span className="text-green-400 font-semibold">95% Savings</span>
+                    <div>
+                      <p className="text-slate-300 font-medium leading-relaxed">SMS and voice call notifications</p>
+                      <p className="text-slate-500 text-sm mt-1">Expensive legacy channels</p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-sm text-white mt-6">
-                    <ActivityIcon className="w-5 h-5 text-blue-400" />
-                    <span>Enterprise-grade, Peanuts price!</span>
+                  
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                      <Clock className="w-4 h-4 text-amber-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-300 font-medium leading-relaxed">Advanced analytics dashboards</p>
+                      <p className="text-slate-500 text-sm mt-1">Complex visualizations</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 group/item">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                      <Clock className="w-4 h-4 text-amber-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-300 font-medium leading-relaxed">Interactive visualizatio</p>
+                      <p className="text-slate-500 text-sm mt-1">Resource-intensive features</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-amber-500/20">
+                    <div className="flex items-center gap-3 text-amber-400">
+                      <Clock className="w-5 h-5" />
+                      <span className="text-sm font-medium">Keeping costs low by focusing on essentials</span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Pricing Card */}
+            <div id="pricing" className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl opacity-25 blur-lg group-hover:opacity-40 transition-all duration-500"></div>
+              <Card className="relative bg-black/60 backdrop-blur-xl border border-green-500/20 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-green-500/20 rounded-2xl overflow-hidden group-hover:border-green-500/40">
+                <div className="h-1 bg-gradient-to-r from-green-400 to-emerald-500 w-full"></div>
+                
+                <CardHeader className="pb-6 pt-8 px-8">
+                  <CardTitle className="text-white flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 shadow-lg">
+                      <DollarSign className="w-7 h-7 text-green-400" />
+                    </div>
+                    <div>
+                      <span className="text-2xl font-bold">Enterprise Pricing</span>
+                      <p className="text-sm text-slate-400 font-normal mt-1">Startup-friendly costs</p>
+                    </div>
+                  </CardTitle>
+                </CardHeader>
+                
+                <CardContent className="px-8 pb-8">
+                  <div className="relative p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl border border-green-500/30 text-center mb-8 backdrop-blur-sm">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      Annual Subscription
+                    </div>
+                    
+                    <div className="mt-4 mb-6">
+                      <div className="flex items-center justify-center mb-3">
+                        <DollarSign className="w-8 h-8 text-green-400 mr-1" />
+                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">8</span>
+                      </div>
+                      <div className="text-2xl font-semibold text-slate-200 mb-3">per year</div>
+                      <div className="flex items-center justify-center gap-3 text-sm">
+                        <span className="line-through text-slate-500 text-lg">$180+/year</span> 
+                        <div className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full font-bold border border-green-500/30">
+                          95% Savings
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-center gap-3 text-white p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
+                      <ActivityIcon className="w-6 h-6 text-blue-400" />
+                      <span className="font-semibold">Enterprise-grade, Startup price!</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center gap-2 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <span className="text-slate-300">No hidden fees</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <span className="text-slate-300">Cancel anytime</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/30 rounded-2xl px-8 py-6 backdrop-blur-sm">
+              <div className="flex items-center gap-2">
+                <ActivityIcon className="w-6 h-6 text-blue-400" />
+                <span className="text-white font-semibold text-lg">Ready to get started?</span>
+              </div>
+              <div className="w-px h-8 bg-white/20"></div>
+              <a 
+                href="https://app.bareuptime.co" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+              >
+                Launch monitoring in 60 seconds →
+              </a>
             </div>
           </div>
         </div>
@@ -794,7 +898,7 @@ export default function HomePage() {
                   <div className="p-8">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
                     <h3 className="text-2xl font-bold text-white mb-2">Suman Saurabh</h3>
-                    <p className="text-blue-400 font-medium mb-5">Senior Software Engineer at Microsoft OpenAI</p>
+                    <p className="text-blue-400 font-medium mb-5">Penify, Ex-Microsoft OpenAI</p>
                     
                     <div className="flex items-center gap-2 mb-6">
                       <a 
