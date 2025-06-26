@@ -140,11 +140,18 @@ export default function HomePage() {
     setMessage("")
     
     try {
-      const { error } = await supabase
-        .from('bareuptime_newsletter')
-        .insert([{ email }])
+      const response = await fetch('https://api.bareuptime.co/subscriber', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
 
-      if (error) throw error
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`)
+      }
 
       setIsSubmitted(true)
       setMessage("Thank you for subscribing!")
@@ -152,7 +159,7 @@ export default function HomePage() {
       setEmail("")
     } catch (error: any) {
       console.error("Subscription failed:", error)
-      if (error.message?.includes("duplicate key value violates unique constraint")) {
+      if (error.message?.includes("duplicate") || error.message?.includes("Already registered for updates")) {
         setMessage("You are already subscribed!")
       } else {
         setMessage("Something went wrong. Please try again.")
