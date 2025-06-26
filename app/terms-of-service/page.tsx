@@ -18,7 +18,7 @@ export default function TermsOfService() {
         //   return;
         // }
 
-        const response = await fetch('http://localhost:8080/ip/currency');
+        const response = await fetch('https://api.bareuptime.co/ip/currency');
         const data = await response.json();
         setCurrency(data.currency || 'USD');
       } catch (error) {
