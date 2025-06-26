@@ -1,11 +1,52 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
+import IndianPrivacyContent from '@/components/IndianPrivacyContent';
 
 export default function PrivacyPolicy() {
+  const [currency, setCurrency] = useState<string>('USD');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCurrency = async () => {
+      try {
+        // Check for mock currency first (for testing)
+        // const mockCurrency = localStorage.getItem('mockCurrency');
+        // if (mockCurrency) {
+        //   setCurrency(mockCurrency);
+        //   setLoading(false);
+        //   return;
+        // }
+
+        const response = await fetch('https://api.bareuptime.co/ip/currency');
+        const data = await response.json();
+        setCurrency(data.currency || 'USD');
+      } catch (error) {
+        console.error('Error fetching currency:', error);
+        setCurrency('USD'); // Default to USD on error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCurrency();
+  }, []);
+
+  const isIndianUser = currency === 'INR';
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
           <h1 className="text-4xl font-bold text-white mb-8 text-center">Privacy Policy</h1>
+          
+          {loading ? (
+            <div className="flex justify-center items-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>
+              <span className="ml-2 text-white">Loading privacy policy...</span>
+            </div>
+          ) : isIndianUser ? (
+            <IndianPrivacyContent />
+          ) : (
           
           <div className="prose prose-invert max-w-none text-slate-300">
             <p className="text-center text-slate-400 mb-8">
@@ -22,8 +63,8 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-bold text-white mt-8 mb-4">2. Company Information</h2>
             <p>
-              <strong>Company:</strong> Penify Technologies LLC<br />
-              <strong>Registered Address:</strong> 30 N Gould St Ste N, Sheridan, WY 82801<br />
+              <strong>Company:</strong> {isIndianUser ? 'Snorkell Associates and Co' : 'Penify Technologies LLC'}<br />
+              <strong>Registered Address:</strong> {isIndianUser ? 'Office No. 415 OK Plus Spaces, Near Apex Circle, Malviya Industrial Area, Jaipur- 302017, Rajasthan, India' : '30 N Gould St Ste N, Sheridan, WY 82801'}<br />
               <strong>Email:</strong> support@bareuptime.co<br />
               <strong>Website:</strong> https://bareuptime.co
             </p>
@@ -106,16 +147,17 @@ export default function PrivacyPolicy() {
             <p>If you have questions about this Privacy Policy, please contact us:</p>
             <p>
               <strong>Email:</strong> privacy@bareuptime.co<br />
-              <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801<br />
+              <strong>Address:</strong> {isIndianUser ? 'Snorkell Associates and Co, Office No. 415 OK Plus Spaces, Near Apex Circle, Malviya Industrial Area, Jaipur- 302017, Rajasthan, India' : 'Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801'}<br />
               <strong>Phone:</strong> Available through our website support system
             </p>
 
             <div className="mt-12 pt-8 border-t border-white/20">
               <p className="text-sm text-slate-400 text-center">
-                This Privacy Policy is governed by the laws of the State of Wyoming, United States.
+                This Privacy Policy is governed by the laws of {isIndianUser ? 'Rajasthan, India' : 'the State of Wyoming, United States'}.
               </p>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>

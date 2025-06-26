@@ -1,11 +1,52 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
+import IndianTermsContent from '@/components/IndianTermsContent';
 
 export default function TermsOfService() {
+  const [currency, setCurrency] = useState<string>('USD');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCurrency = async () => {
+      try {
+        // // Check for mock currency first (for testing)
+        // const mockCurrency = localStorage.getItem('mockCurrency');
+        // if (mockCurrency) {
+        //   setCurrency(mockCurrency);
+        //   setLoading(false);
+        //   return;
+        // }
+
+        const response = await fetch('http://localhost:8080/ip/currency');
+        const data = await response.json();
+        setCurrency(data.currency || 'USD');
+      } catch (error) {
+        console.error('Error fetching currency:', error);
+        setCurrency('USD'); // Default to USD on error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCurrency();
+  }, []);
+
+  const isIndianUser = currency === 'INR';
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
           <h1 className="text-4xl font-bold text-white mb-8 text-center">Terms of Service</h1>
+          
+          {loading ? (
+            <div className="flex justify-center items-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>
+              <span className="ml-2 text-white">Loading terms...</span>
+            </div>
+          ) : isIndianUser ? (
+            <IndianTermsContent />
+          ) : (
           
           <div className="prose prose-invert max-w-none text-slate-300">
             <p className="text-center text-slate-400 mb-8">
@@ -21,8 +62,8 @@ export default function TermsOfService() {
 
             <h2 className="text-2xl font-bold text-white mt-8 mb-4">2. Company Information</h2>
             <p>
-              <strong>Service Provider:</strong> Penify Technologies LLC<br />
-              <strong>Registered Address:</strong> 30 N Gould St Ste N, Sheridan, WY 82801<br />
+              <strong>Service Provider:</strong> {isIndianUser ? 'Snorkell Associates and Co' : 'Penify Technologies LLC'}<br />
+              <strong>Registered Address:</strong> {isIndianUser ? 'Rajasthan, India' : '30 N Gould St Ste N, Sheridan, WY 82801'}<br />
               <strong>Email:</strong> support@bareuptime.co<br />
               <strong>Website:</strong> https://bareuptime.co
             </p>
@@ -120,7 +161,7 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-semibold text-white mt-6 mb-3">8.2 Limitation of Liability</h3>
             <p className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-sm">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, PENIFY TECHNOLOGIES LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, 
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, {isIndianUser ? 'SNORKELL ASSOCIATES AND CO' : 'PENIFY TECHNOLOGIES LLC'} SHALL NOT BE LIABLE FOR ANY INDIRECT, 
               INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, 
               DATA, OR BUSINESS INTERRUPTION.
             </p>
@@ -144,12 +185,12 @@ export default function TermsOfService() {
 
             <h2 className="text-2xl font-bold text-white mt-8 mb-4">10. Governing Law and Disputes</h2>
             <p>
-              These Terms are governed by the laws of the State of Wyoming, United States, without regard to conflict of law principles.
+              These Terms are governed by the laws of {isIndianUser ? 'Rajasthan, India' : 'the State of Wyoming, United States'}, without regard to conflict of law principles.
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>Any disputes will be resolved through binding arbitration in Wyoming</li>
+              <li>Any disputes will be resolved through binding arbitration in {isIndianUser ? 'Rajasthan, India' : 'Wyoming'}</li>
               <li>You waive the right to participate in class action lawsuits</li>
-              <li>Wyoming state courts have exclusive jurisdiction for any matters not subject to arbitration</li>
+              <li>{isIndianUser ? 'Rajasthan' : 'Wyoming'} state courts have exclusive jurisdiction for any matters not subject to arbitration</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-white mt-8 mb-4">11. Contact Information</h2>
@@ -157,7 +198,7 @@ export default function TermsOfService() {
             <p>
               <strong>Email:</strong> legal@bareuptime.co<br />
               <strong>Support:</strong> support@bareuptime.co<br />
-              <strong>Address:</strong> Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801
+              <strong>Address:</strong> {isIndianUser ? 'Snorkell Associates and Co, Rajasthan, India' : 'Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801'}
             </p>
 
             <div className="mt-12 pt-8 border-t border-white/20">
@@ -166,6 +207,7 @@ export default function TermsOfService() {
               </p>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>
