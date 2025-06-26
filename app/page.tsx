@@ -1186,6 +1186,7 @@ export default function HomePage() {
                   <li><a href="#features" className="text-slate-400 hover:text-blue-400 transition-colors">Features</a></li>
                   <li><a href="#pricing" className="text-slate-400 hover:text-blue-400 transition-colors">Pricing</a></li>
                   <li><a href="#about" className="text-slate-400 hover:text-blue-400 transition-colors">About</a></li>
+                  <li><a href="/support" className="text-slate-400 hover:text-blue-400 transition-colors">Support</a></li>
                 </ul>
               </div>
               
