@@ -3,7 +3,6 @@
 import type React from "react"
 import Script from "next/script"
 import dynamic from "next/dynamic"
-
 import { useState, useEffect, useCallback, useMemo, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,7 +13,6 @@ import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
 import { trackWithSource } from '@/components/google-analytics'
-
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
@@ -52,6 +50,94 @@ const smoothScrollTo = (elementId: string) => {
       })
     })
   }
+}
+// SEO structured data for the homepage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
+  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $8/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+  "url": "https://bareuptime.co",
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "BareUptime",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android", 
+    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $8/year.",
+    "offers": {
+      "@type": "Offer",
+      "price": "8.00",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01",
+      "description": "Annual subscription for unlimited uptime monitoring"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5"
+    },
+    "featureList": [
+      "Real-time uptime monitoring for websites and APIs",
+      "Mobile push notifications for iOS and Android",
+      "SSL certificate monitoring and expiration alerts", 
+      "Webhook integrations for custom workflows",
+      "Discord, Slack, and Teams notifications",
+      "Global monitoring network with 99.9% uptime",
+      "Affordable pricing at $8/year vs $180+/year competitors"
+    ],
+    "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
+    "downloadUrl": "https://app.bareuptime.co",
+    "author": {
+      "@type": "Person", 
+      "name": "Suman Saurabh",
+      "url": "https://linkedin.com/in/ssumansaurabh"
+    }
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bareuptime.co"
+      }
+    ]
+  }
+}
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does BareUptime cost compared to competitors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BareUptime costs only $8/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "What monitoring features are included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BareUptime includes real-time uptime monitoring, mobile notifications, SSL monitoring, webhook integrations, Discord/Slack alerts, and global monitoring network coverage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How reliable is BareUptime's monitoring infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer", 
+        "text": "BareUptime provides enterprise-grade monitoring with 99.9% uptime reliability using distributed global worker pools for consistent monitoring coverage."
+      }
+    }
+  ]
 }
 
 export default function HomePage() {
@@ -155,7 +241,7 @@ export default function HomePage() {
       }
 
       setIsSubmitted(true)
-      setMessage("Thank you for subscribing!")
+      setMessage(response.message)
       setMessageType("success")
       setEmail("")
       // Track successful subscription
@@ -175,15 +261,58 @@ export default function HomePage() {
 
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950 will-change-scroll">
+    {/* Schema.org structured data for better SEO */}
+    <Script
+      id="schema-webpage"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
+          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $8/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+          "url": "https://bareuptime.co",
+          "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "BareUptime",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $8/year.",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.00",
+              "priceCurrency": "USD",
+              "priceValidUntil": "2025-12-31",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2025-01-01"
+            },
+            "featureList": [
+              "Real-time uptime monitoring for websites and APIs",
+              "Mobile push notifications for iOS and Android",
+              "SSL certificate monitoring and expiration alerts",
+              "Webhook integrations for custom workflows",
+              "Discord, Slack, and Teams notifications",
+              "Global monitoring network with 99.9% uptime"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Suman Saurabh",
+              "url": "https://linkedin.com/in/ssumansaurabh"
+            }
+          }
+        })
+      }}
+    />
+
+    <main className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950 will-change-scroll" itemScope itemType="https://schema.org/WebPage">
       {/* Launch Banner - Optimized */}
-      <div className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden will-change-transform">
+      <aside className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden will-change-transform" role="banner" aria-label="Launch announcement">
         <div className="relative flex items-center justify-center gap-2 text-white font-medium">
-          <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-80" aria-hidden="true"></div>
           <span className="text-sm">🎉 BareUptime is now LIVE! Start monitoring your services today.</span>
-          <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
+          <div className="w-2 h-2 bg-white rounded-full opacity-80" aria-hidden="true"></div>
         </div>
-      </div>
+      </aside>
       
       {/* Enterprise Navigation Bar - Optimized */}
       <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg will-change-transform">
@@ -689,7 +818,7 @@ export default function HomePage() {
                 
                 <CardContent className="px-8 pb-8 space-y-6">
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
@@ -699,7 +828,7 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
@@ -709,7 +838,7 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
@@ -719,7 +848,7 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-emerald-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
@@ -751,7 +880,7 @@ export default function HomePage() {
                 
                 <CardContent className="px-8 pb-8 space-y-6">
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
                       <Clock className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
@@ -761,7 +890,7 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
                       <Clock className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
@@ -771,7 +900,7 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover/item:bg-amber-500/25 transition-colors">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
                       <Clock className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
@@ -1112,7 +1241,24 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
+    
+    {/* Structured Data for SEO */}
+    <Script
+      id="main-structured-data"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData)
+      }}
+    />
+    
+    <Script
+      id="faq-structured-data"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(faqStructuredData)
+      }}
+    />
     </>
   )
 }
