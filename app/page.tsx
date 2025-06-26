@@ -13,6 +13,7 @@ import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock } fr
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
+import { trackWithSource } from '@/components/google-analytics'
 
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
@@ -157,6 +158,8 @@ export default function HomePage() {
       setMessage("Thank you for subscribing!")
       setMessageType("success")
       setEmail("")
+      // Track successful subscription
+      trackWithSource.signUp('email', 'newsletter_signup')
     } catch (error: any) {
       console.error("Subscription failed:", error)
       if (error.message?.includes("duplicate") || error.message?.includes("Already registered for updates")) {
@@ -192,23 +195,30 @@ export default function HomePage() {
             </div>
             <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">
               <button 
-                onClick={() => smoothScrollTo('features')} 
+                onClick={() => {
+                  smoothScrollTo('features');
+                  trackWithSource.navigation('features', 'header_nav');
+                }} 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
                 aria-label="Navigate to Features section"
-                data-analytics="navigation-features"
               >
                 Features
               </button>
               <button 
-                onClick={() => smoothScrollTo('pricing')} 
+                onClick={() => {
+                  smoothScrollTo('pricing');
+                  trackWithSource.navigation('pricing', 'header_nav');
+                }} 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
                 aria-label="Navigate to Pricing section"
-                data-analytics="navigation-pricing"
               >
                 Pricing
               </button>
               <button 
-                onClick={() => smoothScrollTo('about')} 
+                onClick={() => {
+                  smoothScrollTo('about');
+                  trackWithSource.navigation('about', 'header_nav');
+                }} 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
                 aria-label="Navigate to About section"
               >
@@ -223,6 +233,7 @@ export default function HomePage() {
               rel="noopener noreferrer" 
               className="flex items-center gap-1 py-1.5 px-3 bg-white/10 hover:bg-white/15 rounded-lg text-sm font-medium text-white transition-all transform hover:scale-105"
               aria-label="View BareUptime on GitHub"
+              onClick={() => trackWithSource.buttonClick('github_repo', 'header')}
             >
               <Globe className="w-4 h-4 text-blue-400" />
               <span>GitHub</span>
@@ -232,6 +243,7 @@ export default function HomePage() {
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Sign in to BareUptime"
+              onClick={() => trackWithSource.ctaClick('sign_in', 'header')}
             >
               <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 transform hover:scale-105">
                 Sign In
@@ -280,7 +292,7 @@ export default function HomePage() {
                   href="https://app.bareuptime.co" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  data-analytics="cta-start-monitoring"
+                  onClick={() => trackWithSource.ctaClick('start_monitoring', 'hero_section')}
                 >
                   <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 text-lg">
                     Start Monitoring Now
@@ -290,7 +302,7 @@ export default function HomePage() {
                   href="https://api.bareuptime.co/demo" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  data-analytics="cta-view-demo"
+                  onClick={() => trackWithSource.ctaClick('view_demo', 'hero_section')}
                 >
                   <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
                     View Demo
