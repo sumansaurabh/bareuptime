@@ -6,7 +6,8 @@ import '../styles/performance.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from '@/components/google-analytics';
+import { GlobalAnalyticsTracker } from '@/components/analytics/GlobalAnalyticsTracker';
 import Script from 'next/script';
 import Head from 'next/head';
 
@@ -62,11 +63,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <GlobalAnalyticsTracker />
           {children}
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
-        <GoogleTagManager gtmId="G-T84N8LHVQB" />
+        <GoogleAnalytics />
       </body>
     </html>
   )

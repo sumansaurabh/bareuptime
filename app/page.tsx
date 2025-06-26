@@ -188,6 +188,7 @@ export default function HomePage() {
                 onClick={() => smoothScrollTo('features')} 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
                 aria-label="Navigate to Features section"
+                data-analytics="navigation-features"
               >
                 Features
               </button>
@@ -195,6 +196,7 @@ export default function HomePage() {
                 onClick={() => smoothScrollTo('pricing')} 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
                 aria-label="Navigate to Pricing section"
+                data-analytics="navigation-pricing"
               >
                 Pricing
               </button>
@@ -271,6 +273,7 @@ export default function HomePage() {
                   href="https://app.bareuptime.co" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  data-analytics="cta-start-monitoring"
                 >
                   <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 text-lg">
                     Start Monitoring Now
@@ -280,6 +283,7 @@ export default function HomePage() {
                   href="https://api.bareuptime.co/demo" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  data-analytics="cta-view-demo"
                 >
                   <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
                     View Demo
