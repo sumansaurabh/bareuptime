@@ -1091,9 +1091,6 @@ export default function HomePage() {
               Teams
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Engineering Team</span></h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              I am the only one working on BareUptime.
-            </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-8 items-center">
