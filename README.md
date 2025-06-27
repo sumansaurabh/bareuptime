@@ -45,14 +45,14 @@ Every part of this system is self-hosted to stay cost-efficient, scalable, and u
 
 | Component                   | Quantity       | Specs                      | Provider                          | Monthly Cost |
 |-----------------------------|----------------|-----------------------------|-----------------------------------|--------------|
-| API + Config DB             | 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
-| Redis + Internal Queue      | 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
+| API + Config DB             | 1              | 4 vCPU, 8 GB RAM            | Hetzner VPS                       | $12.00        |
+| Redis + Internal Queue      | 1              | 4 vCPU, 8 GB RAM            | Hetzner VPS                       | $12.00        |
 | Worker Pools (Global)       | 8              | 4 vCPU, 8 GB RAM            | Hetzner VPS (globally distributed)| $92.00       |
-| Monitoring & Logs (Optional)| 1              | 2 vCPU, 4 GB RAM            | Hetzner VPS                       | $5.00        |
+| Monitoring & Logs (Optional)| 1              | 24 vCPU, 8 GB RAM            | Hetzner VPS                       | $12.00        |
 | DNS + SSL                   | 1 domain       | Certbot + Namecheap         | Self-managed                      | $1.00        |
 | Backups (DB, Queue, Logs)   | ~50–100 GB     | B2 or Bunny CDN             | Cloud Storage                     | $2.00        |
-| Email Alerts (SMTP Infra)   | transactional  | ~5K–10K emails/month        | SendGrid / Postmark               | $5.00        |
-| **Subtotal: Infra + Ops**   |                |                             |                                   | **$115.00**  |
+| Email Alerts (SMTP Infra)   | transactional  | ~5K–10K emails/month        | SendGrid / Postmark               | $15.00        |
+| **Subtotal: Infra + Ops**   |                |                             |                                   | **$146.00**  |
 
 | Component                   | Quantity       | Specs                      | Provider                          | Monthly Cost |
 |-----------------------------|----------------|-----------------------------|-----------------------------------|--------------|
@@ -62,10 +62,10 @@ Every part of this system is self-hosted to stay cost-efficient, scalable, and u
 | Estimated Taxes             | ~15% of gross  | Infra + income + processing | Govt. + SaaS locality             | $17.50       |
 | **Subtotal: Overhead**      |                |                             |                                   | **$50.75**   |
 
-| **Total Monthly Cost**      |                |                             |                                   | **$165.75**  |
+| **Total Monthly Cost**      |                |                             |                                   | **$196.75**  |
 
-Serving 10,000 users at this cost means **~$0.0165 per user/month**.  
-Rounding to **$6/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
+Serving 10,00 users at this cost means **~$0.1965 per user/month**.  
+Rounding to **$8/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
 
 ---
 
