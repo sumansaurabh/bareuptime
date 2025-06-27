@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
@@ -37,6 +37,36 @@ const ActivityIcon = memo(({ className }: { className?: string }) => (
   </svg>
 ))
 ActivityIcon.displayName = 'ActivityIcon'
+
+// Custom Android Icon
+const AndroidIcon = memo(({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4483.9993.9993.0001.5511-.4482.9997-.9993.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4483.9993.9993 0 .5511-.4482.9997-.9993.9997zm11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8816 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.61 10.2718.8995 12.8979.8995 15.9101c0 .1873.0715.3568.1458.5226.0143.0286.0286.0572.0429.0858.0715.1144.1144.2431.2145.3575.0286.0429.0858.0715.1144.1001.0572.0572.1001.1144.1716.1573.0429.0286.1001.0572.1573.0715.0715.0286.1144.0572.2002.0715.0429.0143.0858.0286.1287.0286.0858.0143.1573.0286.2431.0286H21.0994c.0858 0 .1573-.0143.2431-.0286.0429-.0143.0858-.0143.1287-.0286.0858-.0143.1287-.0429.2002-.0715.0572-.0143.1144-.0429.1573-.0715.0715-.0429.1144-.1001.1716-.1573.0286-.0286.0858-.0572.1144-.1001.1001-.1144.1429-.2431.2145-.3575.0143-.0286.0286-.0572.0429-.0858.0715-.1658.1458-.3353.1458-.5226 0-3.0122-1.7105-5.6383-5.2195-6.5687z"/>
+  </svg>
+))
+AndroidIcon.displayName = 'AndroidIcon'
+
+// Custom iOS Icon  
+const IOSIcon = memo(({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+  </svg>
+))
+IOSIcon.displayName = 'IOSIcon'
 
 // Optimized smooth scroll function with requestAnimationFrame
 const smoothScrollTo = (elementId: string) => {
@@ -469,22 +499,48 @@ export default function HomePage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Basic uptime monitoring</span>
+                    <span className="text-slate-300">Uptime monitoring + SSL</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Mobile notifications</span>
+                    <span className="text-slate-300">Mobile Push Notifications</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Webhook integrations</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1 mt-3">
-                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-xs">Android</span>
-                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-xs">iOS</span>
-                    <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">Discord</span>
-                    <span className="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">Slack</span>
-                    <span className="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">Telegram</span>
+                  
+                  <div className="mt-4">
+                    <p className="text-emerald-300 text-sm font-medium mb-3 flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      Supported Platforms & Integrations:
+                    </p>
+                    <div className="flex flex-wrap gap-2 p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20">
+                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
+                        <AndroidIcon className="w-4 h-4" />
+                        <span>Android</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
+                        <IOSIcon className="w-4 h-4" />
+                        <span>iOS</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-medium border border-blue-500/30">
+                        <MessageSquare className="w-4 h-4" />
+                        <span>Discord</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/30">
+                        <MessageSquare className="w-4 h-4" />
+                        <span>Slack</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
+                        <Send className="w-4 h-4" />
+                        <span>Telegram</span>
+                      </div>
+                      {/* <div className="flex items-center gap-2 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
+                        <Users className="w-4 h-4" />
+                        <span>Teams</span>
+                      </div> */}
+                      <div className="flex items-center gap-2 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-sm font-medium border border-orange-500/30">
+                        <Webhook className="w-4 h-4" />
+                        <span>Webhooks</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -639,18 +695,39 @@ export default function HomePage() {
                             Free Notification Channels
                           </td>
                           <td className="py-5 px-6 text-center">
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="flex flex-wrap justify-center gap-1">
-                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">Android</Badge>
-                                <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs px-2 py-1">iOS</Badge>
-                                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs px-2 py-1">Telegram</Badge>
+                            <div className="flex flex-col items-center gap-3">
+                              <div className="flex flex-wrap justify-center gap-2">
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-xs font-medium border border-emerald-500/30">
+                                  <AndroidIcon className="w-3.5 h-3.5" />
+                                  <span>Android</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-xs font-medium border border-emerald-500/30">
+                                  <IOSIcon className="w-3.5 h-3.5" />
+                                  <span>iOS</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
+                                  <Send className="w-3.5 h-3.5" />
+                                  <span>Telegram</span>
+                                </div>
                               </div>
-                              <div className="flex flex-wrap justify-center gap-1">
-                                <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs px-2 py-1">Slack</Badge>
-                                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs px-2 py-1">Email</Badge>
-                                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs px-2 py-1">Webhook</Badge>
+                              <div className="flex flex-wrap justify-center gap-2">
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
+                                  <MessageSquare className="w-3.5 h-3.5" />
+                                  <span>Slack</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-xs font-medium border border-purple-500/30">
+                                  <Users className="w-3.5 h-3.5" />
+                                  <span>Teams</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-500/20 text-slate-300 rounded-lg text-xs font-medium border border-slate-500/30">
+                                  <Globe className="w-3.5 h-3.5" />
+                                  <span>Email</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
+                                  <Webhook className="w-3.5 h-3.5" />
+                                  <span>Webhook</span>
+                                </div>
                               </div>
-                              
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
