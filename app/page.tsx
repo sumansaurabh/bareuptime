@@ -239,9 +239,10 @@ export default function HomePage() {
         const errorData = await response.json().catch(() => ({}))
         throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`)
       }
-
+      const successData = await response.json()
+      console.log("Subscription successful", successData)
       setIsSubmitted(true)
-      setMessage(response.message)
+      setMessage(successData.message)
       setMessageType("success")
       setEmail("")
       // Track successful subscription
