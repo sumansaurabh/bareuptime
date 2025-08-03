@@ -170,6 +170,15 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * Main component for the Bare Uptime landing page.
+ *
+ * This component renders the main structure of the Bare Uptime landing page, including the header,
+ * hero section, features, pricing, about us, contact form, and footer. It also handles form submission
+ * logic and integrates with various social media platforms via links in the footer.
+ *
+ * @component
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
