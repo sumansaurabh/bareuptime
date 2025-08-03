@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-  description: 'Monitor your websites and APIs with enterprise-grade reliability for just $8/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.',
+  description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.',
   keywords: [
     'uptime monitoring',
     'website monitoring',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $8/year. 95% cheaper than competitors.',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year. 95% cheaper than competitors.',
     url: 'https://bareuptime.co',
     siteName: 'BareUptime',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $8/year.',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year.',
     images: ['https://bareuptime.co/og-image.png'],
   },
   alternates: {

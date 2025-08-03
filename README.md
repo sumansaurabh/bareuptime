@@ -33,11 +33,11 @@ For something that costs less than cents to run, it's absurd.
 
 - No support for SMS and Call Notifications — yet.
 - No dashboards. Just a UI to update your profile and add health check endpoints.
-- Expected Pricing: **$8 per year** instead of $10 per month. Why? Check below.
+- Expected Pricing: **$15 per year** instead of $10 per month. Why? Check below.
 
 ---
 
-### 3. **Why it's priced at $8/year**
+### 3. **Why it's priced at $15/year**
 
 This isn’t VC-backed bloatware. It's a minimal service with just enough reliability and scale to serve 10,000+ users without wasting infrastructure.
 
@@ -65,7 +65,7 @@ Every part of this system is self-hosted to stay cost-efficient, scalable, and u
 | **Total Monthly Cost**      |                |                             |                                   | **$196.75**  |
 
 Serving 10,00 users at this cost means **~$0.1965 per user/month**.  
-Rounding to **$8/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
+Rounding to **$15/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
 
 ---
 

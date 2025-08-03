@@ -86,17 +86,17 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $8/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
   "url": "https://bareuptime.co",
   "mainEntity": {
     "@type": "SoftwareApplication",
     "name": "BareUptime",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android", 
-    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $8/year.",
+    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $15/year.",
     "offers": {
       "@type": "Offer",
-      "price": "8.00",
+      "price": "15.00",
       "priceCurrency": "USD",
       "priceValidUntil": "2025-12-31",
       "availability": "https://schema.org/InStock",
@@ -116,7 +116,7 @@ const structuredData = {
       "Webhook integrations for custom workflows",
       "Discord, Slack, and Teams notifications",
       "Global monitoring network with 99.9% uptime",
-      "Affordable pricing at $8/year vs $180+/year competitors"
+      "Affordable pricing at $15/year vs $180+/year competitors"
     ],
     "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
     "downloadUrl": "https://app.bareuptime.co",
@@ -148,7 +148,7 @@ const faqStructuredData = {
       "name": "How much does BareUptime cost compared to competitors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BareUptime costs only $8/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
+        "text": "BareUptime costs only $15/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
       }
     },
     {
@@ -301,17 +301,17 @@ export default function HomePage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $8/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
           "url": "https://bareuptime.co",
           "mainEntity": {
             "@type": "SoftwareApplication",
             "name": "BareUptime",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web, iOS, Android",
-            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $8/year.",
+            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $15/year.",
             "offers": {
               "@type": "Offer",
-              "price": "8.00",
+              "price": "15.00",
               "priceCurrency": "USD",
               "priceValidUntil": "2025-12-31",
               "availability": "https://schema.org/InStock",
@@ -576,7 +576,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-lg px-6 py-4">
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400 font-medium">BareUptime Pricing:</span>
-                  <span className="text-white font-bold text-xl">$8/year</span>
+                  <span className="text-white font-bold text-xl">$15/year</span>
                 </div>
                 <div className="w-px h-6 bg-white/20"></div>
                 <span className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-medium">98% savings</span>
@@ -654,22 +654,80 @@ export default function HomePage() {
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Frequency (Free Plan)
+                            Request Type()
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">10min, 20min, 30min, 1hr</span>
+                              <span className="font-bold text-emerald-400 text-lg">HEAD, GET, POST</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">5min, 10min, 15min</span>
+                              <span className="font-mono text-white">Head(Free Plan)</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
+                            Frequency 
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">10min, 20min, 30min, 1hr(Free)</span>
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">1min, 5min (Paid)</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                              <span className="font-mono text-white">5min, 10min, 15min (Free)</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
+                            SSL Monitor
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
+                                <span className="text-red-400">Not available(Free)</span>
                             </div>
                           </td>
                         </tr>
 
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
+                            Global Monitoring Network (Free)
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Germany, USA</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">USA</span>
+                            </div>
+                          </td>
+                        </tr>
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
@@ -705,28 +763,31 @@ export default function HomePage() {
                                   <IOSIcon className="w-3.5 h-3.5" />
                                   <span>iOS</span>
                                 </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
-                                  <Send className="w-3.5 h-3.5" />
-                                  <span>Telegram</span>
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-500/20 text-slate-300 rounded-lg text-xs font-medium border border-slate-500/30">
+                                  <Globe className="w-3.5 h-3.5" />
+                                  <span>Email</span>
                                 </div>
+                                
                               </div>
                               <div className="flex flex-wrap justify-center gap-2">
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
                                   <MessageSquare className="w-3.5 h-3.5" />
                                   <span>Slack</span>
                                 </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-xs font-medium border border-purple-500/30">
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
+                                  <Send className="w-3.5 h-3.5" />
+                                  <span>Telegram</span>
+                                </div>
+                                {/* <div className="flex items-center gap-1.5 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-xs font-medium border border-purple-500/30">
                                   <Users className="w-3.5 h-3.5" />
                                   <span>Teams</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-500/20 text-slate-300 rounded-lg text-xs font-medium border border-slate-500/30">
-                                  <Globe className="w-3.5 h-3.5" />
-                                  <span>Email</span>
-                                </div>
+                                </div> */}
+                                
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
                                   <Webhook className="w-3.5 h-3.5" />
                                   <span>Webhook</span>
                                 </div>
+                                
                               </div>
                             </div>
                           </td>
@@ -738,27 +799,6 @@ export default function HomePage() {
                               </div>
                               <span className="text-slate-400 text-sm">Limited channels</span>
                             </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            SSL Monitor
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                                <span className="text-red-400">Not available</span>
-                              
-                            </div>
-                            <span className="text-slate-400 text-sm">In Free Plan</span>
                           </td>
                         </tr>
 
@@ -826,13 +866,13 @@ export default function HomePage() {
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-emerald-400">$8 / Year</span>
-                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">95% Savings</Badge>
+                              <span className="text-3xl font-bold text-emerald-400">$15 / Year</span>
+                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">98% Savings</Badge>
                             </div>
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-2xl font-bold text-slate-300">$180+ / Year</span>
+                              <span className="text-2xl font-bold text-slate-300">$360+ / Year</span>
                             </div>
                           </td>
                         </tr>
@@ -1024,13 +1064,13 @@ export default function HomePage() {
                     <div className="mt-4 mb-6">
                       <div className="flex items-center justify-center mb-3">
                         <DollarSign className="w-8 h-8 text-green-400 mr-1" />
-                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">8</span>
+                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">15</span>
                       </div>
                       <div className="text-2xl font-semibold text-slate-200 mb-3">per year</div>
                       <div className="flex items-center justify-center gap-3 text-sm">
-                        <span className="line-through text-slate-500 text-lg">$180+/year</span> 
+                        <span className="line-through text-slate-500 text-lg">$360+/year</span> 
                         <div className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full font-bold border border-green-500/30">
-                          95% Savings
+                          98% Savings
                         </div>
                       </div>
                     </div>
