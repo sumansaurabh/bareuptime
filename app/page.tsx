@@ -616,18 +616,27 @@ export default function HomePage() {
                             <div className="flex flex-col items-center">
                               <div className="flex items-center gap-2 mb-2">
                                 <ActivityIcon className="w-5 h-5 text-blue-400" />
-                                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
+                                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
                               </div>
-                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Our Solution</Badge>
+                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Free Plan</Badge>
+                            </div>
+                          </th>
+                          <th className="text-center py-6 px-6">
+                            <div className="flex flex-col items-center">
+                              <div className="flex items-center gap-2 mb-2">
+                                <ActivityIcon className="w-5 h-5 text-indigo-400" />
+                                <span className="text-lg font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">BareUptime</span>
+                              </div>
+                              <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs">Paid Plan</Badge>
                             </div>
                           </th>
                           <th className="text-center py-6 px-6">
                             <div className="flex flex-col items-center">
                               <div className="flex items-center gap-2 mb-2">
                                 <div className="w-5 h-5 bg-green-500 rounded-full"></div>
-                                <span className="text-xl font-bold text-green-400">UptimeRobot</span>
+                                <span className="text-lg font-bold text-green-400">UptimeRobot</span>
                               </div>
-                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Popular Choice</Badge>
+                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Free Plan</Badge>
                             </div>
                           </th>
                         </tr>
@@ -641,13 +650,19 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">50 Monitors</span>
+                              <span className="font-bold text-emerald-400 text-lg">50</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400 text-lg">200 </span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">30 monitors</span>
+                              <span className="font-mono text-white">30 </span>
                             </div>
                           </td>
                         </tr>
@@ -661,15 +676,17 @@ export default function HomePage() {
                               <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
                               <span className="font-bold text-emerald-400 text-lg">HEAD, GET, PING</span>
                             </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">POST, PUT, DELETE</span>
+                              <CheckCircle className="w-5 h-4 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400 text-lg">POST, PUT, DELETE</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">Head(Free Plan)</span>
+                              <span className="font-mono text-white">Head</span>
                             </div>
                           </td>
                         </tr>
@@ -681,17 +698,19 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">10min, 20min, 30min, 1hr(Free)</span>
+                              <span className="font-bold text-emerald-400 text-lg">10min, 30min, 1hr</span>
                             </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">1min, 5min (Paid)</span>
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400 text-lg">1min, 5min</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">5min, 10min, 15min (Free)</span>
+                              <span className="font-mono text-white">5min, 10min, 15min</span>
                             </div>
                           </td>
                         </tr>
@@ -704,6 +723,12 @@ export default function HomePage() {
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
                               <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">Free</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -727,6 +752,12 @@ export default function HomePage() {
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">Global Network</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
                               <span className="font-bold text-emerald-400">USA</span>
                             </div>
@@ -741,6 +772,12 @@ export default function HomePage() {
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
                               <span className="font-bold text-emerald-400">Free</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">Free</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -771,7 +808,6 @@ export default function HomePage() {
                                   <Globe className="w-3.5 h-3.5" />
                                   <span>Email</span>
                                 </div>
-                                
                               </div>
                               <div className="flex flex-wrap justify-center gap-2">
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
@@ -782,26 +818,25 @@ export default function HomePage() {
                                   <Send className="w-3.5 h-3.5" />
                                   <span>Telegram</span>
                                 </div>
-                                {/* <div className="flex items-center gap-1.5 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-xs font-medium border border-purple-500/30">
-                                  <Users className="w-3.5 h-3.5" />
-                                  <span>Teams</span>
-                                </div> */}
-                                
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
                                   <Webhook className="w-3.5 h-3.5" />
                                   <span>Webhook</span>
                                 </div>
-                                
                               </div>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">Same as Free</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex flex-col items-center gap-2">
                               <div className="flex items-center justify-center">
                                 <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                                <span className="text-green-400">Live chat & email</span>
+                                <span className="text-green-400">Email and Phone</span>
                               </div>
-                              <span className="text-slate-400 text-sm">Limited channels</span>
                             </div>
                           </td>
                         </tr>
@@ -819,6 +854,12 @@ export default function HomePage() {
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">10 seconds</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
                               <span className="font-bold ">30 seconds</span>
                             </div>
@@ -832,7 +873,13 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">24 x 7*</span>
+                              <span className="font-bold text-emerald-400">6 x 7*</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">24 x 7*</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -850,7 +897,13 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">99.8% SLA</span>
+                              <span className="font-bold text-emerald-400">99.6% SLA</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">99.9% SLA</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -870,8 +923,14 @@ export default function HomePage() {
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-emerald-400">$15 / Year</span>
+                              <span className="text-3xl font-bold text-emerald-400">$0 / Year</span>
                               <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">98% Savings</Badge>
+                            </div>
+                          </td>
+                          <td className="py-6 px-6 text-center">
+                            <div className="flex flex-col items-center">
+                              <span className="text-3xl font-bold text-indigo-400">$15 / Year</span>
+                              <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 mt-2 text-xs">Enterprise Features</Badge>
                             </div>
                           </td>
                           <td className="py-6 px-6 text-center">
@@ -1026,7 +1085,7 @@ export default function HomePage() {
                       <Clock className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
-                      <p className="text-slate-300 font-medium leading-relaxed">Interactive visualizatio</p>
+                      <p className="text-slate-300 font-medium leading-relaxed">Interactive Visualizations</p>
                       <p className="text-slate-500 text-sm mt-1">Resource-intensive features</p>
                     </div>
                   </div>
