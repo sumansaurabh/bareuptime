@@ -753,7 +753,11 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Canada, India, Australia</span>
+                              <span className="font-bold text-indigo-400">Canada, India</span>
+                            </div>
+                            <div className="flex items-center justify-center">
+                              {/* <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" /> */}
+                              <span className="font-bold text-indigo-400">Australia</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -903,7 +907,7 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">99.9% SLA</span>
+                              <span className="font-bold text-indigo-400">99.8% SLA</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
