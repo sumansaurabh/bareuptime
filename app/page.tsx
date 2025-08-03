@@ -654,12 +654,16 @@ export default function HomePage() {
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Request Type()
+                            Request Type
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">HEAD, GET, POST</span>
+                              <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">HEAD, GET, PING</span>
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400 text-lg">POST, PUT, DELETE</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
