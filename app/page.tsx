@@ -1179,7 +1179,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
               >
-                Launch monitoring in 60 seconds →
+                Launch monitoring in 10 seconds →
               </a>
             </div>
           </div>
