@@ -170,6 +170,12 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * The main component that renders the entire website layout, including the header,
+ * hero section, features, pricing, about sections, footer, and structured data for SEO.
+ *
+ * @returns {JSX.Element} The JSX element representing the main structure of the website.
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
