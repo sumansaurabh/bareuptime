@@ -170,6 +170,13 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * Main component for rendering the Bare Uptime monitoring service landing page.
+ * This component includes sections for hero, features, pricing, about us, and footer.
+ * It also integrates structured data for SEO purposes.
+ *
+ * @returns {JSX.Element} The JSX representation of the Bare Uptime landing page.
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
