@@ -413,23 +413,27 @@ const MonitoringAnimation = () => {
 
           {/* Enhanced connection paths */}
           {[
-            { from: nodes[0], to: nodes[2], id: 'ssl-bareuptime' },
-            { from: nodes[1], to: nodes[2], id: 'metrics-bareuptime' },
-            { from: nodes[2], to: nodes[3], id: 'bareuptime-email' },
-            { from: nodes[2], to: nodes[4], id: 'bareuptime-slack' },
-            { from: nodes[2], to: nodes[5], id: 'bareuptime-mobile' },
+            { from: nodes[0], to: nodes[2], id: 'ssl-bareuptime', curve: 'concave' },
+            { from: nodes[1], to: nodes[2], id: 'metrics-bareuptime', curve: 'convex' },
+            { from: nodes[2], to: nodes[3], id: 'bareuptime-email', curve: 'concave' },
+            { from: nodes[2], to: nodes[4], id: 'bareuptime-slack', curve: 'straight' },
+            { from: nodes[2], to: nodes[5], id: 'bareuptime-mobile', curve: 'convex' },
           ].map((conn, index) => {
             const isActive = activeConnections.has(conn.id)
             const [fromId, toId] = conn.id.split('-')
             const hasError = nodeStates[fromId] === 'error' || nodeStates[toId] === 'error'
             const pathId = `path-${conn.id}`
             
+            // Create different curve directions - convex curves up, concave curves down
+            const curveOffset = conn.curve === 'convex' ? -25 : (conn.curve === 'straight' ? 0 : 25)
+            const pathData = `M ${conn.from.x} ${conn.from.y} Q ${(conn.from.x + conn.to.x) / 2} ${(conn.from.y + conn.to.y) / 2 + curveOffset} ${conn.to.x} ${conn.to.y}`
+            
             return (
               <g key={conn.id}>
                 {/* Background path for glow effect */}
                 <motion.path
                   id={pathId}
-                  d={`M ${conn.from.x} ${conn.from.y} Q ${(conn.from.x + conn.to.x) / 2} ${(conn.from.y + conn.to.y) / 2 - 25} ${conn.to.x} ${conn.to.y}`}
+                  d={pathData}
                   fill="none"
                   stroke={hasError ? "url(#errorGradient)" : "url(#connectionGradient)"}
                   strokeWidth={isActive ? 6 : 2}
@@ -445,7 +449,7 @@ const MonitoringAnimation = () => {
                 
                 {/* Main path */}
                 <motion.path
-                  d={`M ${conn.from.x} ${conn.from.y} Q ${(conn.from.x + conn.to.x) / 2} ${(conn.from.y + conn.to.y) / 2 - 25} ${conn.to.x} ${conn.to.y}`}
+                  d={pathData}
                   fill="none"
                   stroke={hasError ? "url(#errorGradient)" : "url(#connectionGradient)"}
                   strokeWidth={isActive ? 4 : 1.5}
@@ -479,7 +483,7 @@ const MonitoringAnimation = () => {
                             dur="3s"
                             repeatCount="indefinite"
                             begin={`${delay * 3}s`}
-                            path={`M ${conn.from.x} ${conn.from.y} Q ${(conn.from.x + conn.to.x) / 2} ${(conn.from.y + conn.to.y) / 2 - 25} ${conn.to.x} ${conn.to.y}`}
+                            path={pathData}
                           />
                           <animate
                             attributeName="r"
