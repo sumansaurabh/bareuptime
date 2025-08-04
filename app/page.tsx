@@ -479,7 +479,7 @@ export default function HomePage() {
               </div>
             </div>
             
-            <div className="md:w-1/2 relative hidden md:block">
+            <div className="lg:w-1/2 relative hidden lg:block">
               <MonitoringAnimation />
               
               {/* Background decorations - Optimized */}
