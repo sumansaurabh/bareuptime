@@ -19,6 +19,11 @@ const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   ssr: false
 })
 
+const MonitoringAnimation = dynamic(() => import('@/components/MonitoringAnimation'), {
+  loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
+  ssr: false
+})
+
 // Custom Activity Icon to replace Shield - Memoized for performance
 const ActivityIcon = memo(({ className }: { className?: string }) => (
   <svg 
@@ -433,7 +438,10 @@ export default function HomePage() {
               </h1>
 
               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> for basic uptime features that should be affordable to everyone?
+                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> ?
+              </p>
+               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
+                Our solution is provides practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
               </p>
               
               <div className="flex items-center gap-3 mb-6">
@@ -472,7 +480,7 @@ export default function HomePage() {
             </div>
             
             <div className="md:w-1/2 relative">
-              <DashboardMockup />
+              <MonitoringAnimation />
               
               {/* Background decorations - Optimized */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl will-change-transform"></div>
