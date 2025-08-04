@@ -19,6 +19,11 @@ const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   ssr: false
 })
 
+const MonitoringAnimation = dynamic(() => import('@/components/MonitoringAnimation'), {
+  loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
+  ssr: false
+})
+
 // Custom Activity Icon to replace Shield - Memoized for performance
 const ActivityIcon = memo(({ className }: { className?: string }) => (
   <svg 
@@ -472,7 +477,7 @@ export default function HomePage() {
             </div>
             
             <div className="md:w-1/2 relative">
-              <DashboardMockup />
+              <MonitoringAnimation />
               
               {/* Background decorations - Optimized */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl will-change-transform"></div>
