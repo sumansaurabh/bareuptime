@@ -13,6 +13,7 @@ import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
 import { trackWithSource } from '@/components/google-analytics'
+import FeaturesDropdown from '@/components/FeaturesDropdown'
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
@@ -359,16 +360,7 @@ export default function HomePage() {
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
             <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">
-              <button 
-                onClick={() => {
-                  smoothScrollTo('features');
-                  trackWithSource.navigation('features', 'header_nav');
-                }} 
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
-                aria-label="Navigate to Features section"
-              >
-                Features
-              </button>
+              <FeaturesDropdown />
               <button 
                 onClick={() => {
                   smoothScrollTo('pricing');
