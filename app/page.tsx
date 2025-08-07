@@ -176,6 +176,13 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * Main component for the BareUptime application, responsible for rendering the entire UI and managing global state.
+ *
+ * @component
+ * @param {object} props - Component properties.
+ * @returns {JSX.Element} The main layout with header, content sections, and footer.
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
