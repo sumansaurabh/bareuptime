@@ -7,6 +7,21 @@ import { Shield, Activity, Mail, MessageSquare, Smartphone, Zap, AlertTriangle, 
 // import Particles from "@tsparticles/react"
 // import { loadSlim } from "tsparticles"
 
+/**
+ * A highly advanced React component that renders a visually complex network diagram with interactive elements.
+ *
+ * The NetworkDiagram component features:
+ * - Nodes representing various system components, each with different states (active, inactive, error).
+ * - Connections between nodes indicating relationships or data flow, with varying styles based on the connection state.
+ * - Floating labels for nodes to identify their purpose or status.
+ * - An active live indicator at the bottom of the diagram.
+ * - Smooth animations and transitions using Framer Motion for interactive elements.
+ *
+ * The component is designed to be highly customizable and can be extended to include additional features such as real-time data updates, user interactions, and more sophisticated network topology.
+ *
+ * @param {Object} props - Component properties.
+ * @returns {JSX.Element} A JSX element representing the NetworkDiagram.
+ */
 const MonitoringAnimation = () => {
   const [activeConnections, setActiveConnections] = useState<Set<string>>(new Set())
   const [nodeStates, setNodeStates] = useState<Record<string, string>>({})
@@ -37,6 +52,9 @@ const MonitoringAnimation = () => {
   })
 
   useEffect(() => {
+    /**
+     * Executes an animation sequence to update node states and metrics over time.
+     */
     const runAnimation = () => {
       // Reset
       setActiveConnections(new Set())
@@ -135,6 +153,16 @@ const MonitoringAnimation = () => {
     { id: 'mobile', x: 520, y: 320, icon: Smartphone, label: 'Mobile', color: 'pink', size: 'normal' },
   ]
 
+  /**
+   * Retrieves the variant styles for a node based on its color and state.
+   *
+   * The function first maps colors to their respective style variants. If the provided color is not found,
+   * it defaults to the blue style. If the state is either 'error' or 'alert', it overrides the color styles
+   * with red-themed styles.
+   *
+   * @param color - The color of the node, which determines its background, border, and glow styles.
+   * @param state - The state of the node, which can affect its styling, particularly if it's 'error' or 'alert'.
+   */
   const getNodeVariants = (color: string, state: string) => {
     const colors = {
       emerald: { bg: 'from-emerald-500/20 to-emerald-600/30', border: 'border-emerald-400/60', glow: 'shadow-emerald-500/20' },
@@ -154,6 +182,17 @@ const MonitoringAnimation = () => {
     return baseStyle
   }
 
+  /**
+   * Determines the icon color based on the provided state and default color.
+   *
+   * This function uses a switch statement to match the input state against predefined cases,
+   * returning the corresponding CSS class for the icon color. If the state does not match any case,
+   * it returns a default CSS class.
+   *
+   * @param state - A string representing the current state of the icon.
+   * @param defaultColor - A string representing the default color to be used if the state is 'success'.
+   * @returns A CSS class string for the icon color based on the input state and default color.
+   */
   const getIconColor = (state: string, defaultColor: string) => {
     switch (state) {
       case 'monitoring': return 'text-blue-400'
@@ -166,6 +205,16 @@ const MonitoringAnimation = () => {
   }
 
   // Create custom shapes for background elements
+  /**
+   * Renders a shape based on the provided type and size.
+   *
+   * This function uses a switch statement to determine which shape to render.
+   * It returns a JSX element with specific styling applied to each shape.
+   * If an unsupported shape is provided, it defaults to rendering a circle.
+   *
+   * @param {string} shape - The type of shape to render ('circle', 'square', or 'hexagon').
+   * @param {number} size - The size of the shape (currently not used in rendering).
+   */
   const renderShape = (shape: string, size: number) => {
     switch (shape) {
       case 'circle':
