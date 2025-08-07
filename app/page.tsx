@@ -343,13 +343,7 @@ export default function HomePage() {
 
     <main className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950 will-change-scroll" itemScope itemType="https://schema.org/WebPage">
       {/* Launch Banner - Optimized */}
-      <aside className="w-full bg-gradient-to-r from-green-600 to-emerald-600 py-2 px-4 text-center relative overflow-hidden will-change-transform" role="banner" aria-label="Launch announcement">
-        <div className="relative flex items-center justify-center gap-2 text-white font-medium">
-          <div className="w-2 h-2 bg-white rounded-full opacity-80" aria-hidden="true"></div>
-          <span className="text-sm">🎉 BareUptime is now LIVE! Start monitoring your services today.</span>
-          <div className="w-2 h-2 bg-white rounded-full opacity-80" aria-hidden="true"></div>
-        </div>
-      </aside>
+     
       
       {/* Enterprise Navigation Bar - Optimized */}
       <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg will-change-transform">
