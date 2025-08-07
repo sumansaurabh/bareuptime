@@ -176,6 +176,14 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * The main component for rendering the landing page of the uptime monitoring service.
+ *
+ * This component includes sections such as a header, hero banner, about section,
+ * and footer. It also handles user input for joining the waitlist through a form.
+ *
+ * @component
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
