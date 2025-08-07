@@ -177,7 +177,7 @@ export default function FeaturesDropdown() {
               })}
             </div>
             
-            <div className="border-t border-white/10 mt-3 pt-3">
+            <div className="border-t border-white/10 mt-3 pt-3 space-y-1">
               <Link
                 href="/features"
                 className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-lg transition-colors"
@@ -187,6 +187,19 @@ export default function FeaturesDropdown() {
                 }}
               >
                 View All Features
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link
+                href="/enterprise"
+                className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors"
+                onClick={() => {
+                  trackWithSource.navigation('enterprise_features', 'features_dropdown');
+                  setIsOpen(false);
+                }}
+              >
+                Enterprise Solutions
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

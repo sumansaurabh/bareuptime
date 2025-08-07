@@ -371,6 +371,13 @@ export default function HomePage() {
               >
                 Pricing
               </button>
+              <a 
+                href="/enterprise"
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
+                onClick={() => trackWithSource.navigation('enterprise', 'header_nav')}
+              >
+                Enterprise
+              </a>
               <button 
                 onClick={() => {
                   smoothScrollTo('about');
