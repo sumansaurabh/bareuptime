@@ -185,32 +185,38 @@ export default function HomePage() {
   const [repoData, setRepoData] = useState<{ watchers: number, forks: number } | null>(null)
   const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
 
-  // Optimized script loading with error handling
+  // TMS Chat Widget with optimized script loading
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const loadScript = () => {
+    const loadTMSChat = () => {
+      // Set up TMS Chat configurationpp
+      window.TMSChatConfig = {
+        widgetId: 'e338f50a-1304-482d-ad13-80282f45280e',
+        domain: 'bareuptime.co'
+      };
+
       const script = document.createElement("script")
-      script.src = "https://embed.tawk.to/685acae35dc248190eead5f8/1iuhah2s1"
+      script.src = "https://cdn.jsdelivr.net/npm/@taral/web-chat@latest/dist/chat-widget.js"
       script.async = true
-      script.charset = "UTF-8"
-      script.setAttribute("crossorigin", "*")
       script.defer = true // Use defer for better performance
       
       // Add error handling
-      script.onerror = () => console.warn('Failed to load chat script')
+      script.onerror = () => console.warn('Failed to load TMS chat script')
       
-      document.body.appendChild(script)
+      document.head.appendChild(script)
       
       return () => {
         if (script.parentNode) {
           script.parentNode.removeChild(script)
         }
+        // Clean up global config
+        delete window.TMSChatConfig
       }
     }
 
     // Defer script loading to avoid blocking
-    const timeoutId = setTimeout(loadScript, 1000)
+    const timeoutId = setTimeout(loadTMSChat, 1000)
     
     return () => {
       clearTimeout(timeoutId)
@@ -438,10 +444,10 @@ export default function HomePage() {
               </h1>
 
               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> ?
+                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> at 240$ a year?
               </p>
                <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Our solution is provides practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
+                We have built cost-effective uptime monitor for 15$ a year. It's practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
               </p>
               
               <div className="flex items-center gap-3 mb-6">
