@@ -6,6 +6,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 
+/**
+ * Renders the Status Pages Blog component.
+ */
 export default function StatusPagesBlog() {
   return (
     <div className="min-h-screen bg-black text-white">
