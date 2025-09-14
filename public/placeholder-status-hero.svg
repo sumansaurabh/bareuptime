@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" fill="none">
+  <rect width="1200" height="400" rx="16" fill="#0b1220" />
+  <rect x="28" y="28" width="1144" height="84" rx="12" fill="#0f1724" />
+  <text x="56" y="78" fill="#c7d2fe" font-size="28" font-family="Inter, Arial, sans-serif">
+    Status Pages — Make Reliability Visible
+  </text>
+
+  <!-- First box -->
+  <rect x="28" y="130" width="520" height="220" rx="12" fill="#081024" />
+
+  <!-- Second box background -->
+  <rect x="568" y="130" width="600" height="220" rx="12" fill="#071826" />
+  <!-- PNG on top -->
+  <image 
+    x="568" 
+    y="130" 
+    width="600" 
+    height="220" 
+    href="./status-hero.png" 
+    preserveAspectRatio="xMidYMid slice" />
+
+  <text x="56" y="180" fill="#94a3b8" font-size="16">Overall Status</text>
+  <text x="56" y="210" fill="#fff" font-size="28" font-weight="700">All Systems Operational</text>
+</svg>

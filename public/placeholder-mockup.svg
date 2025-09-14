@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" fill="none">
+  <rect width="1000" height="300" rx="12" fill="#071226" />
+  <g transform="translate(20,20)">
+    <rect width="300" height="120" rx="10" fill="#0b1220" />
+    <rect x="320" width="300" height="120" rx="10" fill="#0b1220" />
+    <rect x="640" width="300" height="120" rx="10" fill="#0b1220" />
+    <g transform="translate(0,140)">
+      <rect width="960" height="120" rx="10" fill="#071826" />
+      <text x="20" y="28" fill="#94a3b8" font-size="14">Compact uptime bars (7 days)</text>
+    </g>
+  </g>
+</svg>

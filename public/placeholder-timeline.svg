@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="120" viewBox="0 0 800 120" fill="none">
+  <rect width="800" height="120" rx="10" fill="#071226" />
+  <g transform="translate(20,20)">
+    <!-- 10 bars -->
+    <g fill="#10b981">
+      <rect x="0" y="20" width="28" height="60" rx="4" />
+    </g>
+    <g fill="#f59e0b">
+      <rect x="38" y="28" width="28" height="52" rx="4" />
+    </g>
+    <g fill="#ef4444">
+      <rect x="76" y="44" width="28" height="36" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="114" y="10" width="28" height="70" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="152" y="16" width="28" height="64" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="190" y="8" width="28" height="72" rx="4" />
+    </g>
+    <g fill="#f59e0b">
+      <rect x="228" y="32" width="28" height="48" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="266" y="12" width="28" height="68" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="304" y="6" width="28" height="74" rx="4" />
+    </g>
+    <g fill="#10b981">
+      <rect x="342" y="22" width="28" height="58" rx="4" />
+    </g>
+  </g>
+</svg>

@@ -20,6 +20,18 @@ export default function BlogsPage() {
       tags: ['Industry Analysis', 'Startup Tools', 'Cost Comparison'],
       image: '/placeholder.jpg'
     },
+    {
+      id: 'status-pages',
+      title: 'Status Pages: Make Reliability Visible',
+      excerpt: 'Public, shareable status pages that give your customers a single source of truth during incidents.',
+      author: 'BareUptime Team',
+      publishDate: 'September 14, 2025',
+      readTime: '3 min read',
+      category: 'Product Update',
+      featured: false,
+      tags: ['Status Pages', 'Product', 'Transparency'],
+      image: '/placeholder-status-hero.svg'
+    },
     // Additional blog posts can be added here
   ]
 
@@ -66,7 +78,7 @@ export default function BlogsPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid gap-8">
             {blogPosts.map((post) => (
-              <Card key={post.id} className={`relative bg-black/60 backdrop-blur-xl border border-white/10 shadow-2xl transition-all duration-500 hover:translate-y-[-4px] rounded-2xl overflow-hidden group hover:border-indigo-500/30 ${post.featured ? 'lg:col-span-2' : ''}`}>
+              <Card key={post.id} className={`relative bg-black/60 backdrop-blur-xl border border-white/10 shadow-2xl transition-all duration-500 hover:translate-y-[-4px] rounded-2xl overflow-hidden group hover:border-indigo-500/30 ${post.featured ? 'lg:col-span-1' : ''}`}>
                 <div className="h-1 bg-gradient-to-r from-indigo-500 to-purple-500 w-full"></div>
                 <CardContent className="p-8">
                   <div className="grid lg:grid-cols-3 gap-8">
@@ -116,7 +128,7 @@ export default function BlogsPage() {
                     </div>
                     
                     {/* Stats Preview */}
-                    <div className="space-y-4">
+                    {/* <div className="space-y-4">
                       <h3 className="text-lg font-semibold text-white mb-4">Key Insights</h3>
                       <div className="space-y-4">
                         <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 rounded-xl p-4 border border-red-500/20">
@@ -143,7 +155,7 @@ export default function BlogsPage() {
                           <p className="text-slate-300 text-sm">95% cost reduction vs enterprise solutions</p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </CardContent>
               </Card>
