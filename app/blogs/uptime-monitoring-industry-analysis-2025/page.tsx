@@ -147,7 +147,7 @@ export default function UptimeMonitoringAnalysis2025() {
                   <div>
                     <h3 className="text-xl font-semibold text-green-400 mb-2">Startup-Friendly Pricing</h3>
                     <p className="text-slate-300 leading-relaxed">
-                      At $15/year, we provide enterprise-grade monitoring at 95% less cost than competitors. Our free tier offers 50 monitors compared to industry standard of 3-10, giving startups room to grow without immediate pressure to upgrade.
+                      At $50/year, we provide enterprise-grade monitoring at 95% less cost than competitors. Our free tier offers 50 monitors compared to industry standard of 3-10, giving startups room to grow without immediate pressure to upgrade.
                     </p>
                   </div>
                 </div>
@@ -217,7 +217,7 @@ export default function UptimeMonitoringAnalysis2025() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Paid Plan:</span>
-                      <span className="text-green-400 font-bold">$15/year</span>
+                      <span className="text-green-400 font-bold">$50/year</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Mobile Apps:</span>

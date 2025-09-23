@@ -259,7 +259,7 @@ export default function FeaturesPage() {
         <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-2xl p-8 text-center border border-white/10">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Monitoring?</h2>
           <p className="text-xl text-slate-300 mb-6">
-            Get all these features for just <span className="text-blue-400 font-bold">$15/year</span>
+            Get all these features for just <span className="text-blue-400 font-bold">$50/year</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="https://app.bareuptime.co" target="_blank">

@@ -59,7 +59,7 @@ You may not:
 
 ### 6.1 Service Plans
 - **Free Plan:** Up to 50 monitors with basic features
-- **Paid Plans:** Starting at $15/year with additional features and monitors
+- **Paid Plans:** Starting at $50/year with additional features and monitors
 - Plan details and current pricing available at https://bareuptime.co
 
 ### 6.2 Payment Terms

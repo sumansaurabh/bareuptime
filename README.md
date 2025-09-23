@@ -33,11 +33,11 @@ For something that costs less than cents to run, it's absurd.
 
 - No support for SMS and Call Notifications — yet.
 - No dashboards. Just a UI to update your profile and add health check endpoints.
-- Expected Pricing: **$15 per year** instead of $10 per month. Why? Check below.
+- Expected Pricing: **$50 per year** instead of $10 per month. Why? Check below.
 
 ---
 
-### 3. **Why it's priced at $15/year**
+### 3. **Why it's priced at $50/year**
 
 This isn’t VC-backed bloatware. It's a minimal service with just enough reliability and scale to serve 10,000+ users without wasting infrastructure.
 
@@ -51,21 +51,21 @@ Every part of this system is self-hosted to stay cost-efficient, scalable, and u
 | Monitoring & Logs (Optional)| 1              | 24 vCPU, 8 GB RAM            | Hetzner VPS                       | $12.00        |
 | DNS + SSL                   | 1 domain       | Certbot + Namecheap         | Self-managed                      | $1.00        |
 | Backups (DB, Queue, Logs)   | ~50–100 GB     | B2 or Bunny CDN             | Cloud Storage                     | $2.00        |
-| Email Alerts (SMTP Infra)   | transactional  | ~5K–10K emails/month        | SendGrid / Postmark               | $15.00        |
+| Email Alerts (SMTP Infra)   | transactional  | ~5K–10K emails/month        | SendGrid / Postmark               | $50.00        |
 | **Subtotal: Infra + Ops**   |                |                             |                                   | **$146.00**  |
 
 | Component                   | Quantity       | Specs                      | Provider                          | Monthly Cost |
 |-----------------------------|----------------|-----------------------------|-----------------------------------|--------------|
 | Apple Developer Program     | 1              | $99/year                    | Apple                             | $8.25        |
-| Google Play Dev Account     | one-time       | $25 (absorbed)              | Google                            | $0.00        |
-| Payment Gateway Fees        | -              | ~2.9% + $0.30 per txn       | Stripe / PayPal                   | ~$25.00      |
+| Google Play Dev Account     | one-time       | $50(absorbed)              | Google                            | $0.00        |
+| Payment Gateway Fees        | -              | ~2.9% + $0.30 per txn       | Stripe / PayPal                   | ~$50.00      |
 | Estimated Taxes             | ~15% of gross  | Infra + income + processing | Govt. + SaaS locality             | $17.50       |
 | **Subtotal: Overhead**      |                |                             |                                   | **$50.75**   |
 
 | **Total Monthly Cost**      |                |                             |                                   | **$196.75**  |
 
 Serving 10,00 users at this cost means **~$0.1965 per user/month**.  
-Rounding to **$15/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
+Rounding to **$50/year** includes buffer for unexpected load, failed payments, refunds, and my own maintenance time — while staying radically cheaper than the industry average of $10/month per user.
 
 ---
 

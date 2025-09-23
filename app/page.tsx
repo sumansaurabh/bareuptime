@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
 import { trackWithSource } from '@/components/google-analytics'
 import FeaturesDropdown from '@/components/FeaturesDropdown'
+import { Cancel } from "@radix-ui/react-alert-dialog"
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
@@ -92,14 +93,14 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
   "url": "https://bareuptime.co",
   "mainEntity": {
     "@type": "SoftwareApplication",
     "name": "BareUptime",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android", 
-    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $15/year.",
+    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $50/year.",
     "offers": {
       "@type": "Offer",
       "price": "15.00",
@@ -122,7 +123,7 @@ const structuredData = {
       "Webhook integrations for custom workflows",
       "Discord, Slack, and Teams notifications",
       "Global monitoring network with 99.9% uptime",
-      "Affordable pricing at $15/year vs $180+/year competitors"
+      "Affordable pricing at $50/year vs $180+/year competitors"
     ],
     "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
     "downloadUrl": "https://app.bareuptime.co",
@@ -154,7 +155,7 @@ const faqStructuredData = {
       "name": "How much does BareUptime cost compared to competitors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BareUptime costs only $15/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
+        "text": "BareUptime costs only $50/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
       }
     },
     {
@@ -313,14 +314,14 @@ export default function HomePage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
           "url": "https://bareuptime.co",
           "mainEntity": {
             "@type": "SoftwareApplication",
             "name": "BareUptime",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web, iOS, Android",
-            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $15/year.",
+            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $50/year.",
             "offers": {
               "@type": "Offer",
               "price": "15.00",
@@ -444,10 +445,10 @@ export default function HomePage() {
               </h1>
 
               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> at 240$ a year?
+                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> at 360$ a year?
               </p>
                <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                We have built cost-effective uptime monitor for 15$ a year. It's practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
+                We have built cost-effective uptime monitor for 50$ a year. It's practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
               </p>
               
               <div className="flex items-center gap-3 mb-6">
@@ -590,7 +591,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-lg px-6 py-4">
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400 font-medium">BareUptime Pricing:</span>
-                  <span className="text-white font-bold text-xl">$15/year</span>
+                  <span className="text-white font-bold text-xl">$50/year</span>
                 </div>
                 <div className="w-px h-6 bg-white/20"></div>
                 <span className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-medium">98% savings</span>
@@ -664,13 +665,13 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">50</span>
+                              <span className="font-bold text-emerald-400 text-lg">10</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">200 </span>
+                              <span className="font-bold text-indigo-400 text-lg">50 </span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -862,6 +863,31 @@ export default function HomePage() {
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <Code className="w-4 h-4 text-blue-400 mr-3" />
+                            MCP Support
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
+                              <span className="font-bold text-emerald-400">Yes</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
+                              <span className="font-bold text-indigo-400">Yes</span>
+                            </div>
+                          </td>
+                          <td className="py-5 px-6 text-center">
+                            <div className="flex items-center justify-center">
+                              <X className="w-5 h-5 text-red-400 mr-2" />
+                              <span className="font-bold text-red-400">No</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                          <td className="py-5 px-6 font-medium flex items-center">
+                            <Code className="w-4 h-4 text-blue-400 mr-3" />
                             Setup Complexity
                           </td>
                           <td className="py-5 px-6 text-center">
@@ -915,19 +941,19 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">99.6% SLA</span>
+                              <span className="font-bold text-emerald-400">99.9% SLA</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
                               <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">99.8% SLA</span>
+                              <span className="font-bold text-indigo-400">99.9% SLA</span>
                             </div>
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold">99.1% SLA</span>
+                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
+                              <span className="font-bold text-yellow-400">99.6% SLA</span>
                             </div>
                           </td>
                         </tr>
@@ -947,7 +973,7 @@ export default function HomePage() {
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-indigo-400">$15 / Year</span>
+                              <span className="text-3xl font-bold text-indigo-400">$50 / Year</span>
                               <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 mt-2 text-xs">Enterprise Features</Badge>
                             </div>
                           </td>
@@ -1145,7 +1171,7 @@ export default function HomePage() {
                     <div className="mt-4 mb-6">
                       <div className="flex items-center justify-center mb-3">
                         <DollarSign className="w-8 h-8 text-green-400 mr-1" />
-                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">15</span>
+                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">50</span>
                       </div>
                       <div className="text-2xl font-semibold text-slate-200 mb-3">per year</div>
                       <div className="flex items-center justify-center gap-3 text-sm">

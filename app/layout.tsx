@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
     template: '%s | BareUptime'
   },
-  description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.',
+  description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.',
   keywords: [
     'uptime monitoring',
     'website monitoring',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: 'https://bareuptime.co',
     siteName: 'BareUptime',
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors.',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors.',
     images: [
       {
         url: '/og-image.png',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $15/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
     images: ['/og-image.png'],
     creator: '@sumansaurabh',
   },
