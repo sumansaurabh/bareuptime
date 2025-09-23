@@ -700,8 +700,8 @@ export default function HomePage() {
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">Head</span>
+                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
+                              <span className="font-mono text-yellow-400">Head</span>
                             </div>
                           </td>
                         </tr>
@@ -777,8 +777,8 @@ export default function HomePage() {
                           </td>
                           <td className="py-5 px-6 text-center">
                             <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">USA</span>
+                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
+                              <span className="font-bold text-yellow-400">USA</span>
                             </div>
                           </td>
                         </tr>
@@ -853,8 +853,8 @@ export default function HomePage() {
                           <td className="py-5 px-6 text-center">
                             <div className="flex flex-col items-center gap-2">
                               <div className="flex items-center justify-center">
-                                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                                <span className="text-green-400">Email and Phone</span>
+                                <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
+                                <span className="text-yellow-400">Email and Phone</span>
                               </div>
                             </div>
                           </td>
