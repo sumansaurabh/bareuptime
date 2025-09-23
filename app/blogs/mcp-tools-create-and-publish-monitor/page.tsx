@@ -6,6 +6,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 
+/**
+ * Renders the MCP Tools blog page.
+ */
 export default function MCPToolsBlog() {
   return (
     <div className="min-h-screen bg-black text-white">
