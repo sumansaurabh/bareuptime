@@ -21,6 +21,18 @@ export default function BlogsPage() {
       image: '/placeholder.jpg'
     },
     {
+      id: 'mcp-tools-create-and-publish-monitor',
+      title: 'MCP Tools: Streamlining Monitor Creation with create_and_publish_monitor',
+      excerpt: 'Explore how BareUptime\'s Model Context Protocol (MCP) integration simplifies monitor creation and status page publishing in a single, powerful operation.',
+      author: 'BareUptime Team',
+      publishDate: 'September 23, 2025',
+      readTime: '6 min read',
+      category: 'Technical Deep Dive',
+      featured: false,
+      tags: ['MCP', 'Automation', 'AI Integration', 'Developer Tools'],
+      image: '/placeholder.jpg'
+    },
+    {
       id: 'status-pages',
       title: 'Status Pages: Make Reliability Visible',
       excerpt: 'Public, shareable status pages that give your customers a single source of truth during incidents.',
