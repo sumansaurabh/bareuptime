@@ -185,6 +185,9 @@ export default function HomePage() {
   const [messageType, setMessageType] = useState<"success" | "error" | "">("")
   const [repoData, setRepoData] = useState<{ watchers: number, forks: number } | null>(null)
   const [isLoadingRepoData, setIsLoadingRepoData] = useState(true)
+  const [monitorUrl, setMonitorUrl] = useState("")
+  const [monitorStatus, setMonitorStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [monitorMessage, setMonitorMessage] = useState("")
 
   // TMS Chat Widget with optimized script loading
   useEffect(() => {
@@ -260,6 +263,57 @@ export default function HomePage() {
     const timeoutId = setTimeout(fetchRepoData, 500)
     return () => clearTimeout(timeoutId)
   }, [fetchRepoData])
+
+  const handleMonitorSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!monitorUrl.trim()) {
+      setMonitorStatus("error")
+      setMonitorMessage("Add the site or API you want to monitor.")
+      return
+    }
+
+    try {
+      const parsed = new URL(monitorUrl.trim())
+      if (!parsed.protocol.startsWith("http")) {
+        throw new Error()
+      }
+    } catch {
+      setMonitorStatus("error")
+      setMonitorMessage("Use a full URL including https://")
+      return
+    }
+
+    setMonitorStatus("loading")
+    setMonitorMessage("")
+
+    try {
+      const response = await fetch("/api/monitors-public", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: monitorUrl.trim() }),
+      })
+
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.error || "We could not create that monitor just yet.")
+      }
+
+      const monitorPublicUrl = `https://app.bareuptime.co/status/url/${data.id || ''}`
+      window.open(monitorPublicUrl, '_blank')
+      setMonitorStatus("success")
+      setMonitorMessage(`We're on it. BareUptime just started monitoring that endpoint for you. Here is your status page: ${monitorPublicUrl}`)
+      setMonitorUrl("")
+      trackWithSource.ctaClick('create_monitor', 'hero_monitor_form')
+    } catch (error: unknown) {
+      console.error("monitor creation failed", error)
+      setMonitorStatus("error")
+      setMonitorMessage(error instanceof Error ? error.message : "Something went wrong. Try again in a moment.")
+    }
+  }, [monitorUrl, trackWithSource])
 
   // Memoized form submission handler
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -430,71 +484,79 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:60px_60px] opacity-20" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
-            <div className="md:w-1/2 text-left">
-              <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-500/20 shadow-lg shadow-green-500/5">
-                <CheckCircle className="w-4 h-4" />
-                <span className="font-semibold">Now Live & Monitoring</span>
+          <div className="grid items-center gap-12 py-16 md:grid-cols-[1.05fr_minmax(0,1fr)]">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-slate-200">
+                <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                Monitoring teams before demo day
+              </div>
+              <div>
+                <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
+                  Ship uptime alerts before investors ask.
+                </h1>
+                <p className="mt-4 max-w-xl text-lg text-slate-300">
+                  Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.
+                </p>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Startup-Grade
-                <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mt-1">
-                  Uptime Monitoring
-                </span>
-              </h1>
+              <form id="hero-monitor-form" onSubmit={handleMonitorSubmit} className="space-y-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Input
+                    type="url"
+                    value={monitorUrl}
+                    onChange={(event) => setMonitorUrl(event.target.value)}
+                    placeholder="https://yourstartup.com"
+                    className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-blue-500"
+                    aria-label="URL to monitor"
+                  />
+                  <Button
+                    type="submit"
+                    disabled={monitorStatus === "loading"}
+                    className="h-12 min-w-[160px] bg-blue-600 text-base font-semibold transition hover:bg-blue-500 disabled:cursor-wait"
+                  >
+                    {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
+                  </Button>
+                </div>
+                <p className="text-sm text-slate-400">
+                  Free public monitor. Upgrade later for advanced routing and escalations.
+                </p>
+                {monitorStatus !== "idle" && monitorMessage && (
+                  <div
+                    className={`text-sm font-medium ${monitorStatus === "success" ? "text-emerald-300" : "text-red-300"}`}
+                    role={monitorStatus === "success" ? "status" : "alert"}
+                  >
+                    {monitorMessage}
+                  </div>
+                )}
+              </form>
 
-              <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                Why Uptime Monitors are  <span className="text-red-400 font-bold">ridiculously priced</span> at 360$ a year?
-              </p>
-               <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed font-light">
-                We have built cost-effective uptime monitor for 50$ a year. It's practically free service that doesn't compromise on quality. We will earn from white-labeling and custom integrations.
-              </p>
-              
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-md text-sm">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Practically free</span>
+              <div className="flex flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-300" />
+                  One-minute global pings
                 </div>
-                <div className="flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-md text-sm">
-                  <Server className="w-4 h-4" />
-                  <span>Startup Focussed</span>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-300" />
+                  On-call mobile apps included
                 </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <a 
-                  href="https://app.bareuptime.co" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={() => trackWithSource.ctaClick('start_monitoring', 'hero_section')}
-                >
-                  <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 text-lg">
-                    Start Monitoring Now
-                  </Button>
-                </a>
-                <a 
-                  href="https://api.bareuptime.co/demo" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={() => trackWithSource.ctaClick('view_demo', 'hero_section')}
-                >
-                  <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
-                    Live Demo
-                  </Button>
-                </a>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-300" />
+                  $50/year flat
+                </div>
               </div>
             </div>
-            
-            <div className="lg:w-1/2 relative hidden lg:block">
-              <MonitoringAnimation />
-              
-              {/* Background decorations - Optimized */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/30 rounded-full blur-xl will-change-transform"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl will-change-transform"></div>
+
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-slate-900/0 blur-3xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-2xl">
+                <MonitoringAnimation />
+              </div>
             </div>
           </div>
-
+        </div>
+      </section>
+      <section className="relative overflow-hidden pt-24 pb-16">
+        <div className="relative max-w-7xl mx-auto px-4">
           {/* Problem Statement */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="text-center mb-8">
