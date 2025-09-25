@@ -1,5 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+/**
+ * Handles the POST request to create a monitor with a specified URL.
+ *
+ * The function extracts the URL from the request body, validates its presence and format,
+ * and then forwards the request to an external API. If the API responds with an error,
+ * it throws an error. In case of any exceptions during the process, it logs the error
+ * and returns a failure response.
+ *
+ * @param request - The NextRequest object containing the request data.
+ * @returns A JSON response indicating success or failure of the monitor creation.
+ * @throws Error If the URL is missing or invalid, or if the API request fails.
+ */
 export async function POST(request: NextRequest) {
   try {
     const { url } = await request.json()
