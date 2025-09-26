@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     siteName: 'BareUptime',
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
     description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors.',
-    images: [
+        images: [
       {
-        url: '/og-image.png',
+        url: '/bareuptime-logo.svg',
         width: 1200,
         height: 630,
         alt: 'BareUptime - Enterprise-Grade Uptime Monitoring',
@@ -137,8 +137,8 @@ export default function RootLayout({
                     "@type": "ImageObject",
                     "inLanguage": "en-US",
                     "@id": "https://bareuptime.co/#/schema/logo/image/",
-                    "url": "https://bareuptime.co/placeholder-logo.svg",
-                    "contentUrl": "https://bareuptime.co/placeholder-logo.svg",
+                    "url": "https://bareuptime.co/bareuptime-logo.svg",
+                    "contentUrl": "https://bareuptime.co/bareuptime-logo.svg",
                     "width": 512,
                     "height": 512,
                     "caption": "BareUptime"
@@ -178,15 +178,15 @@ export default function RootLayout({
                     "Discord and Slack alerts",
                     "Global monitoring network"
                   ],
-                  "screenshot": "https://bareuptime.co/og-image.png"
+                  "screenshot": "https://bareuptime.co/bareuptime-logo.svg"
                 }
               ]
             })
           }}
         />
         
-        {/* Preload critical resources */}
-        <link rel="preload" href="/placeholder-logo.svg" as="image" />
+  {/* Preload critical resources */}
+  <link rel="preload" href="/bareuptime-logo.svg" as="image" />
         <link rel="preload" href="/api/health" as="fetch" crossOrigin="anonymous" />
         
         {/* DNS prefetch for external resources */}
@@ -195,9 +195,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//github.com" />
         
         {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/bareuptime-logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/bareuptime-logo.svg" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="antialiased overflow-x-hidden">

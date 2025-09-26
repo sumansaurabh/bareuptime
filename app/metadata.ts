@@ -32,19 +32,19 @@ export const metadata: Metadata = {
     siteName: 'BareUptime',
     images: [
       {
-        url: 'https://bareuptime.co/og-image.png',
+        url: 'https://bareuptime.co/bareuptime-logo.svg',
         width: 1200,
         height: 630,
       },
     ],
-    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
     description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year.',
-    images: ['https://bareuptime.co/og-image.png'],
+    images: ['https://bareuptime.co/bareuptime-logo.svg'],
+    site: '@sumansaurabh'
   },
   alternates: {
     canonical: 'https://bareuptime.co',

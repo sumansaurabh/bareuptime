@@ -411,7 +411,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
-              <ActivityIcon className="w-6 h-6 text-blue-400 mr-2" />
+              <img src="/bareuptime-logo.svg" alt="BareUptime" className="w-6 h-6 mr-2" />
               <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
             </div>
             <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">

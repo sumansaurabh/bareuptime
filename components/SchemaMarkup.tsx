@@ -104,7 +104,7 @@ export function SchemaMarkup() {
     "url": "https://bareuptime.co",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://bareuptime.co/placeholder-logo.svg",
+      "url": "https://bareuptime.co/bareuptime-logo.svg",
       "width": 512,
       "height": 512
     },
