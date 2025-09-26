@@ -177,6 +177,13 @@ const faqStructuredData = {
   ]
 }
 
+/**
+ * HomePage component that renders the main interface for the BareUptime application.
+ *
+ * This component manages various states including email input, submission status, monitoring URL, and repository data. It utilizes hooks like useEffect for side effects, such as loading the TMS Chat widget and fetching repository data from GitHub. The component also handles form submissions for monitoring URL and email subscription, providing user feedback based on the success or failure of these actions.
+ *
+ * @returns {JSX.Element} The rendered HomePage component.
+ */
 export default function HomePage() {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
