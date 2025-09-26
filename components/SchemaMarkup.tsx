@@ -1,5 +1,8 @@
 import Script from 'next/script'
 
+/**
+ * Renders structured schema markup for BareUptime including main, FAQ, and organization schemas.
+ */
 export function SchemaMarkup() {
   const mainSchema = {
     "@context": "https://schema.org",
