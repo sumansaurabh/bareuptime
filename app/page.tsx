@@ -466,13 +466,13 @@ export default function HomePage() {
                     Start Monitoring Now
                   </Button>
                 </a>
-                <a 
-                  href="https://api.bareuptime.co/demo" 
-                  target="_blank" 
+                <a
+                  href="https://api.bareuptime.co/demo"
+                  target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWithSource.ctaClick('view_demo', 'hero_section')}
                 >
-                  <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
+                  <Button variant="outline" className="w-full sm:w-auto border-blue-400/20 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
                     Live Demo
                   </Button>
                 </a>
