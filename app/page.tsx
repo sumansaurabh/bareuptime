@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, Play, X } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
@@ -512,8 +512,9 @@ export default function HomePage() {
                   <Button
                     type="submit"
                     disabled={monitorStatus === "loading"}
-                    className="h-12 min-w-[160px] bg-blue-600 text-base font-semibold transition hover:bg-blue-500 disabled:cursor-wait"
+                    className="h-12 min-w-[160px] bg-blue-600 text-base font-semibold transition hover:bg-blue-500 disabled:cursor-wait flex items-center"
                   >
+                    <Play className="w-4 h-4 mr-2" />
                     {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
                   </Button>
                 </div>
