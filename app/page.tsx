@@ -670,11 +670,10 @@ export default function HomePage() {
                 Head-to-Head Comparison
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
-                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
+                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs Industry Leaders
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                See how we compare to the most popular uptime monitoring service
+                See how we compare to Better Stack and UptimeRobot - the most popular monitoring platforms
               </p>
             </div>
 
@@ -714,6 +713,15 @@ export default function HomePage() {
                                 <span className="text-lg font-bold text-green-400">UptimeRobot</span>
                               </div>
                               <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Free Plan</Badge>
+                            </div>
+                          </th>
+                          <th className=\"text-center py-6 px-6\">
+                            <div className=\"flex flex-col items-center\">
+                              <div className=\"flex items-center gap-2 mb-2\">
+                                <div className=\"w-5 h-5 bg-orange-500 rounded-full\"></div>
+                                <span className=\"text-lg font-bold text-orange-400\">Better Stack</span>
+                              </div>
+                              <Badge className=\"bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs\">Free Plan</Badge>
                             </div>
                           </th>
                         </tr>
