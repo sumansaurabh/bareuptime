@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Globe, 
-  Shield, 
-  Clock, 
-  Activity, 
-  Lock, 
-  Smartphone, 
-  Webhook, 
-  MapPin, 
+import {
+  Globe,
+  Shield,
+  Clock,
+  Activity,
+  Lock,
+  Smartphone,
+  Webhook,
+  MapPin,
   Search,
   Server,
   AlertTriangle,
@@ -28,7 +28,8 @@ import {
   Code,
   Building,
   Star,
-  Quote
+  Quote,
+  Calendar
 } from "lucide-react";
 
 export default function EnterprisePage() {
@@ -263,6 +264,7 @@ export default function EnterprisePage() {
                 </Button>
               </Link>
               <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+                <Calendar className="w-5 h-5 mr-2" />
                 Book a Demo
               </Button>
             </div>
@@ -798,6 +800,7 @@ export default function EnterprisePage() {
               </Button>
             </Link>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+              <Calendar className="w-5 h-5 mr-2" />
               Schedule Enterprise Demo
             </Button>
           </div>
