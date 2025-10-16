@@ -471,7 +471,7 @@ export default function HomePage() {
               aria-label="Sign in to BareUptime"
               onClick={() => trackWithSource.ctaClick('sign_in', 'header')}
             >
-              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 transform hover:scale-105">
+              <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-red-500/20 transition-all duration-200 transform hover:scale-105">
                 Sign In
               </Button>
             </a>
@@ -1428,7 +1428,7 @@ export default function HomePage() {
                         <Button
                           type="submit"
                           disabled={isSubmitting || !email}
-                          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2.5 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? "Subscribing..." : "Subscribe Now"}
                         </Button>
