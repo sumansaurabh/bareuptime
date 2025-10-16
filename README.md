@@ -3,6 +3,9 @@
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://bareuptime.co)
 [![App Launch](https://img.shields.io/badge/App-Launch-green?style=for-the-badge&logo=rocket)](https://app.bareuptime.co)
 [![GitHub Stars](https://img.shields.io/github/stars/sumansaurabh/bareuptime?style=for-the-badge)](https://github.com/sumansaurabh/bareuptime)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
 > **Enterprise-grade uptime monitoring at startup prices** - Monitor your websites and APIs with 99.9% reliability for just $50/year instead of $360+/year from competitors.
 
@@ -56,6 +59,24 @@ This isn't VC-backed bloatware. Here's exactly what your $50/year covers:
 **Our price: $4.17/month ($50/year)**
 **Industry average: $30+/month**
 
+## 📊 Screenshots & Demo
+
+### 🖥️ Dashboard Preview
+![BareUptime Dashboard](https://bareuptime.co/dashboard-screenshot.png)
+*Real-time monitoring dashboard with incident timeline*
+
+### 📱 Mobile Experience
+| iOS App | Android App |
+|---------|-------------|
+| ![iOS](https://bareuptime.co/ios-preview.png) | ![Android](https://bareuptime.co/android-preview.png) |
+| *Coming Soon* | *Coming Soon* |
+
+### 🎯 Live Demo
+Try our [live demo](https://app.bareuptime.co) with the free plan:
+- Add up to 10 monitors
+- Test all notification channels
+- Experience the complete platform
+
 ## 🚀 Quick Start
 
 ### Option 1: Use Our Hosted Service
@@ -74,12 +95,33 @@ npm run dev
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
-- **UI Components**: Radix UI, shadcn/ui  
+### Frontend & UI
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript 5.8
+- **Styling**: Tailwind CSS 3.4
+- **UI Components**: Radix UI + shadcn/ui
+- **Animations**: Framer Motion
+- **Charts**: Recharts
+- **State Management**: React 19 with hooks
+
+### Backend & Database
 - **Database**: Supabase (PostgreSQL)
-- **Monitoring**: Global worker pools
-- **Notifications**: Push, Email, Webhooks, Slack, Discord
-- **Mobile Apps**: React Native (iOS & Android)
+- **API**: Next.js API Routes
+- **Authentication**: Supabase Auth
+- **File Storage**: Supabase Storage
+
+### Infrastructure & Monitoring
+- **Deployment**: Vercel
+- **Global Workers**: Distributed monitoring pools
+- **Analytics**: Vercel Analytics + Speed Insights
+- **Performance**: Optimized with React.memo, lazy loading
+
+### Integrations & Notifications
+- **Email**: SMTP providers
+- **Push Notifications**: iOS/Android native apps
+- **Chat**: Slack, Discord, Teams, Telegram
+- **Webhooks**: Custom HTTP endpoints
+- **MCP**: Model Context Protocol support
 
 ## 📋 Features
 
@@ -159,15 +201,52 @@ We welcome contributions! This project is built by developers who were tired of 
 ### Project Structure
 ```
 bareuptime/
-├── app/                 # Next.js app router
-│   ├── api/            # API routes
+├── app/                 # Next.js app router pages
+│   ├── api/            # API routes & endpoints
+│   ├── blogs/          # Blog posts & content
 │   ├── components/     # Page-specific components
-│   └── globals.css     # Global styles
+│   ├── currency-test/  # Currency testing page
+│   ├── enterprise/     # Enterprise landing page
+│   ├── features/       # Features overview page
+│   ├── privacy-policy/ # Privacy policy page
+│   ├── support/        # Support pages
+│   ├── terms-of-service/ # Terms of service page
+│   ├── layout.tsx      # Root layout component
+│   ├── page.tsx        # Homepage component
+│   ├── metadata.ts     # SEO metadata configuration
+│   ├── robots.ts       # Robots.txt configuration
+│   └── sitemap.ts      # Sitemap generation
 ├── components/         # Shared UI components
-│   └── ui/            # shadcn/ui components
+│   ├── ui/            # shadcn/ui components
+│   ├── analytics/     # Analytics tracking components
+│   ├── FeaturesDropdown.tsx # Navigation dropdown
+│   ├── MonitoringAnimation.tsx # Hero animations
+│   ├── SchemaMarkup.tsx # SEO structured data
+│   └── theme-provider.tsx # Dark/light theme
 ├── hooks/             # Custom React hooks
-├── lib/               # Utility functions
-└── public/            # Static assets
+├── lib/               # Utility functions & configs
+├── public/            # Static assets & images
+├── tailwind.config.ts # Tailwind CSS configuration
+├── next.config.mjs    # Next.js configuration
+├── package.json       # Dependencies & scripts
+└── tsconfig.json      # TypeScript configuration
+```
+
+### Available Scripts
+
+```bash
+# Development
+npm run dev          # Start development server
+pnpm dev            # Alternative with pnpm
+
+# Production
+npm run build       # Build for production
+npm run start       # Start production server
+npm run export      # Export static build
+
+# Code Quality
+npm run lint        # Run ESLint
+npm run type-check  # Run TypeScript compiler
 ```
 
 ## 🎯 Roadmap
@@ -195,6 +274,14 @@ bareuptime/
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📚 Additional Resources
+
+- 📖 **Blog**: [Latest monitoring insights and industry analysis](https://bareuptime.co/blogs)
+- 🚀 **Enterprise**: [Custom solutions for larger teams](https://bareuptime.co/enterprise)  
+- 🔧 **MCP Tools**: [Claude & ChatGPT integrations](https://bareuptime.co/blogs/mcp-tools-create-and-publish-monitor)
+- 📊 **Status Pages**: [Public monitoring pages](https://bareuptime.co/blogs/status-pages)
+- 📈 **Industry Analysis**: [2025 monitoring market trends](https://bareuptime.co/blogs/uptime-monitoring-industry-analysis-2025)
 
 ## 🙋‍♂️ Support
 
