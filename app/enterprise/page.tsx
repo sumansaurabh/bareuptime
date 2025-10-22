@@ -262,7 +262,7 @@ export default function EnterprisePage() {
                   Start Enterprise Trial
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 border border-blue-500/30 text-blue-300 hover:from-blue-600/30 hover:to-indigo-600/30 hover:border-blue-400/50 hover:text-blue-200 backdrop-blur-sm transition-all duration-200 px-8 py-4 text-lg">
                 Book a Demo
               </Button>
             </div>
@@ -797,7 +797,7 @@ export default function EnterprisePage() {
                 Start 30-Day Free Trial
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 border border-blue-500/30 text-blue-300 hover:from-blue-600/30 hover:to-indigo-600/30 hover:border-blue-400/50 hover:text-blue-200 backdrop-blur-sm transition-all duration-200 px-8 py-4 text-lg">
               Schedule Enterprise Demo
             </Button>
           </div>
