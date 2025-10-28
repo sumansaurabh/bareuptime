@@ -472,7 +472,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   onClick={() => trackWithSource.ctaClick('view_demo', 'hero_section')}
                 >
-                  <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg">
+                  <Button variant="outline" className="w-full sm:w-auto border-blue-500/40 text-blue-300 hover:bg-blue-500/20 hover:border-blue-400/60 hover:text-blue-200 font-medium py-3 px-8 rounded-lg transition-all duration-200 text-lg shadow-lg shadow-blue-500/10">
                     Live Demo
                   </Button>
                 </a>
