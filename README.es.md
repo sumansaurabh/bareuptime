@@ -203,13 +203,6 @@ Este proyecto está licenciado bajo MIT. Consulta el archivo [LICENSE](LICENSE) 
 - 🐛 **Reporte de bugs**: [GitHub Issues](https://github.com/sumansaurabh/bareuptime/issues)
 - 📚 **Documentación**: [docs.bareuptime.co](https://docs.bareuptime.co)
 
-## 🏢 Acerca de
-
-Creado por [Suman Saurabh](https://linkedin.com/in/ssumansaurabh) (ex-Microsoft, Penify), BareUptime nació de la frustración con las herramientas empresariales de monitoreo que cobran cientos de dólares por funcionalidades básicas.
-
-**Nuestra misión**: ofrecer infraestructura de monitoreo de nivel empresarial a precios amigables para startups.
-
 ---
 
 ⭐ **Si BareUptime ayuda a tu proyecto, ¡déjanos una estrella!** Ayuda a que otros desarrolladores encuentren esta solución de monitoreo rentable.
-
