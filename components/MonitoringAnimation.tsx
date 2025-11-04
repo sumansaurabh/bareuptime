@@ -3,9 +3,23 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { useSpring, animated, config } from '@react-spring/web'
-import { Shield, Activity, Mail, MessageSquare, Smartphone, Zap, AlertTriangle, Check, Lock, TrendingUp } from 'lucide-react'
+import { Shield, Activity, Mail, Smartphone, Zap, AlertTriangle, Check, Lock, TrendingUp } from 'lucide-react'
 // import Particles from "@tsparticles/react"
 // import { loadSlim } from "tsparticles"
+
+// Custom Slack Icon component - matches lucide-react icon signature
+const SlackIcon: React.FC<{ size?: number; strokeWidth?: number; className?: string }> = ({ size = 22, strokeWidth = 1.5, className = '' }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M6.527 14.514A1.973 1.973 0 0 1 4.56 16.48a1.973 1.973 0 0 1-1.967-1.967c0-1.083.884-1.966 1.967-1.966h1.967v1.967Zm.992 0c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927a1.973 1.973 0 0 1-1.967 1.966 1.973 1.973 0 0 1-1.966-1.966v-4.927ZM9.485 6.527A1.973 1.973 0 0 1 7.518 4.56a1.973 1.973 0 0 1 1.967-1.967c1.083 0 1.966.884 1.966 1.967v1.967H9.485Zm0 .992c1.083 0 1.966.883 1.966 1.966s-.883 1.967-1.966 1.967H4.558a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927ZM17.473 9.485a1.973 1.973 0 0 1 1.966-1.966 1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967h-1.966V9.485Zm-.992 0a1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967V4.558c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927ZM14.514 17.473a1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967v-1.966h1.966Zm0-.992a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927a1.973 1.973 0 0 1 1.966 1.966 1.973 1.973 0 0 1-1.966 1.967h-4.927Z"/>
+  </svg>
+)
 
 const MonitoringAnimation = () => {
   const [activeConnections, setActiveConnections] = useState<Set<string>>(new Set())
@@ -131,7 +145,7 @@ const MonitoringAnimation = () => {
     { id: 'metrics', x: 60, y: 300, icon: Activity, label: 'Site Metrics', color: 'blue', size: 'normal' },
     { id: 'bareuptime', x: 270, y: 225, icon: Activity, label: 'BareUptime', isCenter: true, color: 'purple', size: 'large' },
     { id: 'email', x: 520, y: 90, icon: Mail, label: 'Email', color: 'orange', size: 'normal' },
-    { id: 'slack', x: 520, y: 205, icon: MessageSquare, label: 'Slack', color: 'green', size: 'normal' },
+    { id: 'slack', x: 520, y: 205, icon: SlackIcon, label: 'Slack', color: 'green', size: 'normal' },
     { id: 'mobile', x: 520, y: 320, icon: Smartphone, label: 'Mobile', color: 'pink', size: 'normal' },
   ]
 
