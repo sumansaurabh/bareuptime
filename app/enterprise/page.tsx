@@ -31,6 +31,9 @@ import {
   Quote
 } from "lucide-react";
 
+/**
+ * Renders the EnterprisePage component showcasing enterprise features, integrations, testimonials, and pricing.
+ */
 export default function EnterprisePage() {
   const enterpriseFeatures = [
     {
