@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
@@ -90,6 +90,21 @@ const SlackIcon = memo(({ className }: { className?: string }) => (
 ))
 SlackIcon.displayName = 'SlackIcon'
 
+// Custom Telegram Icon
+const TelegramIcon = memo(({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+))
+TelegramIcon.displayName = 'TelegramIcon'
+
 // Optimized smooth scroll function with requestAnimationFrame
 const smoothScrollTo = (elementId: string) => {
   const element = document.getElementById(elementId)
@@ -127,7 +142,7 @@ const structuredData = {
       "Mobile push notifications for iOS and Android",
       "SSL certificate monitoring and expiration alerts",
       "Webhook integrations for custom workflows",
-      "Discord, Slack, and Teams notifications",
+      "Discord, Slack, Telegram, and Teams notifications",
       "Global monitoring network with 99.9% uptime"
     ],
     "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
@@ -378,7 +393,7 @@ export default function HomePage() {
               "Mobile push notifications for iOS and Android",
               "SSL certificate monitoring and expiration alerts",
               "Webhook integrations for custom workflows",
-              "Discord, Slack, and Teams notifications",
+              "Discord, Slack, Telegram, and Teams notifications",
               "Global monitoring network with 99.9% uptime"
             ],
             "author": {
@@ -590,7 +605,7 @@ export default function HomePage() {
                         <span>Slack</span>
                       </div>
                       <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
-                        <Send className="w-4 h-4" />
+                        <TelegramIcon className="w-4 h-4" />
                         <span>Telegram</span>
                       </div>
                       {/* <div className="flex items-center gap-2 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
@@ -869,7 +884,7 @@ export default function HomePage() {
                                   <span>Slack</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
-                                  <Send className="w-3.5 h-3.5" />
+                                  <TelegramIcon className="w-3.5 h-3.5" />
                                   <span>Telegram</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
