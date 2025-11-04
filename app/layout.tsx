@@ -11,10 +11,10 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   metadataBase: new URL('https://bareuptime.co'),
   title: {
-    default: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
+    default: 'BareUptime - Enterprise-Grade Uptime Monitoring',
     template: '%s | BareUptime'
   },
-  description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.',
+  description: 'Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
   keywords: [
     'uptime monitoring',
     'website monitoring',
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://bareuptime.co',
     siteName: 'BareUptime',
-    title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors.',
+    title: 'BareUptime - Enterprise-Grade Uptime Monitoring',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
         images: [
       {
         url: '/bareuptime-logo.svg',
@@ -66,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices',
-    description: 'Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
+    title: 'BareUptime - Enterprise-Grade Uptime Monitoring',
+    description: 'Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.',
     images: ['/og-image.png'],
     creator: '@sumansaurabh',
   },

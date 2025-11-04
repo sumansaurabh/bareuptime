@@ -86,9 +86,9 @@ export default function UptimeMonitoringAnalysis2025() {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-green-500/30">
                     <TrendingDown className="w-8 h-8 text-green-400" />
                   </div>
-                  <div className="text-4xl font-bold text-green-400 mb-2">95%</div>
-                  <div className="text-lg text-white font-medium mb-2">Cost reduction</div>
-                  <p className="text-slate-400 text-sm">BareUptime's savings compared to traditional enterprise monitoring solutions</p>
+                  <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
+                  <div className="text-lg text-white font-medium mb-2">Uptime Guarantee</div>
+                  <p className="text-slate-400 text-sm">BareUptime's reliability commitment for enterprise-grade monitoring</p>
                 </CardContent>
               </Card>
             </div>
@@ -145,9 +145,9 @@ export default function UptimeMonitoringAnalysis2025() {
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-semibold text-green-400 mb-2">Startup-Friendly Pricing</h3>
+                    <h3 className="text-xl font-semibold text-green-400 mb-2">Startup-Friendly Approach</h3>
                     <p className="text-slate-300 leading-relaxed">
-                      At $50/year, we provide enterprise-grade monitoring at 95% less cost than competitors. Our free tier offers 50 monitors compared to industry standard of 3-10, giving startups room to grow without immediate pressure to upgrade.
+                      We provide enterprise-grade monitoring with accessibility in mind. Our free tier offers 50 monitors compared to industry standard of 3-10, giving startups room to grow without immediate pressure to upgrade.
                     </p>
                   </div>
                 </div>
@@ -216,8 +216,8 @@ export default function UptimeMonitoringAnalysis2025() {
                       <span className="text-green-400 font-bold">50</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-400">Paid Plan:</span>
-                      <span className="text-green-400 font-bold">$50/year</span>
+                      <span className="text-slate-400">Premium Features:</span>
+                      <span className="text-green-400 font-bold">Available</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Mobile Apps:</span>

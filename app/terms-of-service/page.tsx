@@ -123,8 +123,8 @@ export default function TermsOfService() {
             <h3 className="text-xl font-semibold text-white mt-6 mb-3">6.1 Service Plans</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Free Plan:</strong> Up to 50 monitors with basic features</li>
-              <li><strong>Paid Plans:</strong> Starting at $50/year with additional features and monitors</li>
-              <li>Plan details and current pricing available at https://bareuptime.co</li>
+              <li><strong>Premium Plans:</strong> Additional features and monitors available</li>
+              <li>Plan details available at https://bareuptime.co</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-white mt-6 mb-3">6.2 Payment Terms</h3>

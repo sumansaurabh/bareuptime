@@ -164,7 +164,7 @@ export default function BlogsPage() {
                             <Activity className="w-5 h-5 text-green-400" />
                             <span className="text-green-400 font-semibold">BareUptime Edge</span>
                           </div>
-                          <p className="text-slate-300 text-sm">95% cost reduction vs enterprise solutions</p>
+                          <p className="text-slate-300 text-sm">Efficient, enterprise-grade monitoring solution</p>
                         </div>
                       </div>
                     </div> */}

@@ -25,6 +25,15 @@ export default function FeaturesPage() {
   const features = [
     {
       icon: Globe,
+      title: "Create Monitors using API",
+      description: "Create Monitors for your AI apps and et instant alerts when your services go down.",
+      category: "Uptime monitoring",
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/10",
+      features: ["API Support", "Status code validation", "Custom headers support"]
+    },
+    {
+      icon: Globe,
       title: "Website & Endpoint Monitoring",
       description: "Monitor HTTP/HTTPS endpoints, websites, and APIs with comprehensive health checks. Get instant alerts when your services go down.",
       category: "Uptime monitoring",
@@ -259,7 +268,7 @@ export default function FeaturesPage() {
         <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-2xl p-8 text-center border border-white/10">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Monitoring?</h2>
           <p className="text-xl text-slate-300 mb-6">
-            Get all these features for just <span className="text-blue-400 font-bold">$50/year</span>
+            Get all these enterprise-grade features today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="https://app.bareuptime.co" target="_blank">
@@ -267,9 +276,9 @@ export default function FeaturesPage() {
                 Start Free
               </Button>
             </Link>
-            <Link href="/#pricing">
+            <Link href="/#features">
               <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-3">
-                View Pricing
+                View Features
               </Button>
             </Link>
           </div>

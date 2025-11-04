@@ -92,24 +92,15 @@ const smoothScrollTo = (elementId: string) => {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-  "description": "Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+  "name": "BareUptime - Enterprise-Grade Uptime Monitoring",
+  "description": "Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.",
   "url": "https://bareuptime.co",
   "mainEntity": {
     "@type": "SoftwareApplication",
     "name": "BareUptime",
     "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, iOS, Android", 
-    "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $50/year.",
-    "offers": {
-      "@type": "Offer",
-      "price": "15.00",
-      "priceCurrency": "USD",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2025-01-01",
-      "description": "Annual subscription for unlimited uptime monitoring"
-    },
+    "operatingSystem": "Web, iOS, Android",
+    "description": "Enterprise-grade uptime monitoring solution for websites and APIs.",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -119,11 +110,10 @@ const structuredData = {
     "featureList": [
       "Real-time uptime monitoring for websites and APIs",
       "Mobile push notifications for iOS and Android",
-      "SSL certificate monitoring and expiration alerts", 
+      "SSL certificate monitoring and expiration alerts",
       "Webhook integrations for custom workflows",
       "Discord, Slack, and Teams notifications",
-      "Global monitoring network with 99.9% uptime",
-      "Affordable pricing at $50/year vs $180+/year competitors"
+      "Global monitoring network with 99.9% uptime"
     ],
     "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
     "downloadUrl": "https://app.bareuptime.co",
@@ -150,14 +140,6 @@ const faqStructuredData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does BareUptime cost compared to competitors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BareUptime costs only $50/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
-      }
-    },
     {
       "@type": "Question", 
       "name": "What monitoring features are included?",
@@ -367,23 +349,15 @@ export default function HomePage() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-          "description": "Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+          "name": "BareUptime - Enterprise-Grade Uptime Monitoring",
+          "description": "Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.",
           "url": "https://bareuptime.co",
           "mainEntity": {
             "@type": "SoftwareApplication",
             "name": "BareUptime",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web, iOS, Android",
-            "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $50/year.",
-            "offers": {
-              "@type": "Offer",
-              "price": "15.00",
-              "priceCurrency": "USD",
-              "priceValidUntil": "2025-12-31",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2025-01-01"
-            },
+            "description": "Enterprise-grade uptime monitoring solution for websites and APIs.",
             "featureList": [
               "Real-time uptime monitoring for websites and APIs",
               "Mobile push notifications for iOS and Android",
@@ -416,22 +390,21 @@ export default function HomePage() {
             </div>
             <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">
               <FeaturesDropdown />
-              <button 
-                onClick={() => {
-                  smoothScrollTo('pricing');
-                  trackWithSource.navigation('pricing', 'header_nav');
-                }} 
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
-                aria-label="Navigate to Pricing section"
-              >
-                Pricing
-              </button>
               <a 
                 href="/enterprise"
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
                 onClick={() => trackWithSource.navigation('enterprise', 'header_nav')}
               >
                 Enterprise
+              </a>
+              <a 
+                href="https://docs.bareuptime.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
+                onClick={() => trackWithSource.navigation('docs', 'header_nav')}
+              >
+                Docs
               </a>
               <a 
                 href="/blogs"
@@ -539,10 +512,6 @@ export default function HomePage() {
                   <CheckCircle className="w-4 h-4 text-emerald-300" />
                   On-call mobile apps included
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-300" />
-                  $50/year flat
-                </div>
               </div>
             </div>
 
@@ -563,7 +532,7 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 The Problem with <span className="text-red-400">Current Solutions</span>
               </h2>
-              <p className="text-slate-300">Essential features locked behind expensive paywalls</p>
+              <p className="text-slate-300">Essential features scattered across complex systems</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -648,17 +617,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Solution highlight */}
-            <div className="mt-8 text-center">
-              <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-lg px-6 py-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-blue-400 font-medium">BareUptime Pricing:</span>
-                  <span className="text-white font-bold text-xl">$50/year</span>
-                </div>
-                <div className="w-px h-6 bg-white/20"></div>
-                <span className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-medium">98% savings</span>
-              </div>
-            </div>
           </div>
 
           
@@ -1022,7 +980,7 @@ export default function HomePage() {
 
                        
                        
-                        <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
+                          <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
                           <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
                             <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
                             Annual Pricing
@@ -1057,236 +1015,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section - Enterprise Grade */}
-      <section id="features" className="py-32 relative bg-gradient-to-b from-black/0 via-blue-950/30 to-black/0 will-change-transform">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative">
-          {/* Header Section */}
-          <div className="text-center mb-20 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 bg-blue-500/10 text-blue-400 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-blue-500/20 backdrop-blur-sm shadow-lg">
-              <span className="w-2.5 h-2.5 bg-blue-400 rounded-full animate-pulse"></span>
-              Enterprise Solutions for Early-Stage Startups
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
-              The Complete 
-              <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent mt-2">
-                Monitoring Solution
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light max-w-3xl mx-auto">
-              Enterprise-grade monitoring infrastructure engineered for startups who demand reliability without enterprise pricing
-            </p>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
-            {/* Features Card */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition-all duration-500"></div>
-              <Card className="relative bg-black/60 backdrop-blur-xl border border-white/10 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-emerald-500/10 rounded-2xl overflow-hidden group-hover:border-emerald-500/30">
-                <div className="h-1 bg-gradient-to-r from-emerald-500 to-green-500 w-full"></div>
-                
-                <CardHeader className="pb-6 pt-8 px-8">
-                  <CardTitle className="text-white flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-500/30 shadow-lg">
-                      <CheckCircle className="w-7 h-7 text-emerald-400" />
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold">Core Features</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">Production-ready monitoring</p>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-200 font-medium leading-relaxed">Real-time alerts via Slack, Discord, Teams, mobile push, and webhooks</p>
-                      <p className="text-slate-500 text-sm mt-1">Instant notifications when it matters</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-200 font-medium leading-relaxed">Critical alerts through Android and iOS mobile apps</p>
-                      <p className="text-slate-500 text-sm mt-1">Never miss a critical incident</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-200 font-medium leading-relaxed">Distributed global worker pools for consistent monitoring</p>
-                      <p className="text-slate-500 text-sm mt-1">99.9% uptime monitoring reliability</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-emerald-500/25 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-200 font-medium leading-relaxed">Intuitive dashboard to manage all endpoints</p>
-                      <p className="text-slate-500 text-sm mt-1">Centralized monitoring control</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Future Focus Card */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl opacity-15 blur-lg group-hover:opacity-25 transition-all duration-500"></div>
-              <Card className="relative bg-black/60 backdrop-blur-xl border border-white/10 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-amber-500/10 rounded-2xl overflow-hidden group-hover:border-amber-500/30">
-                <div className="h-1 bg-gradient-to-r from-amber-400 to-yellow-500 w-full"></div>
-                
-                <CardHeader className="pb-6 pt-8 px-8">
-                  <CardTitle className="text-white flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500/20 to-yellow-500/20 border border-amber-500/30 shadow-lg">
-                      <Clock className="w-7 h-7 text-amber-400" />
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold">Future Roadmap</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">Not our current focus</p>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
-                      <Clock className="w-4 h-4 text-amber-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-300 font-medium leading-relaxed">SMS and voice call notifications</p>
-                      <p className="text-slate-500 text-sm mt-1">Expensive legacy channels</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
-                      <Clock className="w-4 h-4 text-amber-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-300 font-medium leading-relaxed">Advanced analytics dashboards</p>
-                      <p className="text-slate-500 text-sm mt-1">Complex visualizations</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 group/item">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mt-1 flex-shrink-0 group-hover:item:bg-amber-500/25 transition-colors">
-                      <Clock className="w-4 h-4 text-amber-400" />
-                    </div>
-                    <div>
-                      <p className="text-slate-300 font-medium leading-relaxed">Interactive Visualizations</p>
-                      <p className="text-slate-500 text-sm mt-1">Resource-intensive features</p>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-amber-500/20">
-                    <div className="flex items-center gap-3 text-amber-400">
-                      <Clock className="w-5 h-5" />
-                      <span className="text-sm font-medium">Keeping costs low by focusing on essentials</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Pricing Card */}
-            <div id="pricing" className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl opacity-25 blur-lg group-hover:opacity-40 transition-all duration-500"></div>
-              <Card className="relative bg-black/60 backdrop-blur-xl border border-green-500/20 h-full shadow-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-green-500/20 rounded-2xl overflow-hidden group-hover:border-green-500/40">
-                <div className="h-1 bg-gradient-to-r from-green-400 to-emerald-500 w-full"></div>
-                
-                <CardHeader className="pb-6 pt-8 px-8">
-                  <CardTitle className="text-white flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 shadow-lg">
-                      <DollarSign className="w-7 h-7 text-green-400" />
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold">Enterprise Pricing</span>
-                      <p className="text-sm text-slate-400 font-normal mt-1">Startup-friendly costs</p>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="px-8 pb-8">
-                  <div className="relative p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl border border-green-500/30 text-center mb-8 backdrop-blur-sm">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                      Annual Subscription
-                    </div>
-                    
-                    <div className="mt-4 mb-6">
-                      <div className="flex items-center justify-center mb-3">
-                        <DollarSign className="w-8 h-8 text-green-400 mr-1" />
-                        <span className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">50</span>
-                      </div>
-                      <div className="text-2xl font-semibold text-slate-200 mb-3">per year</div>
-                      <div className="flex items-center justify-center gap-3 text-sm">
-                        <span className="line-through text-slate-500 text-lg">$360+/year</span> 
-                        <div className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full font-bold border border-green-500/30">
-                          98% Savings
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-center gap-3 text-white p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
-                      <ActivityIcon className="w-6 h-6 text-blue-400" />
-                      <span className="font-semibold">Enterprise-grade, Startup price!</span>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-3 text-sm">
-                      <div className="flex items-center gap-2 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span className="text-slate-300">No hidden fees</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span className="text-slate-300">Cancel anytime</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/30 rounded-2xl px-8 py-6 backdrop-blur-sm">
-              <div className="flex items-center gap-2">
-                <ActivityIcon className="w-6 h-6 text-blue-400" />
-                <span className="text-white font-semibold text-lg">Ready to get started?</span>
-              </div>
-              <div className="w-px h-8 bg-white/20"></div>
-              <a 
-                href="https://app.bareuptime.co" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
-              >
-                Launch monitoring in 10 seconds →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* About Section */}
       <section id="about" className="py-28 relative">
@@ -1348,8 +1076,8 @@ export default function HomePage() {
                         <div className="text-sm text-slate-400">Weekend MVP Development</div>
                       </div>
                       <div className="text-center p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-                        <div className="text-2xl font-bold text-white">95%</div>
-                        <div className="text-sm text-slate-400">Industry Cost Reduction</div>
+                        <div className="text-2xl font-bold text-white">99.9%</div>
+                        <div className="text-sm text-slate-400">Uptime Guarantee</div>
                       </div>
                     </div>
                   </div>
@@ -1366,10 +1094,10 @@ export default function HomePage() {
                   The Genesis of BareUptime
                 </h3>
                 <p className="text-slate-300">
-                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we encountered the same costly barrier to reliable monitoring that many organizations face. The market offered two choices: overpay for basic functionality or build a custom solution.
+                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we needed reliable monitoring for our services. The market offered two choices: complex enterprise solutions or build a custom solution.
                 </p>
                 <p className="text-slate-300 mt-4">
-                  So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability without the enterprise markup. We're opening our architecture, costs, and deployment strategy to demonstrate how organizational monitoring should be priced.
+                  So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability. We're opening our architecture and deployment strategy to help organizations build better monitoring solutions.
                 </p>
               </div>
             </div>
@@ -1459,7 +1187,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
               </div>
               <p className="text-slate-400 max-w-md text-center md:text-left">
-                Enterprise-grade monitoring infrastructure at peanut price.
+                Enterprise-grade monitoring infrastructure for modern applications.
               </p>
             </div>
             
@@ -1468,7 +1196,6 @@ export default function HomePage() {
                 <h4 className="text-white font-medium mb-3">Resources</h4>
                 <ul className="space-y-2 text-sm">
                   <li><a href="#features" className="text-slate-400 hover:text-blue-400 transition-colors">Features</a></li>
-                  <li><a href="#pricing" className="text-slate-400 hover:text-blue-400 transition-colors">Pricing</a></li>
                   <li><a href="#about" className="text-slate-400 hover:text-blue-400 transition-colors">About</a></li>
                   <li><a href="/support" className="text-slate-400 hover:text-blue-400 transition-colors">Support</a></li>
                 </ul>
@@ -1521,7 +1248,7 @@ export default function HomePage() {
               &copy; Penify Technologies LLC. All rights reserved.
             </p>
             <p className="text-sm text-slate-500">
-              Built by enterprise engineers, for organizations tired of overpriced monitoring.
+              Built by enterprise engineers, for organizations that need reliable monitoring.
             </p>
           </div>
         </div>

@@ -15,6 +15,13 @@ interface FeatureItem {
 
 const featuresData: FeatureItem[] = [
   {
+    title: "Create Monitors using API",
+    description: "Create HTTP/HTTPS endpoints using APIs",
+    icon: Globe,
+    href: "/features#api-monitoring",
+    category: "Uptime monitoring"
+  },
+  {
     title: "Website & Endpoint Monitoring",
     description: "Monitor HTTP/HTTPS endpoints and APIs",
     icon: Globe,
