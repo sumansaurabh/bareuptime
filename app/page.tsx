@@ -585,7 +585,7 @@ export default function HomePage() {
                         <MessageSquare className="w-4 h-4" />
                         <span>Discord</span>
                       </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/30">
+                      <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/40 text-indigo-200 rounded-lg text-sm font-bold border border-indigo-500/60 shadow-lg shadow-indigo-500/50 ring-2 ring-indigo-400/30">
                         <SlackIcon className="w-4 h-4" />
                         <span>Slack</span>
                       </div>
@@ -864,7 +864,7 @@ export default function HomePage() {
                                 </div>
                               </div>
                               <div className="flex flex-wrap justify-center gap-2">
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
+                                <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/40 text-indigo-200 rounded-lg text-xs font-bold border border-indigo-500/60 shadow-lg shadow-indigo-500/50 ring-2 ring-indigo-400/30">
                                   <SlackIcon className="w-3.5 h-3.5" />
                                   <span>Slack</span>
                                 </div>
