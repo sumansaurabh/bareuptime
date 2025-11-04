@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X, Slack } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
@@ -75,20 +75,6 @@ const IOSIcon = memo(({ className }: { className?: string }) => (
 ))
 IOSIcon.displayName = 'IOSIcon'
 
-// Custom Slack Icon
-const SlackIcon = memo(({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M6.527 14.514A1.973 1.973 0 0 1 4.56 16.48a1.973 1.973 0 0 1-1.967-1.967c0-1.083.884-1.966 1.967-1.966h1.967v1.967Zm.992 0c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927a1.973 1.973 0 0 1-1.967 1.966 1.973 1.973 0 0 1-1.966-1.966v-4.927ZM9.485 6.527A1.973 1.973 0 0 1 7.518 4.56a1.973 1.973 0 0 1 1.967-1.967c1.083 0 1.966.884 1.966 1.967v1.967H9.485Zm0 .992c1.083 0 1.966.883 1.966 1.966s-.883 1.967-1.966 1.967H4.558a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927ZM17.473 9.485a1.973 1.973 0 0 1 1.966-1.966 1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967h-1.966V9.485Zm-.992 0a1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967V4.558c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927ZM14.514 17.473a1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967v-1.966h1.966Zm0-.992a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927a1.973 1.973 0 0 1 1.966 1.966 1.973 1.973 0 0 1-1.966 1.967h-4.927Z"/>
-  </svg>
-))
-SlackIcon.displayName = 'SlackIcon'
 
 // Optimized smooth scroll function with requestAnimationFrame
 const smoothScrollTo = (elementId: string) => {
@@ -586,7 +572,7 @@ export default function HomePage() {
                         <span>Discord</span>
                       </div>
                       <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/30">
-                        <SlackIcon className="w-4 h-4" />
+                        <Slack className="w-4 h-4" />
                         <span>Slack</span>
                       </div>
                       <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
@@ -865,7 +851,7 @@ export default function HomePage() {
                               </div>
                               <div className="flex flex-wrap justify-center gap-2">
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
-                                  <SlackIcon className="w-3.5 h-3.5" />
+                                  <Slack className="w-3.5 h-3.5" />
                                   <span>Slack</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
