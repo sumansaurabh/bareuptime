@@ -461,14 +461,14 @@ export default function HomePage() {
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-slate-200">
                 <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                Monitoring teams before demo day
+                Live & Monitoring
               </div>
               <div>
-                <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-                  Ship uptime alerts before investors ask.
+                <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
+                  Monitor uptime.<br />Stay online.
                 </h1>
-                <p className="mt-4 max-w-xl text-lg text-slate-300">
-                  Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.
+                <p className="mt-6 max-w-xl text-xl text-slate-300">
+                  Enterprise monitoring. Startup pricing.
                 </p>
               </div>
 
@@ -479,20 +479,17 @@ export default function HomePage() {
                     value={monitorUrl}
                     onChange={(event) => setMonitorUrl(event.target.value)}
                     placeholder="https://yourstartup.com"
-                    className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="h-14 flex-1 border-white/20 bg-white/5 text-base text-white placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label="URL to monitor"
                   />
                   <Button
                     type="submit"
                     disabled={monitorStatus === "loading"}
-                    className="h-12 min-w-[160px] bg-blue-600 text-base font-semibold transition hover:bg-blue-500 disabled:cursor-wait"
+                    className="h-14 min-w-[180px] bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-base font-semibold transition disabled:cursor-wait"
                   >
-                    {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
+                    {monitorStatus === "loading" ? "Creating..." : "Start Free"}
                   </Button>
                 </div>
-                <p className="text-sm text-slate-400">
-                  Free public monitor. Upgrade later for advanced routing and escalations.
-                </p>
                 {monitorStatus !== "idle" && monitorMessage && (
                   <div
                     className={`text-sm font-medium ${monitorStatus === "success" ? "text-emerald-300" : "text-red-300"}`}
@@ -503,14 +500,18 @@ export default function HomePage() {
                 )}
               </form>
 
-              <div className="flex flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center">
+              <div className="flex flex-wrap gap-6 text-sm text-slate-400">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-300" />
-                  One-minute global pings
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span>10 free monitors</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-300" />
-                  On-call mobile apps included
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span>Mobile alerts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span>SSL monitoring</span>
                 </div>
               </div>
             </div>
@@ -526,114 +527,49 @@ export default function HomePage() {
       </section>
       <section className="relative overflow-hidden pt-24 pb-16">
         <div className="relative max-w-7xl mx-auto px-4">
-          {/* Problem Statement */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                The Problem with <span className="text-red-400">Current Solutions</span>
+          {/* Value Proposition */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                Everything you need. <span className="text-emerald-400">Nothing you don't.</span>
               </h2>
-              <p className="text-slate-300">Essential features scattered across complex systems</p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* What You Need */}
-              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <CheckCircle className="w-6 h-6 text-emerald-400" />
-                  <h3 className="text-lg font-bold text-emerald-400">What You Actually Need</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border border-blue-500/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-6 h-6 text-blue-400" />
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Uptime monitoring + SSL</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Mobile Push Notifications</span>
-                  </div>
-                  
-                  <div className="mt-4">
-                    <p className="text-emerald-300 text-sm font-medium mb-3 flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4" />
-                      Supported Platforms & Integrations:
-                    </p>
-                    <div className="flex flex-wrap gap-2 p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20">
-                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
-                        <AndroidIcon className="w-4 h-4" />
-                        <span>Android</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
-                        <IOSIcon className="w-4 h-4" />
-                        <span>iOS</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-medium border border-blue-500/30">
-                        <MessageSquare className="w-4 h-4" />
-                        <span>Discord</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/30">
-                        <MessageSquare className="w-4 h-4" />
-                        <span>Slack</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
-                        <Send className="w-4 h-4" />
-                        <span>Telegram</span>
-                      </div>
-                      {/* <div className="flex items-center gap-2 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
-                        <Users className="w-4 h-4" />
-                        <span>Teams</span>
-                      </div> */}
-                      <div className="flex items-center gap-2 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-sm font-medium border border-orange-500/30">
-                        <Webhook className="w-4 h-4" />
-                        <span>Webhooks</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Global Monitoring</h3>
+                <p className="text-slate-400 text-sm">Multi-region checks with SSL tracking</p>
               </div>
 
-              {/* What Industry Delivers */}
-              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
-                  <h3 className="text-lg font-bold text-red-400">What Industry Delivers</h3>
+              <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/10 border border-emerald-500/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Smartphone className="w-6 h-6 text-emerald-400" />
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
-                    <span className="text-slate-300 text-sm">Mobile apps</span>
-                    <span className="text-red-400 font-bold text-sm">$20/mo</span>
-                  </div>
-                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
-                    <span className="text-slate-300 text-sm">API access</span>
-                    <span className="text-red-400 font-bold text-sm">$10/mo</span>
-                  </div>
+                <h3 className="text-lg font-bold text-white mb-2">Instant Alerts</h3>
+                <p className="text-slate-400 text-sm">iOS, Android, Slack, Discord, Webhooks</p>
+              </div>
 
-                  <div className="pt-2 border-t border-red-500/20">
-                    <div className="flex items-center justify-between">
-                      <span className="text-red-300 font-medium">Total yearly cost</span>
-                      <span className="text-red-400 font-bold text-lg">$360+</span>
-                    </div>
-                  </div>
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-6 h-6 text-purple-400" />
                 </div>
+                <h3 className="text-lg font-bold text-white mb-2">Fair Pricing</h3>
+                <p className="text-slate-400 text-sm">$0 free tier, $50/year pro</p>
               </div>
             </div>
-
           </div>
 
           
           {/* Comparison Chart Section */}
           <div className="mb-24">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-500/20 shadow-lg">
-                <Server className="w-4 h-4" />
-                Head-to-Head Comparison
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
                 <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
                 <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                See how we compare to the most popular uptime monitoring service
-              </p>
             </div>
 
             <div className="relative max-w-6xl mx-auto">
@@ -701,54 +637,6 @@ export default function HomePage() {
                             </div>
                           </td>
                         </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Request Type
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">HEAD, GET, PING</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-4 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">POST, PUT, DELETE</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-mono text-yellow-400">Head</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Frequency 
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">10min, 30min, 1hr</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">1min, 5min</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">5min, 10min, 15min</span>
-                            </div>
-                          </td>
-                        </tr>
                         <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
@@ -774,35 +662,7 @@ export default function HomePage() {
                           </td>
                         </tr>
 
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            Global Monitoring Network (Free)
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Germany, USA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Canada, India</span>
-                            </div>
-                            <div className="flex items-center justify-center">
-                              {/* <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" /> */}
-                              <span className="font-bold text-indigo-400">Australia</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-bold text-yellow-400">USA</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
+                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                           <td className="py-5 px-6 font-medium flex items-center">
                             <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
                             OnCall Alerts (iOS/Android)
@@ -880,107 +740,7 @@ export default function HomePage() {
                           </td>
                         </tr>
 
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            MCP Support
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Yes</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Yes</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <X className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="font-bold text-red-400">No</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Setup Complexity
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">10 seconds</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">10 seconds</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold ">30 seconds</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Support
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">6 x 7*</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">24 x 7*</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold">Basic Support</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Maintenance Downtime
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">99.9% SLA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">99.9% SLA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-bold text-yellow-400">99.6% SLA</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                       
-                       
-                          <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
+                        <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
                           <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
                             <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
                             Annual Pricing
@@ -1017,162 +777,97 @@ export default function HomePage() {
 
 
       {/* About Section */}
-      <section id="about" className="py-28 relative">
+      <section id="about" className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-950/20 to-black/0"></div>
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
         
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-500/20 shadow-lg">
-              <ActivityIcon className="w-4 h-4" />
-              Teams
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Engineering Team</span></h2>
+        <div className="max-w-5xl mx-auto px-4 relative">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">Built by engineers, <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">for engineers</span></h2>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-5/12">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-lg rounded-2xl"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-                  <div className="h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 w-full"></div>
-                  <div className="p-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Suman Saurabh</h3>
-                    <p className="text-blue-400 font-medium mb-5">Penify, Ex-Microsoft OpenAI</p>
-                    
-                    <div className="flex items-center gap-2 mb-6">
-                      <a 
-                        href="https://www.linkedin.com/in/ssumansaurabh/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="LinkedIn Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
-                        </svg>
-                      </a>
-                      <a 
-                        href="https://github.com/sumansaurabh" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="GitHub Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                    
-                    <div className="grid grid-cols-3 gap-4 mt-8 mb-2">
-                      <div className="text-center p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                        <div className="text-2xl font-bold text-white">10+</div>
-                        <div className="text-sm text-slate-400">Years Enterprise Experience</div>
-                      </div>
-                      <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                        <div className="text-2xl font-bold text-white">1</div>
-                        <div className="text-sm text-slate-400">Weekend MVP Development</div>
-                      </div>
-                      <div className="text-center p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-                        <div className="text-2xl font-bold text-white">99.9%</div>
-                        <div className="text-sm text-slate-400">Uptime Guarantee</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg max-w-3xl mx-auto">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">SS</div>
+              <div>
+                <h3 className="text-xl font-bold text-white">Suman Saurabh</h3>
+                <p className="text-blue-400">Penify, Ex-Microsoft OpenAI</p>
+              </div>
+              <div className="flex items-center gap-2 ml-auto">
+                <a 
+                  href="https://www.linkedin.com/in/ssumansaurabh/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
+                  aria-label="LinkedIn Profile"
+                >
+                  <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://github.com/sumansaurabh" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
+                  aria-label="GitHub Profile"
+                >
+                  <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                  </svg>
+                </a>
               </div>
             </div>
             
-            <div className="md:w-7/12 space-y-8">
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Code className="w-5 h-5 text-purple-400" />
-                  </div>
-                  The Genesis of BareUptime
-                </h3>
-                <p className="text-slate-300">
-                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we needed reliable monitoring for our services. The market offered two choices: complex enterprise solutions or build a custom solution.
-                </p>
-                <p className="text-slate-300 mt-4">
-                  So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability. We're opening our architecture and deployment strategy to help organizations build better monitoring solutions.
-                </p>
-              </div>
-            </div>
+            <p className="text-slate-300 text-center">
+              Built BareUptime to solve monitoring for <a href="https://www.penify.dev/" target="_blank" className="text-blue-400 hover:underline">Penify</a>. Enterprise reliability without enterprise pricing.
+            </p>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 relative">
+      <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-xl"></div>
         
-        <div className="max-w-5xl mx-auto px-4 relative">
-          <div className="bg-gradient-to-r from-blue-500/5 to-indigo-500/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm">
-            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
-              <div className="md:w-3/5">
-                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-blue-500/20">
-                  <ActivityIcon className="w-5 h-5 text-blue-400" />
-                  Stay Updated
-                </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Start</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Monitoring</span> Today!
-                </h2>
-                <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                  BareUptime is live! Subscribe to our newsletter for product updates, monitoring tips, and exclusive insights.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>No Spam, Just Updates</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Monitoring Tips & Insights</span>
-                  </div>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto px-4 relative">
+          <div className="bg-gradient-to-r from-blue-500/5 to-indigo-500/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+              Stay <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Updated</span>
+            </h2>
+            <p className="text-lg text-slate-300 mb-8">
+              Get product updates and monitoring insights
+            </p>
 
-              <div className="md:w-2/5">
-                <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
-                  <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
-                    <form onSubmit={handleSubmit}>
-                      <div className="space-y-4">
-                        <Input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-400 transition-colors"
-                          required
-                        />
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting || !email}
-                          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          {isSubmitting ? "Subscribing..." : "Subscribe Now"}
-                        </Button>
-                        {message && (
-                          <div className={`text-center text-sm ${
-                            messageType === "success" ? "text-green-400" : "text-red-400"
-                          }`}>
-                            {message}
-                          </div>
-                        )}
+            <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden max-w-md mx-auto">
+              <CardContent className="p-6">
+                <form onSubmit={handleSubmit}>
+                  <div className="space-y-4">
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-400 transition-colors h-12"
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting || !email}
+                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "Subscribing..." : "Subscribe"}
+                    </Button>
+                    {message && (
+                      <div className={`text-center text-sm ${
+                        messageType === "success" ? "text-green-400" : "text-red-400"
+                      }`}>
+                        {message}
                       </div>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+                    )}
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
