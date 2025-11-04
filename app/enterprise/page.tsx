@@ -419,35 +419,6 @@ export default function EnterprisePage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl p-8 border border-blue-500/20">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-xl flex items-center justify-center border border-blue-500/30">
-                    <Code className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">White-Label API</h3>
-                    <p className="text-blue-300 text-sm">Branded integration endpoints</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">api.yourcompany.com endpoint branding</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">Custom webhook URLs with your branding</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">Branded mobile app notifications</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">White-label dashboard and reporting</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="relative">
@@ -564,33 +535,7 @@ export default function EnterprisePage() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 border border-blue-500/20">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-4">API-First Architecture</h3>
-                <p className="text-slate-300 mb-4">
-                  Manage your monitors, configure alerts, and integrate with any system using our comprehensive REST API. 
-                  Get responses in JSON format for seamless integration with your existing tools.
-                </p>
-                <div className="flex items-center gap-4">
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                    RESTful API
-                  </Badge>
-                  <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
-                    Webhooks
-                  </Badge>
-                  <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
-                    Real-time
-                  </Badge>
-                </div>
-              </div>
-              <div className="flex-shrink-0">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center border border-blue-500/30">
-                  <Code className="w-12 h-12 text-blue-400" />
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </section>
 
