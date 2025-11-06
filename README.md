@@ -92,10 +92,11 @@ npm run dev
 
 ### Smart Alerting
 - ✅ **Mobile push notifications** (iOS & Android apps)
-- ✅ **Email alerts** with incident timeline
+- ✅ **Email alerts** with incident timeline (powered by Resend)
 - ✅ **Slack, Discord, Teams integration**
 - ✅ **Webhook notifications** for custom workflows
 - ✅ **Alert escalation** and on-call routing
+- ✅ **Beautiful HTML email templates** for all notification types
 
 ### Developer Experience
 - ✅ **Public status pages** for each monitor
@@ -144,17 +145,31 @@ We welcome contributions! This project is built by developers who were tired of 
    ```bash
    cp .env.example .env.local
    # Add your Supabase and other API keys
+   # Configure email notifications (see EMAIL_NOTIFICATIONS.md)
    ```
 
-4. **Run development server**
+4. **Configure Email Notifications** (Optional)
+   - Sign up for [Resend](https://resend.com) (free tier available)
+   - Add your `RESEND_API_KEY` to `.env.local`
+   - See [EMAIL_NOTIFICATIONS.md](EMAIL_NOTIFICATIONS.md) for detailed setup
+
+5. **Run development server**
    ```bash
    npm run dev
    # or  
    pnpm dev
    ```
 
-5. **Open browser**
+6. **Open browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
+
+7. **Test Email Notifications** (Optional)
+   ```bash
+   # Set your test email
+   export TEST_EMAIL=your@email.com
+   # Run the test script
+   ./scripts/test-email-notifications.sh
+   ```
 
 ### Project Structure
 ```
