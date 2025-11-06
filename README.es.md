@@ -90,13 +90,6 @@ npm run dev
 - ✅ **Monitoreo global desde más de 8 ubicaciones**
 - ✅ **Intervalos de verificación de 1 minuto a 1 hora**
 
-### Alertas Inteligentes
-- ✅ **Notificaciones push móviles** (apps iOS y Android)
-- ✅ **Alertas por email** con línea de tiempo de incidentes
-- ✅ **Integración con Slack, Discord, Teams**
-- ✅ **Notificaciones webhook** para flujos de trabajo personalizados
-- ✅ **Escalado de alertas** y enrutamiento de guardia
-
 ### Experiencia del Desarrollador
 - ✅ **Páginas de estado públicas** para cada monitor
 - ✅ **REST API** para automatización
