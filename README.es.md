@@ -172,28 +172,6 @@ bareuptime/
 └── public/            # Recursos estáticos
 ```
 
-## 🎯 Hoja de Ruta
-
-### ✅ Completado (v1.0)
-- [x] Monitoreo de disponibilidad principal
-- [x] Panel web
-- [x] Notificaciones por correo
-- [x] Integraciones webhook
-- [x] Monitoreo SSL
-- [x] Red de monitoreo global
-
-### 🚧 En Progreso (v1.1)
-- [ ] Apps móviles (iOS & Android)
-- [ ] Enrutamiento avanzado de alertas
-- [ ] Documentación API
-- [ ] Auto-alojamiento con Terraform
-
-### 🎯 Futuro (v2.0)
-- [ ] Monitoreo de rendimiento
-- [ ] Agregación de logs
-- [ ] Métricas personalizadas
-- [ ] Funciones de colaboración en equipo
-
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
