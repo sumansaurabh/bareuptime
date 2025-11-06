@@ -177,10 +177,6 @@ bareuptime/
 - [ ] Métricas personalizadas
 - [ ] Funciones de colaboración en equipo
 
-## 📄 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
-
 ## 🙋‍♂️ Soporte
 
 - 📧 **Correo**: [support@bareuptime.co](mailto:support@bareuptime.co)
