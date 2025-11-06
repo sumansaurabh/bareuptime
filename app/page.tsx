@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Send, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
 import { supabase } from '@/lib/supabaseClient'
 import { useIntersectionObserver } from '@/hooks/usePerformance'
 import AnimateOnScroll from './components/AnimateOnScroll'
@@ -100,6 +100,21 @@ const SlackIcon = memo(({ className }: { className?: string }) => (
   </svg>
 ))
 SlackIcon.displayName = 'SlackIcon'
+
+// Custom Telegram Icon
+const TelegramIcon = memo(({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+  </svg>
+))
+TelegramIcon.displayName = 'TelegramIcon'
 
 // Optimized smooth scroll function with requestAnimationFrame
 const smoothScrollTo = (elementId: string) => {
@@ -601,7 +616,7 @@ export default function HomePage() {
                         <span>Slack</span>
                       </div>
                       <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
-                        <Send className="w-4 h-4" />
+                        <TelegramIcon className="w-4 h-4" />
                         <span>Telegram</span>
                       </div>
                       {/* <div className="flex items-center gap-2 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
@@ -880,7 +895,7 @@ export default function HomePage() {
                                   <span>Slack</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
-                                  <Send className="w-3.5 h-3.5" />
+                                  <TelegramIcon className="w-3.5 h-3.5" />
                                   <span>Telegram</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
