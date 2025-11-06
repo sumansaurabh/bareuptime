@@ -325,7 +325,7 @@ export default function HomePage() {
       setMonitorStatus("error")
       setMonitorMessage(error instanceof Error ? error.message : "Something went wrong. Try again in a moment.")
     }
-  }, [monitorUrl, trackWithSource])
+  }, [monitorUrl])
 
   // Memoized form submission handler
   const handleSubmit = useCallback(async (e: React.FormEvent) => {

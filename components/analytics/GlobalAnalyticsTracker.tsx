@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useAnalytics } from '@/hooks/useAnalytics';
+import { trackEvent, trackButtonClick } from '@/components/google-analytics';
 
 export function GlobalAnalyticsTracker() {
-  const analytics = useAnalytics();
-
   useEffect(() => {
     // Track all button clicks globally
     const handleButtonClick = (event: MouseEvent) => {
@@ -45,7 +43,7 @@ export function GlobalAnalyticsTracker() {
           }
         }
         
-        analytics.trackButtonClick(buttonName, location);
+        trackButtonClick(buttonName, location);
       }
     };
 
@@ -59,7 +57,7 @@ export function GlobalAnalyticsTracker() {
         const href = link.href;
         const isExternal = href && !href.startsWith(window.location.origin);
         
-        analytics.trackEvent('link_click', {
+        trackEvent('link_click', {
           event_category: 'navigation',
           link_text: linkText,
           link_url: href,
@@ -75,12 +73,12 @@ export function GlobalAnalyticsTracker() {
       
       if (formInputs.length > 0) {
         // This is likely an email form
-        analytics.trackEvent('form_submission_attempt', {
+        trackEvent('form_submission_attempt', {
           event_category: 'engagement',
           form_type: 'email_subscription'
         });
       } else {
-        analytics.trackEvent('form_submission_attempt', {
+        trackEvent('form_submission_attempt', {
           event_category: 'engagement',
           form_type: 'generic'
         });
@@ -91,7 +89,7 @@ export function GlobalAnalyticsTracker() {
     let ticking = false;
     let maxScroll = 0;
     const scrollMilestones = [25, 50, 75, 90, 100];
-    const trackedMilestones = new Set();
+    const trackedMilestones = new Set<number>();
 
     const handleScroll = () => {
       if (!ticking) {
@@ -106,7 +104,7 @@ export function GlobalAnalyticsTracker() {
             scrollMilestones.forEach(milestone => {
               if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
                 trackedMilestones.add(milestone);
-                analytics.trackEvent('scroll_depth', {
+                trackEvent('scroll_depth', {
                   event_category: 'engagement',
                   scroll_percentage: milestone
                 });
@@ -121,14 +119,20 @@ export function GlobalAnalyticsTracker() {
     };
 
     // Track section visibility with Intersection Observer
+    const trackedSections = new Set<string>();
+    
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id || 'unnamed-section';
-          analytics.trackEvent('section_view', {
-            event_category: 'engagement',
-            section_name: sectionId
-          });
+          // Only track each section once
+          if (!trackedSections.has(sectionId)) {
+            trackedSections.add(sectionId);
+            trackEvent('section_view', {
+              event_category: 'engagement',
+              section_name: sectionId
+            });
+          }
         }
       });
     };
@@ -156,7 +160,7 @@ export function GlobalAnalyticsTracker() {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
     };
-  }, [analytics]);
+  }, []); // Empty dependency array - only run once on mount
 
   return null; // This component doesn't render anything
 }
