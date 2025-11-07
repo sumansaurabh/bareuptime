@@ -4,6 +4,8 @@
 [![App Launch](https://img.shields.io/badge/App-Launch-green?style=for-the-badge&logo=rocket)](https://app.bareuptime.co)
 [![GitHub Stars](https://img.shields.io/github/stars/sumansaurabh/bareuptime?style=for-the-badge)](https://github.com/sumansaurabh/bareuptime)
 
+[🇮🇳 हिंदी में पढ़ें](README.hi.md)
+
 > **Enterprise-grade uptime monitoring at startup prices** - Monitor your websites and APIs with 99.9% reliability for just $50/year instead of $360+/year from competitors.
 
 ## 🤔 Why BareUptime?
