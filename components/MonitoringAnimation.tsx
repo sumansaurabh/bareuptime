@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback, useId } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { useSpring, animated, config } from '@react-spring/web'
 import { Shield, Activity, Mail, Smartphone, Zap, AlertTriangle, Check, Lock, TrendingUp } from 'lucide-react'
@@ -8,18 +8,48 @@ import { Shield, Activity, Mail, Smartphone, Zap, AlertTriangle, Check, Lock, Tr
 // import { loadSlim } from "tsparticles"
 
 // Custom Slack Icon component - matches lucide-react icon signature
-const SlackIcon: React.FC<{ size?: number; strokeWidth?: number; className?: string }> = ({ size = 22, strokeWidth = 1.5, className = '' }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M6.527 14.514A1.973 1.973 0 0 1 4.56 16.48a1.973 1.973 0 0 1-1.967-1.967c0-1.083.884-1.966 1.967-1.966h1.967v1.967Zm.992 0c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927a1.973 1.973 0 0 1-1.967 1.966 1.973 1.973 0 0 1-1.966-1.966v-4.927ZM9.485 6.527A1.973 1.973 0 0 1 7.518 4.56a1.973 1.973 0 0 1 1.967-1.967c1.083 0 1.966.884 1.966 1.967v1.967H9.485Zm0 .992c1.083 0 1.966.883 1.966 1.966s-.883 1.967-1.966 1.967H4.558a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927ZM17.473 9.485a1.973 1.973 0 0 1 1.966-1.966 1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967h-1.966V9.485Zm-.992 0a1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967V4.558c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927ZM14.514 17.473a1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967v-1.966h1.966Zm0-.992a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927a1.973 1.973 0 0 1 1.966 1.966 1.973 1.973 0 0 1-1.966 1.967h-4.927Z"/>
-  </svg>
-)
+const SlackIcon: React.FC<{ size?: number; strokeWidth?: number; className?: string; state?: string }> = ({
+  size = 22,
+  className = '',
+  state,
+}) => {
+  const gradientId = useId()
+
+  const style: React.CSSProperties = {}
+
+  if (state === 'sending' || state === 'processing') {
+    style.filter = 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.45))'
+  } else if (state === 'success') {
+    style.filter = 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.45))'
+  } else if (state === 'error' || state === 'alert') {
+    style.filter = 'grayscale(0.65)'
+    style.opacity = 0.85
+  }
+
+  const fill = state === 'error' || state === 'alert' ? 'currentColor' : `url(#${gradientId})`
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={fill}
+      className={className}
+      style={style}
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#36C5F0" />
+          <stop offset="35%" stopColor="#2EB67D" />
+          <stop offset="70%" stopColor="#ECB22E" />
+          <stop offset="100%" stopColor="#E01E5A" />
+        </linearGradient>
+      </defs>
+      <path d="M6.527 14.514A1.973 1.973 0 0 1 4.56 16.48a1.973 1.973 0 0 1-1.967-1.967c0-1.083.884-1.966 1.967-1.966h1.967v1.967Zm.992 0c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927a1.973 1.973 0 0 1-1.967 1.966 1.973 1.973 0 0 1-1.966-1.966v-4.927ZM9.485 6.527A1.973 1.973 0 0 1 7.518 4.56a1.973 1.973 0 0 1 1.967-1.967c1.083 0 1.966.884 1.966 1.967v1.967H9.485Zm0 .992c1.083 0 1.966.883 1.966 1.966s-.883 1.967-1.966 1.967H4.558a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927ZM17.473 9.485a1.973 1.973 0 0 1 1.966-1.966 1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967h-1.966V9.485Zm-.992 0a1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967V4.558c0-1.083.883-1.966 1.966-1.966s1.967.883 1.967 1.966v4.927ZM14.514 17.473a1.973 1.973 0 0 1 1.967 1.966 1.973 1.973 0 0 1-1.967 1.967 1.973 1.973 0 0 1-1.966-1.967v-1.966h1.966Zm0-.992a1.973 1.973 0 0 1-1.966-1.967c0-1.083.883-1.966 1.966-1.966h4.927a1.973 1.973 0 0 1 1.966 1.966 1.973 1.973 0 0 1-1.966 1.967h-4.927Z"/>
+    </svg>
+  )
+}
 
 const MonitoringAnimation = () => {
   const [activeConnections, setActiveConnections] = useState<Set<string>>(new Set())
@@ -155,7 +185,7 @@ const MonitoringAnimation = () => {
       blue: { bg: 'from-blue-500/20 to-blue-600/30', border: 'border-blue-400/60', glow: 'shadow-blue-500/20' },
       purple: { bg: 'from-purple-500/20 to-purple-600/30', border: 'border-purple-400/60', glow: 'shadow-purple-500/20' },
       orange: { bg: 'from-orange-500/20 to-orange-600/30', border: 'border-orange-400/60', glow: 'shadow-orange-500/20' },
-      green: { bg: 'from-green-500/20 to-green-600/30', border: 'border-green-400/60', glow: 'shadow-green-500/20' },
+      green: { bg: 'from-sky-500/20 via-purple-500/20 to-pink-500/30', border: 'border-purple-300/60', glow: 'shadow-purple-500/25' },
       pink: { bg: 'from-pink-500/20 to-pink-600/30', border: 'border-pink-400/60', glow: 'shadow-pink-500/20' },
     }
 
@@ -168,7 +198,19 @@ const MonitoringAnimation = () => {
     return baseStyle
   }
 
-  const getIconColor = (state: string, defaultColor: string) => {
+  const getIconColor = (state: string, defaultColor: string, nodeId?: string) => {
+    if (nodeId === 'slack') {
+      switch (state) {
+        case 'monitoring': return 'text-blue-400'
+        case 'processing': return 'text-orange-400'
+        case 'success': return 'text-emerald-400'
+        case 'error':
+        case 'alert': return 'text-red-400'
+        case 'sending': return 'text-purple-400'
+        default: return 'text-slate-400'
+      }
+    }
+
     switch (state) {
       case 'monitoring': return 'text-blue-400'
       case 'processing': return 'text-orange-400'
@@ -281,6 +323,8 @@ const MonitoringAnimation = () => {
             const Icon = node.icon
             const nodeStyle = getNodeVariants(node.color, state)
             const size = node.size === 'large' ? 75 : 65
+            const iconColorClass = getIconColor(state, node.color, node.id)
+            const iconSize = node.size === 'large' ? 28 : 22
             
             return (
               <motion.div
@@ -329,7 +373,7 @@ const MonitoringAnimation = () => {
                 )}
 
                 {/* Icon with enhanced animations */}
-                <div className={`w-full h-full flex items-center justify-center ${getIconColor(state, node.color)}`}>
+                <div className={`w-full h-full flex items-center justify-center ${iconColorClass}`}>
                   <motion.div
                     animate={{ 
                       rotate: state === 'processing' ? [0, 360] : 0,
@@ -341,7 +385,11 @@ const MonitoringAnimation = () => {
                       scale: { duration: 0.6, repeat: Infinity, ease: "easeInOut" }
                     }}
                   >
-                    <Icon size={node.size === 'large' ? 28 : 22} strokeWidth={1.5} />
+                    {node.id === 'slack' ? (
+                      <SlackIcon size={iconSize} state={state} />
+                    ) : (
+                      <Icon size={iconSize} strokeWidth={1.5} />
+                    )}
                   </motion.div>
                 </div>
 
