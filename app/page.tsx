@@ -492,7 +492,7 @@ export default function HomePage() {
               </div>
               <div>
                 <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-                  FOOBAR
+                  DUMMY TEST 7
                 </h1>
                 <p className="mt-4 max-w-xl text-lg text-slate-300">
                   Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.
