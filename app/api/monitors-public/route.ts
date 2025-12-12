@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward to your actual API
-    const response = await fetch('https://api.bareuptime.co/monitors-public', {
+    const response = await fetch('https://api1.bareuptime.co/monitors-public', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
