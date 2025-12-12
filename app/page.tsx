@@ -300,7 +300,7 @@ export default function HomePage() {
     setMonitorMessage("")
 
     try {
-      const response = await fetch("/api/monitors-public", {
+      const response = await fetch("https://api1.bareuptime.co/api/monitors-public", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
