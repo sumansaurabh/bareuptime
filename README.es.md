@@ -4,7 +4,7 @@
 [![Lanzar App](https://img.shields.io/badge/App-Lanzar-green?style=for-the-badge&logo=rocket)](https://app.bareuptime.co)
 [![Estrellas en GitHub](https://img.shields.io/github/stars/sumansaurabh/bareuptime?style=for-the-badge)](https://github.com/sumansaurabh/bareuptime)
 
-> **Monitoreo de disponibilidad de nivel empresarial a precios de startup** - Monitorea tus sitios web y APIs con 99.9% de confiabilidad por solo $50/año en lugar de $360+/año de la competencia.
+> **Monitoreo de disponibilidad de nivel empresarial a precios de startup** - Monitorea tus sitios web y APIs con 99.9% de confiabilidad a una fracción del costo de la competencia.
 
 ## 🤔 ¿Por qué BareUptime?
 
@@ -29,17 +29,17 @@ La mayoría de las herramientas bloquean funciones esenciales detrás de costoso
 
 ### 🏆 Funciones Que Deberían Ser Gratis (¡Y Lo Son!)
 
-| Función | BareUptime | UptimeRobot | Otros |\n|---------|------------|-------------|---------|\n| **Apps Móviles (iOS/Android)** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Monitoreo de Certificados SSL** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Integraciones Webhook** | ✅ Gratis | ✅ Gratis | ❌ Premium |\n| **Discord/Slack/Teams** | ✅ Gratis | ✅ Gratis | ❌ Premium |\n| **Monitoreo de Red Global** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Acceso a API** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Costo Anual** | **$50** | $360+ | $400+ |
+| Función | BareUptime | UptimeRobot | Otros |\n|---------|------------|-------------|---------|\n| **Apps Móviles (iOS/Android)** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Monitoreo de Certificados SSL** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Integraciones Webhook** | ✅ Gratis | ✅ Gratis | ❌ Premium |\n| **Discord/Slack/Teams** | ✅ Gratis | ✅ Gratis | ❌ Premium |\n| **Monitoreo de Red Global** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Acceso a API** | ✅ Gratis | ❌ Premium | ❌ Premium |\n| **Costo Anual** | **Próximamente** | $360+ | $400+ |
 
 ### 💰 Desglose Honesto de Precios
 
-Esto no es software inflado respaldado por capital de riesgo. Aquí está exactamente lo que cubre tu $50/año:
+Esto no es software inflado respaldado por capital de riesgo. Aquí está nuestro desglose de costos de infraestructura:
 
 | Componente de Infraestructura | Costo Mensual |
 |-------------------------|--------------|\n| Pools de workers globales (8 ubicaciones) | $92.00 |\n| Servidores API y bases de datos | $24.00 |\n| Infraestructura de email/notificaciones | $50.00 |\n| Tarifas de tiendas de apps móviles | $8.25 |\n| Procesamiento de pagos | $22.50 |\n| **Costo mensual total** | **$196.75** |
 
 **Costo por usuario (10K usuarios): $0.20/mes**
-**Nuestro precio: $4.17/mes ($50/año)**
+**Nuestro precio: Próximamente**
 **Promedio de la industria: $30+/mes**
 
 ## 🚀 Inicio Rápido

@@ -4,7 +4,7 @@
 [![App Launch](https://img.shields.io/badge/App-Launch-green?style=for-the-badge&logo=rocket)](https://app.bareuptime.co)
 [![GitHub Stars](https://img.shields.io/github/stars/sumansaurabh/bareuptime?style=for-the-badge)](https://github.com/sumansaurabh/bareuptime)
 
-> **Enterprise-grade uptime monitoring at startup prices** - Monitor your websites and APIs with 99.9% reliability for just $50/year instead of $360+/year from competitors.
+> **Enterprise-grade uptime monitoring at startup prices** - Monitor your websites and APIs with 99.9% reliability at a fraction of the cost of competitors.
 
 ## 🤔 Why BareUptime?
 
@@ -37,11 +37,11 @@ Most tools gate essential features behind expensive paywalls:
 | **Discord/Slack/Teams** | ✅ Free | ✅ Free | ❌ Premium |
 | **Global Network Monitoring** | ✅ Free | ❌ Premium | ❌ Premium |
 | **API Access** | ✅ Free | ❌ Premium | ❌ Premium |
-| **Annual Cost** | **$50** | $360+ | $400+ |
+| **Annual Cost** | **Coming Soon** | $360+ | $400+ |
 
 ### 💰 Honest Pricing Breakdown
 
-This isn't VC-backed bloatware. Here's exactly what your $50/year covers:
+This isn't VC-backed bloatware. Here's our infrastructure cost breakdown:
 
 | Infrastructure Component | Monthly Cost |
 |-------------------------|--------------|
@@ -53,7 +53,7 @@ This isn't VC-backed bloatware. Here's exactly what your $50/year covers:
 | **Total monthly cost** | **$196.75** |
 
 **Cost per user (10K users): $0.20/month**
-**Our price: $4.17/month ($50/year)**
+**Our pricing: Coming soon**
 **Industry average: $30+/month**
 
 ## 🚀 Quick Start

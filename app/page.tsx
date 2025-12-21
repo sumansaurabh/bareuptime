@@ -1023,7 +1023,7 @@ export default function HomePage() {
                           </td>
                           <td className="py-6 px-6 text-center">
                             <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-indigo-400">$50 / Year</span>
+                              <span className="text-3xl font-bold text-indigo-400">Coming Soon</span>
                               <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 mt-2 text-xs">Enterprise Features</Badge>
                             </div>
                           </td>

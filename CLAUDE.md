@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BareUptime is a DIY uptime monitoring system built as a Next.js 15 application. The project aims to provide enterprise-grade uptime monitoring at startup-friendly prices ($50/year vs. $10/month competitors). It's a marketing/landing page with plans to integrate with Supabase for backend services.
+BareUptime is a DIY uptime monitoring system built as a Next.js 15 application. The project aims to provide enterprise-grade uptime monitoring at startup-friendly prices. It's a marketing/landing page with plans to integrate with Supabase for backend services.
 
 ## Tech Stack
 
