@@ -88,6 +88,9 @@ export const metadata: Metadata = {
   category: 'technology',
 }
 
+/**
+ * Renders the root HTML structure with theme provider and analytics.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
