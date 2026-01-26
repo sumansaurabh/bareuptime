@@ -88,6 +88,9 @@ export const metadata: Metadata = {
   category: 'technology',
 }
 
+/**
+ * Renders the root layout of the application with metadata and children components.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
