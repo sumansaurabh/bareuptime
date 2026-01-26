@@ -41,8 +41,8 @@ export function SchemaMarkup() {
       "downloadUrl": "https://app.bareuptime.co",
       "author": {
         "@type": "Person",
-        "name": "Suman Saurabh", 
-        "url": "https://linkedin.com/in/ssumansaurabh"
+        "name": "Sunil Agrwal", 
+        "url": "https://www.linkedin.com/in/sunilagwl5/"
       }
     },
     "breadcrumb": {
@@ -110,12 +110,12 @@ export function SchemaMarkup() {
     },
     "sameAs": [
       "https://github.com/sumansaurabh/bareuptime",
-      "https://linkedin.com/in/ssumansaurabh"
+      "https://www.linkedin.com/in/sunilagwl5/"
     ],
     "founder": {
       "@type": "Person",
-      "name": "Suman Saurabh",
-      "url": "https://linkedin.com/in/ssumansaurabh"
+      "name": "Sunil Agrwal",
+      "url": "https://www.linkedin.com/in/sunilagwl5/"
     },
     "description": "Enterprise-grade uptime monitoring at startup prices"
   }

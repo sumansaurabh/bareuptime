@@ -149,8 +149,8 @@ const structuredData = {
     "downloadUrl": "https://app.bareuptime.co",
     "author": {
       "@type": "Person", 
-      "name": "Suman Saurabh",
-      "url": "https://linkedin.com/in/ssumansaurabh"
+      "name": "Sunil Agrwal",
+      "url": "https://www.linkedin.com/in/sunilagwl5/"
     }
   },
   "breadcrumb": {
@@ -398,8 +398,8 @@ export default function HomePage() {
             ],
             "author": {
               "@type": "Person",
-              "name": "Suman Saurabh",
-              "url": "https://linkedin.com/in/ssumansaurabh"
+              "name": "Sunil Agrwal",
+              "url": "https://www.linkedin.com/in/sunilagwl5/"
             }
           }
         })
@@ -1068,12 +1068,12 @@ export default function HomePage() {
                   <div className="h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 w-full"></div>
                   <div className="p-8">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Suman Saurabh</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">Sunil Agrwal</h3>
                     <p className="text-blue-400 font-medium mb-5">Penify, Ex-Microsoft OpenAI</p>
                     
                     <div className="flex items-center gap-2 mb-6">
                       <a 
-                        href="https://www.linkedin.com/in/ssumansaurabh/" 
+                        href="https://www.linkedin.com/in/sunilagwl5/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
@@ -1249,7 +1249,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a 
-                      href="https://www.linkedin.com/in/ssumansaurabh/" 
+                      href="https://www.linkedin.com/in/sunilagwl5/" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
