@@ -1275,7 +1275,7 @@ export default function HomePage() {
           
           <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-slate-500 mb-4 md:mb-0">
-              &copy; Penify Technologies LLC. All rights reserved.
+              &copy; Bareuptime Associates and Co. All rights reserved.
             </p>
             <p className="text-sm text-slate-500">
               Built by enterprise engineers, for organizations that need reliable monitoring.
