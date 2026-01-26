@@ -1,5 +1,8 @@
 import Script from 'next/script'
 
+/**
+ * Renders structured schema markup for SEO using JSON-LD.
+ */
 export function SchemaMarkup() {
   const mainSchema = {
     "@context": "https://schema.org",
