@@ -9,7 +9,7 @@ By accessing or using BareUptime ("Service"), you agree to be bound by these Ter
 
 ## 2. Company Information
 
-**Service Provider:** Penify Technologies LLC  
+**Service Provider:** Bareuptime Associates and Co  
 **Registered Address:** 30 N Gould St Ste N, Sheridan, WY 82801  
 **Email:** support@bareuptime.co  
 **Website:** https://bareuptime.co
@@ -93,7 +93,7 @@ You may not:
 ## 8. Intellectual Property Rights
 
 ### 8.1 Our Rights
-- BareUptime and all related trademarks, logos, and content are owned by Penify Technologies LLC
+- BareUptime and all related trademarks, logos, and content are owned by Bareuptime Associates and Co
 - The Service and its technology are protected by copyright, trademark, and other intellectual property laws
 
 ### 8.2 Your Rights
@@ -114,14 +114,14 @@ You may not:
 THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
 
 ### 10.2 Limitation of Liability
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, PENIFY TECHNOLOGIES LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION.
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, BAREUPTIME ASSOCIATES AND CO SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION.
 
 ### 10.3 Maximum Liability
 Our total liability to you for any claim arising from these Terms or your use of the Service shall not exceed the amount you paid us in the 12 months preceding the claim.
 
 ## 11. Indemnification
 
-You agree to indemnify and hold harmless Penify Technologies LLC from any claims, damages, losses, or expenses arising from:
+You agree to indemnify and hold harmless Bareuptime Associates and Co from any claims, damages, losses, or expenses arising from:
 - Your use of the Service
 - Your violation of these Terms
 - Your violation of any third-party rights
@@ -168,7 +168,7 @@ For questions about these Terms of Service, contact us:
 
 **Email:** legal@bareuptime.co  
 **Support:** support@bareuptime.co  
-**Address:** Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801
+**Address:** Bareuptime Associates and Co, 30 N Gould St Ste N, Sheridan, WY 82801
 
 ## 16. Severability
 
@@ -176,7 +176,7 @@ If any provision of these Terms is found to be unenforceable, the remaining prov
 
 ## 17. Entire Agreement
 
-These Terms, together with our Privacy Policy, constitute the entire agreement between you and Penify Technologies LLC regarding the Service.
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and Bareuptime Associates and Co regarding the Service.
 
 ## 18. Force Majeure
 

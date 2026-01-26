@@ -5,11 +5,11 @@
 
 ## 1. Introduction
 
-Penify Technologies LLC ("we," "our," or "us") operates BareUptime, a website monitoring service. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website monitoring service ("Service") and website located at https://bareuptime.co (the "Website").
+Bareuptime Associates and Co ("we," "our," or "us") operates BareUptime, a website monitoring service. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website monitoring service ("Service") and website located at https://bareuptime.co (the "Website").
 
 ## 2. Company Information
 
-**Company:** Penify Technologies LLC  
+**Company:** Bareuptime Associates and Co  
 **Registered Address:** 30 N Gould St Ste N, Sheridan, WY 82801  
 **Email:** support@bareuptime.co  
 **Website:** https://bareuptime.co
@@ -121,7 +121,7 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 If you have questions about this Privacy Policy, please contact us:
 
 **Email:** privacy@bareuptime.co  
-**Address:** Penify Technologies LLC, 30 N Gould St Ste N, Sheridan, WY 82801  
+**Address:** Bareuptime Associates and Co, 30 N Gould St Ste N, Sheridan, WY 82801  
 **Phone:** Available through our website support system
 
 ## 15. State-Specific Rights
