@@ -205,7 +205,7 @@ bareuptime/
 
 ## 🏢 关于
 
-BareUptime 由 [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/)（前微软、Penify）创建，源于对高价企业监控工具的不满，这些工具对基本功能收取数百美元。
+BareUptime 由 [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/)（前InMobi、Bareuptime）创建，源于对高价企业监控工具的不满，这些工具对基本功能收取数百美元。
 
 **我们的使命**：以创业公司友好的价格提供企业级监控基础设施。
 

@@ -205,7 +205,7 @@ Mradi huu umetoa leseni chini ya Leseni ya MIT - angalia faili ya [LICENSE](LICE
 
 ## 🏢 Kuhusu
 
-Imejengwa na [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/) (Ex-Microsoft, Penify), BareUptime iliundwa kutokana na kuchanganyikiwa na zana za ufuatiliaji za biashara ghali zinazotoza mamia ya dola kwa utendaji wa msingi.
+Imejengwa na [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/) (Ex-InMobi, Bareuptime), BareUptime iliundwa kutokana na kuchanganyikiwa na zana za ufuatiliaji za biashara ghali zinazotoza mamia ya dola kwa utendaji wa msingi.
 
 **Dhamira yetu**: Kutoa miundombinu ya ufuatiliaji ya kiwango cha biashara kwa bei rafiki kwa waanzilishi.
 
