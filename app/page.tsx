@@ -1069,7 +1069,7 @@ export default function HomePage() {
                   <div className="p-8">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
                     <h3 className="text-2xl font-bold text-white mb-2">Sunil Agrwal</h3>
-                    <p className="text-blue-400 font-medium mb-5">Penify, Ex-Microsoft OpenAI</p>
+                    <p className="text-blue-400 font-medium mb-5">Bareuptime, Ex-InMobi</p>
                     
                     <div className="flex items-center gap-2 mb-6">
                       <a 

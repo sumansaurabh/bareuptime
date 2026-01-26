@@ -205,7 +205,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🏢 About
 
-Built by [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/) (Ex-Microsoft, Penify), BareUptime was created out of frustration with overpriced enterprise monitoring tools that charge hundreds of dollars for basic functionality.
+Built by [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/) (Ex-InMobi, Bareuptime), BareUptime was created out of frustration with overpriced enterprise monitoring tools that charge hundreds of dollars for basic functionality.
 
 **Our mission**: Provide enterprise-grade monitoring infrastructure at startup-friendly prices.
 
