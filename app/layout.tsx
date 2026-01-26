@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     'Slack monitoring',
     'website uptime checker'
   ],
-  authors: [{ name: 'Suman Saurabh', url: 'https://linkedin.com/in/ssumansaurabh' }],
-  creator: 'Suman Saurabh',
+  authors: [{ name: 'Sunil Agrwal', url: 'https://www.linkedin.com/in/sunilagwl5/' }],
+  creator: 'Sunil Agrwal',
   publisher: 'Penify Technologies LLC',
   formatDetection: {
     email: false,
@@ -148,12 +148,12 @@ export default function RootLayout({
                   },
                   "sameAs": [
                     "https://github.com/sumansaurabh/bareuptime",
-                    "https://linkedin.com/in/ssumansaurabh"
+                    "https://www.linkedin.com/in/sunilagwl5/"
                   ],
                   "founder": {
                     "@type": "Person",
-                    "name": "Suman Saurabh",
-                    "url": "https://linkedin.com/in/ssumansaurabh"
+                    "name": "Sunil Agrwal",
+                    "url": "https://www.linkedin.com/in/sunilagwl5/"
                   }
                 },
                 {

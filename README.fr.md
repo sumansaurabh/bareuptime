@@ -205,7 +205,7 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 🏢 À propos
 
-Construit par [Suman Saurabh](https://linkedin.com/in/ssumansaurabh) (Ex-Microsoft, Penify), BareUptime a été créé par frustration face aux outils de surveillance d'entreprise trop chers qui facturent des centaines de dollars pour des fonctionnalités de base.
+Construit par [Sunil Agrwal](https://www.linkedin.com/in/sunilagwl5/) (Ex-Microsoft, Penify), BareUptime a été créé par frustration face aux outils de surveillance d'entreprise trop chers qui facturent des centaines de dollars pour des fonctionnalités de base.
 
 **Notre mission** : Fournir une infrastructure de surveillance de niveau entreprise à des prix adaptés aux startups.
 
