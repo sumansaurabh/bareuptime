@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Sunil Agrwal', url: 'https://www.linkedin.com/in/sunilagwl5/' }],
   creator: 'Sunil Agrwal',
-  publisher: 'Penify Technologies LLC',
+  publisher: 'Bareuptime Associates and Co',
   formatDetection: {
     email: false,
     address: false,
