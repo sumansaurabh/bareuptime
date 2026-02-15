@@ -4,6 +4,7 @@ import type React from "react"
 import Script from "next/script"
 import dynamic from "next/dynamic"
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect, useCallback, useMemo, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,9 +13,15 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
 import { trackWithSource } from '@/components/google-analytics'
 import FeaturesDropdown from '@/components/FeaturesDropdown'
-import { Inter } from 'next/font/google'
+import { IBM_Plex_Sans_Condensed, Inter } from 'next/font/google'
+import helmetHeroImage from "@/5tGVFWl8O3rH6Ev7L5kvnAdFGSw.png"
 
 const inter = Inter({ subsets: ['latin'] })
+const ibmPlexSansCondensed = IBM_Plex_Sans_Condensed({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
 
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
@@ -337,11 +344,11 @@ export default function HomePage() {
   return (
     <>
     <main className={`min-h-screen bg-background text-foreground will-change-scroll ${inter.className}`} itemScope itemType="https://schema.org/WebPage">
-      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+      <header className="w-full py-3 px-4 bg-black sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
-              <img src="/bareuptime-logo.svg" alt="BareUptime" className="w-6 h-6 mr-2" />
+              <ActivityIcon className="text-[#975E08]" />
               <span className="text-lg font-bold text-[#975E08]">BareUptime</span>
             </div>
             <nav className="hidden md:flex items-center gap-6 ml-8">
@@ -365,37 +372,70 @@ export default function HomePage() {
       </header>
       
       {/* Hero */}
-      <section className="relative overflow-hidden pt-24 pb-16">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:60px_60px] opacity-20" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#975E08]/50 to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4">
-          <div className="grid items-center gap-12 py-16 md:grid-cols-[1.05fr_minmax(0,1fr)]">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-slate-200">
-                <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-[#975E08]" />
-                Monitoring teams before demo day
+      <section className="relative isolate min-h-[calc(100svh-64px)] overflow-hidden bg-black">
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src={helmetHeroImage}
+            alt="Helmeted person facing right"
+            priority
+            fill
+            sizes="100vw"
+            className="object-cover object-[36%_48%]"
+          />
+        </div>
+
+        <div className="absolute inset-y-0 left-0 hidden w-[66%] md:block lg:w-[68%]">
+          <Image
+            src={helmetHeroImage}
+            alt="Helmeted person facing right"
+            priority
+            fill
+            sizes="(max-width: 1024px) 66vw, 68vw"
+            className="object-cover object-[56%_48%]"
+          />
+        </div>
+
+        <div className="pointer-events-none absolute inset-y-0 left-[56%] hidden w-[44%] bg-gradient-to-r from-transparent to-black md:block" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/40 to-black/85 md:from-black/10 md:via-black/15 md:to-black/55" />
+        <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-black via-black/95 to-transparent" />
+
+        <div className="absolute inset-y-0 right-0 z-10 hidden w-[44%] items-center pr-8 md:flex lg:pr-10">
+          <div className="w-full max-w-[560px] overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl backdrop-blur-sm">
+            <MonitoringAnimation />
+          </div>
+        </div>
+
+        <div className="relative z-20 flex min-h-[calc(100svh-64px)] flex-col justify-end px-6 pb-10 pt-20 sm:px-8 md:px-12 md:pb-14 lg:px-16">
+          <div className="max-w-2xl space-y-6 md:w-[52%] md:max-w-[44rem]">
+
+            <h1 className={`${ibmPlexSansCondensed.className} text-4xl font-semibold leading-tight tracking-tight text-[#AFAFAF] md:text-5xl lg:text-6xl`}>
+              Ship uptime alerts before
+              <br className="hidden md:block" /> Investors ask.
+            </h1>
+
+            <p className={`${ibmPlexSansCondensed.className} max-w-xl text-base text-[#AFAFAF] md:text-lg`}>
+              Point BareUptime at your production URL and we handle the rest.
+            </p>
+
+            <form onSubmit={handleMonitorSubmit} className="space-y-3">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Input type="url" value={monitorUrl} onChange={(e) => setMonitorUrl(e.target.value)} placeholder="https://yourstartup.com" className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white focus-visible:ring-white/70" />
+                <Button type="submit" disabled={monitorStatus === "loading"} className="h-12 min-w-[160px] bg-[#AFAFAF] text-base font-semibold text-black hover:bg-[#9f9f9f]">
+                  {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
+                </Button>
               </div>
-              <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">Ship uptime alerts before investors ask.</h1>
-              <p className="max-w-xl text-lg text-slate-300">Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.</p>
-              <form onSubmit={handleMonitorSubmit} className="space-y-3">
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Input type="url" value={monitorUrl} onChange={(e) => setMonitorUrl(e.target.value)} placeholder="https://yourstartup.com" className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white focus-visible:ring-[#975E08]" />
-                  <Button type="submit" disabled={monitorStatus === "loading"} className="h-12 min-w-[160px] bg-[#975E08] text-base font-semibold hover:bg-[#975E08]/90">
-                    {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
-                  </Button>
-                </div>
-                {monitorMessage && <div className={`text-sm font-medium ${monitorStatus === "success" ? "text-[#975E08]" : "text-red-300"}`}>{monitorMessage}</div>}
-              </form>
-              <div className="flex flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center">
-                <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#975E08]" /> One-minute global pings</div>
-                <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#975E08]" /> On-call mobile apps included</div>
-              </div>
+              {monitorMessage && <div className={`text-sm font-medium ${monitorStatus === "success" ? "text-emerald-300" : "text-red-300"}`}>{monitorMessage}</div>}
+            </form>
+
+            <div className="flex flex-col gap-3 text-sm text-[#AFAFAF] sm:flex-row sm:items-center sm:gap-5">
+              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#AFAFAF]" /> One-minute global pings</div>
+              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#AFAFAF]" /> On-call mobile apps included</div>
             </div>
-            <div className="relative">
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[#975E08]/5 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-2xl">
-                <MonitoringAnimation />
-              </div>
+          </div>
+
+          <div className="mt-8 md:hidden">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl">
+              <MonitoringAnimation />
             </div>
           </div>
         </div>
@@ -511,7 +551,7 @@ export default function HomePage() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-28 relative">
+      {/* <section id="about" className="py-28 relative">
         <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
         <div className="max-w-6xl mx-auto px-4 relative">
           <div className="text-center mb-16">
@@ -545,7 +585,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-28 relative">
