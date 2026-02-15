@@ -31,6 +31,9 @@ import {
   Quote
 } from "lucide-react";
 
+/**
+ * Renders the Enterprise Page with features and pricing comparison.
+ */
 export default function EnterprisePage() {
   const enterpriseFeatures = [
     {
