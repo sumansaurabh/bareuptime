@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import '../styles/performance.css'
+import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@/components/google-analytics';
 import { GlobalAnalyticsTracker } from '@/components/analytics/GlobalAnalyticsTracker';
 import Script from 'next/script';
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bareuptime.co'),

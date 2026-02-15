@@ -144,9 +144,10 @@ const MonitoringAnimation = () => {
     { id: 'ssl', x: 60, y: 150, icon: Lock, label: 'SSL Monitor', color: 'emerald', size: 'normal' },
     { id: 'metrics', x: 60, y: 300, icon: Activity, label: 'Site Metrics', color: 'blue', size: 'normal' },
     { id: 'bareuptime', x: 270, y: 225, icon: Activity, label: 'BareUptime', isCenter: true, color: 'purple', size: 'large' },
-    { id: 'email', x: 520, y: 90, icon: Mail, label: 'Email', color: 'orange', size: 'normal' },
-    { id: 'slack', x: 520, y: 205, icon: SlackIcon, label: 'Slack', color: 'green', size: 'normal' },
-    { id: 'mobile', x: 520, y: 320, icon: Smartphone, label: 'Mobile', color: 'pink', size: 'normal' },
+    // Pull right column in so icons/status chips never clip against the container edge.
+    { id: 'email', x: 500, y: 90, icon: Mail, label: 'Email', color: 'orange', size: 'normal' },
+    { id: 'slack', x: 500, y: 205, icon: SlackIcon, label: 'Slack', color: 'green', size: 'normal' },
+    { id: 'mobile', x: 500, y: 320, icon: Smartphone, label: 'Mobile', color: 'pink', size: 'normal' },
   ]
 
   const getNodeVariants = (color: string, state: string) => {
@@ -194,7 +195,7 @@ const MonitoringAnimation = () => {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px] bg-gradient-to-br from-slate-950 via-indigo-950/60 to-slate-950 rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl">
+    <div ref={containerRef} className="relative w-full h-[400px] bg-black rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl">
       {/* Complex animated background elements */}
       {floatingElements.map((element) => (
         <motion.div
