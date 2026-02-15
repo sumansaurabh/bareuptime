@@ -21,6 +21,15 @@ const SlackIcon: React.FC<{ size?: number; strokeWidth?: number; className?: str
   </svg>
 )
 
+/**
+ * Monitors and animates the status of various nodes and metrics in a visual representation.
+ *
+ * This component manages the state of active connections and node statuses, updating them through a timeline of animations.
+ * It utilizes advanced animations for metrics and background elements, creating a dynamic user interface that reflects real-time data.
+ * The component also handles rendering of custom shapes and connection lines between nodes, enhancing the visual feedback of the monitoring process.
+ *
+ * @returns A JSX element representing the monitoring animation interface.
+ */
 const MonitoringAnimation = () => {
   const [activeConnections, setActiveConnections] = useState<Set<string>>(new Set())
   const [nodeStates, setNodeStates] = useState<Record<string, string>>({})
