@@ -5,17 +5,17 @@ export function SchemaMarkup() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "BareUptime - Enterprise-Grade Uptime Monitoring at Startup Prices",
-    "description": "Monitor your websites and APIs with enterprise-grade reliability for just $50/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
+    "description": "Monitor your websites and APIs with enterprise-grade reliability for just $180/year. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations. 95% cheaper than competitors like UptimeRobot.",
     "url": "https://bareuptime.co",
     "mainEntity": {
       "@type": "SoftwareApplication",
       "name": "BareUptime",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web, iOS, Android",
-      "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $50/year.",
+      "description": "Enterprise-grade uptime monitoring solution for websites and APIs at startup-friendly prices of just $180/year.",
       "offers": {
         "@type": "Offer",
-        "price": "8.00",
+        "price": "15.00",
         "priceCurrency": "USD",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
@@ -35,7 +35,7 @@ export function SchemaMarkup() {
         "Webhook integrations for custom workflows",
         "Discord, Slack, and Teams notifications",
         "Global monitoring network with 99.9% uptime",
-        "Affordable pricing at $50/year vs $180+/year competitors"
+        "Affordable pricing at $180/year vs $360+/year competitors"
       ],
       "screenshot": "https://bareuptime.co/dashboard-screenshot.png",
       "downloadUrl": "https://app.bareuptime.co",
@@ -67,7 +67,7 @@ export function SchemaMarkup() {
         "name": "How much does BareUptime cost compared to competitors?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BareUptime costs only $50/year while competitors like UptimeRobot charge $180+/year for similar features, providing 95% cost savings."
+          "text": "BareUptime costs only $180/year while competitors like UptimeRobot charge $360+/year for similar features, providing significant cost savings."
         }
       },
       {
