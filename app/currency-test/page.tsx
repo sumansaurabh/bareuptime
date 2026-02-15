@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
 
+/**
+ * Renders a currency detection test page with options to switch between USD and INR.
+ */
 export default function CurrencyTestPage() {
   const [currentCurrency, setCurrentCurrency] = useState<string>('USD');
 
