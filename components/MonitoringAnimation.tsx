@@ -194,7 +194,7 @@ const MonitoringAnimation = () => {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px] bg-gradient-to-br from-slate-950 via-indigo-950/60 to-slate-950 rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl">
+    <div ref={containerRef} className="relative w-full h-[400px] bg-black rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl">
       {/* Complex animated background elements */}
       {floatingElements.map((element) => (
         <motion.div

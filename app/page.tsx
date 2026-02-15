@@ -3,18 +3,19 @@
 import type React from "react"
 import Script from "next/script"
 import dynamic from "next/dynamic"
+import Link from "next/link"
 import { useState, useEffect, useCallback, useMemo, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
-import { supabase } from '@/lib/supabaseClient'
-import { useIntersectionObserver } from '@/hooks/usePerformance'
-import AnimateOnScroll from './components/AnimateOnScroll'
 import { trackWithSource } from '@/components/google-analytics'
 import FeaturesDropdown from '@/components/FeaturesDropdown'
-import { Cancel } from "@radix-ui/react-alert-dialog"
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
 // Lazy load heavy components for better performance
 const DashboardMockup = dynamic(() => import('./components/DashboardMockup'), {
   loading: () => <div className="w-full h-96 bg-black/20 rounded-xl animate-pulse" />,
@@ -206,7 +207,7 @@ export default function HomePage() {
     if (typeof window === 'undefined') return
 
     const loadTMSChat = () => {
-      // Set up TMS Chat configurationpp
+      // Set up TMS Chat configuration
       window.TMSChatConfig = {
         widgetId: 'e338f50a-1304-482d-ad13-80282f45280e',
         domain: 'bareuptime.co'
@@ -215,41 +216,31 @@ export default function HomePage() {
       const script = document.createElement("script")
       script.src = "https://cdn.jsdelivr.net/npm/@taral/web-chat@latest/dist/chat-widget.js"
       script.async = true
-      script.defer = true // Use defer for better performance
+      script.defer = true
       
-      // Add error handling
       script.onerror = () => console.warn('Failed to load TMS chat script')
-      
       document.head.appendChild(script)
       
       return () => {
         if (script.parentNode) {
           script.parentNode.removeChild(script)
         }
-        // Clean up global config
         delete window.TMSChatConfig
       }
     }
 
-    // Defer script loading to avoid blocking
     const timeoutId = setTimeout(loadTMSChat, 1000)
-    
-    return () => {
-      clearTimeout(timeoutId)
-    }
+    return () => clearTimeout(timeoutId)
   }, [])
 
-  // Memoized fetch function to prevent recreation
   const fetchRepoData = useCallback(async () => {
     try {
       const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 5000) // 5s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 5000)
       
       const response = await fetch('https://api.github.com/repos/sumansaurabh/bareuptime', {
         signal: controller.signal,
-        headers: {
-          'Accept': 'application/vnd.github.v3+json'
-        }
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
       })
       
       clearTimeout(timeoutId)
@@ -271,49 +262,35 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    // Defer API call to not block initial render
     const timeoutId = setTimeout(fetchRepoData, 500)
     return () => clearTimeout(timeoutId)
   }, [fetchRepoData])
 
   const handleMonitorSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
     if (!monitorUrl.trim()) {
       setMonitorStatus("error")
       setMonitorMessage("Add the site or API you want to monitor.")
       return
     }
-
     try {
       const parsed = new URL(monitorUrl.trim())
-      if (!parsed.protocol.startsWith("http")) {
-        throw new Error()
-      }
+      if (!parsed.protocol.startsWith("http")) throw new Error()
     } catch {
       setMonitorStatus("error")
       setMonitorMessage("Use a full URL including https://")
       return
     }
-
     setMonitorStatus("loading")
     setMonitorMessage("")
-
     try {
       const response = await fetch("/api/monitors-public", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: monitorUrl.trim() }),
       })
-
       const data = await response.json().catch(() => ({}))
-
-      if (!response.ok || !data?.success) {
-        throw new Error(data?.error || "We could not create that monitor just yet.")
-      }
-
+      if (!response.ok || !data?.success) throw new Error(data?.error || "We could not create that monitor just yet.")
       const monitorPublicUrl = `https://app.bareuptime.co/status/url/${data.id || ''}`
       window.open(monitorPublicUrl, '_blank')
       setMonitorStatus("success")
@@ -325,44 +302,32 @@ export default function HomePage() {
       setMonitorStatus("error")
       setMonitorMessage(error instanceof Error ? error.message : "Something went wrong. Try again in a moment.")
     }
-  }, [monitorUrl, trackWithSource])
+  }, [monitorUrl])
 
-  // Memoized form submission handler
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email || isSubmitting) return
-
     setIsSubmitting(true)
     setMessage("")
-    
     try {
       const response = await fetch('https://api.bareuptime.co/subscriber', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
-
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`)
+        throw new Error(errorData.message || `HTTP ${response.status}`)
       }
       const successData = await response.json()
-      console.log("Subscription successful", successData)
       setIsSubmitted(true)
       setMessage(successData.message)
       setMessageType("success")
       setEmail("")
-      // Track successful subscription
       trackWithSource.signUp('email', 'newsletter_signup')
     } catch (error: any) {
       console.error("Subscription failed:", error)
-      if (error.message?.includes("duplicate") || error.message?.includes("Already registered for updates")) {
-        setMessage("You are already subscribed!")
-      } else {
-        setMessage("Something went wrong. Please try again.")
-      }
+      setMessage("Something went wrong. Please try again.")
       setMessageType("error")
     } finally {
       setIsSubmitting(false)
@@ -371,182 +336,63 @@ export default function HomePage() {
 
   return (
     <>
-    {/* Schema.org structured data for better SEO */}
-    <Script
-      id="schema-webpage"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "BareUptime - Enterprise-Grade Uptime Monitoring",
-          "description": "Monitor your websites and APIs with enterprise-grade reliability. Real-time alerts, mobile apps, SSL monitoring, and webhook integrations.",
-          "url": "https://bareuptime.co",
-          "mainEntity": {
-            "@type": "SoftwareApplication",
-            "name": "BareUptime",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web, iOS, Android",
-            "description": "Enterprise-grade uptime monitoring solution for websites and APIs.",
-            "featureList": [
-              "Real-time uptime monitoring for websites and APIs",
-              "Mobile push notifications for iOS and Android",
-              "SSL certificate monitoring and expiration alerts",
-              "Webhook integrations for custom workflows",
-              "Discord, Slack, Telegram, and Teams notifications",
-              "Global monitoring network with 99.9% uptime"
-            ],
-            "author": {
-              "@type": "Person",
-              "name": "Sunil Agrwal",
-              "url": "https://www.linkedin.com/in/sunilagwl5/"
-            }
-          }
-        })
-      }}
-    />
-
-    <main className="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-950 will-change-scroll" itemScope itemType="https://schema.org/WebPage">
-      {/* Launch Banner - Optimized */}
-     
-      
-      {/* Enterprise Navigation Bar - Optimized */}
-      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg will-change-transform">
+    <main className={`min-h-screen bg-background text-foreground will-change-scroll ${inter.className}`} itemScope itemType="https://schema.org/WebPage">
+      <header className="w-full py-3 px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center">
               <img src="/bareuptime-logo.svg" alt="BareUptime" className="w-6 h-6 mr-2" />
-              <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
+              <span className="text-lg font-bold text-[#975E08]">BareUptime</span>
             </div>
-            <nav className="hidden md:flex items-center gap-6 ml-8" role="navigation">
+            <nav className="hidden md:flex items-center gap-6 ml-8">
               <FeaturesDropdown />
-              <a 
-                href="/enterprise"
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
-                onClick={() => trackWithSource.navigation('enterprise', 'header_nav')}
-              >
-                Enterprise
-              </a>
-              <a 
-                href="https://docs.bareuptime.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
-                onClick={() => trackWithSource.navigation('docs', 'header_nav')}
-              >
-                Docs
-              </a>
-              <a 
-                href="/blogs"
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
-                onClick={() => trackWithSource.navigation('blogs', 'header_nav')}
-              >
-                Blogs
-              </a>
-              <button 
-                onClick={() => {
-                  smoothScrollTo('about');
-                  trackWithSource.navigation('about', 'header_nav');
-                }} 
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded"
-                aria-label="Navigate to About section"
-              >
-                About
-              </button>
+              <a href="/enterprise" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Enterprise</a>
+              <a href="https://docs.bareuptime.co" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Docs</a>
+              <a href="/blogs" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Blogs</a>
+              <button onClick={() => smoothScrollTo('about')} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</button>
             </nav>
           </div>
           <div className="flex items-center gap-4">
-            <a 
-              href="https://github.com/sumansaurabh/bareuptime" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-1 py-1.5 px-3 bg-white/10 hover:bg-white/15 rounded-lg text-sm font-medium text-white transition-all transform hover:scale-105"
-              aria-label="View BareUptime on GitHub"
-              onClick={() => trackWithSource.buttonClick('github_repo', 'header')}
-            >
-              <Globe className="w-4 h-4 text-blue-400" />
+            <a href="https://github.com/sumansaurabh/bareuptime" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 py-1.5 px-3 bg-white/10 hover:bg-white/15 rounded-lg text-sm font-medium text-white transition-all">
+              <Globe className="w-4 h-4 text-[#975E08]" />
               <span>GitHub</span>
             </a>
-            <a 
-              href="https://app.bareuptime.co" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Sign in to BareUptime"
-              onClick={() => trackWithSource.ctaClick('sign_in', 'header')}
-            >
-              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all duration-200 transform hover:scale-105">
-                Sign In
-              </Button>
+            <a href="https://app.bareuptime.co" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#975E08] hover:bg-[#975E08]/90 text-white font-medium py-2 px-6 rounded-lg shadow-lg">Sign In</Button>
             </a>
           </div>
         </div>
       </header>
       
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative overflow-hidden pt-24 pb-16">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:60px_60px] opacity-20" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#975E08]/50 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="grid items-center gap-12 py-16 md:grid-cols-[1.05fr_minmax(0,1fr)]">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-slate-200">
-                <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-[#975E08]" />
                 Monitoring teams before demo day
               </div>
-              <div>
-                <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-                  Ship uptime alerts before investors ask.
-                </h1>
-                <p className="mt-4 max-w-xl text-lg text-slate-300">
-                  Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.
-                </p>
-              </div>
-
-              <form id="hero-monitor-form" onSubmit={handleMonitorSubmit} className="space-y-3">
+              <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight">Ship uptime alerts before investors ask.</h1>
+              <p className="max-w-xl text-lg text-slate-300">Point BareUptime at your production URL and we handle the rest: global probes, incident timelines, and alerts that wake the right person.</p>
+              <form onSubmit={handleMonitorSubmit} className="space-y-3">
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Input
-                    type="url"
-                    value={monitorUrl}
-                    onChange={(event) => setMonitorUrl(event.target.value)}
-                    placeholder="https://yourstartup.com"
-                    className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-blue-500"
-                    aria-label="URL to monitor"
-                  />
-                  <Button
-                    type="submit"
-                    disabled={monitorStatus === "loading"}
-                    className="h-12 min-w-[160px] bg-blue-600 text-base font-semibold transition hover:bg-blue-500 disabled:cursor-wait"
-                  >
+                  <Input type="url" value={monitorUrl} onChange={(e) => setMonitorUrl(e.target.value)} placeholder="https://yourstartup.com" className="h-12 flex-1 border-white/20 bg-white/5 text-base text-white focus-visible:ring-[#975E08]" />
+                  <Button type="submit" disabled={monitorStatus === "loading"} className="h-12 min-w-[160px] bg-[#975E08] text-base font-semibold hover:bg-[#975E08]/90">
                     {monitorStatus === "loading" ? "Creating..." : "Start monitoring"}
                   </Button>
                 </div>
-                <p className="text-sm text-slate-400">
-                  Free public monitor. Upgrade later for advanced routing and escalations.
-                </p>
-                {monitorStatus !== "idle" && monitorMessage && (
-                  <div
-                    className={`text-sm font-medium ${monitorStatus === "success" ? "text-emerald-300" : "text-red-300"}`}
-                    role={monitorStatus === "success" ? "status" : "alert"}
-                  >
-                    {monitorMessage}
-                  </div>
-                )}
+                {monitorMessage && <div className={`text-sm font-medium ${monitorStatus === "success" ? "text-[#975E08]" : "text-red-300"}`}>{monitorMessage}</div>}
               </form>
-
               <div className="flex flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-300" />
-                  One-minute global pings
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-300" />
-                  On-call mobile apps included
-                </div>
+                <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#975E08]" /> One-minute global pings</div>
+                <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#975E08]" /> On-call mobile apps included</div>
               </div>
             </div>
-
             <div className="relative">
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-slate-900/0 blur-3xl" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[#975E08]/5 blur-3xl" />
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-2xl">
                 <MonitoringAnimation />
               </div>
@@ -554,753 +400,180 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Problem */}
       <section className="relative overflow-hidden pt-24 pb-16">
         <div className="relative max-w-7xl mx-auto px-4">
-          {/* Problem Statement */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                The Problem with <span className="text-red-400">Current Solutions</span>
-              </h2>
-              <p className="text-slate-300">Essential features scattered across complex systems</p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* What You Need */}
-              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <CheckCircle className="w-6 h-6 text-emerald-400" />
-                  <h3 className="text-lg font-bold text-emerald-400">What You Actually Need</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Uptime monitoring + SSL</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    <span className="text-slate-300">Mobile Push Notifications</span>
-                  </div>
-                  
-                  <div className="mt-4">
-                    <p className="text-emerald-300 text-sm font-medium mb-3 flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4" />
-                      Supported Platforms & Integrations:
-                    </p>
-                    <div className="flex flex-wrap gap-2 p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20">
-                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
-                        <AndroidIcon className="w-4 h-4" />
-                        <span>Android</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium border border-emerald-500/30">
-                        <IOSIcon className="w-4 h-4" />
-                        <span>iOS</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-medium border border-blue-500/30">
-                        <MessageSquare className="w-4 h-4" />
-                        <span>Discord</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/30">
-                        <SlackIcon className="w-4 h-4" />
-                        <span>Slack</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-sm font-medium border border-cyan-500/30">
-                        <TelegramIcon className="w-4 h-4" />
-                        <span>Telegram</span>
-                      </div>
-                      {/* <div className="flex items-center gap-2 px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/30">
-                        <Users className="w-4 h-4" />
-                        <span>Teams</span>
-                      </div> */}
-                      <div className="flex items-center gap-2 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-sm font-medium border border-orange-500/30">
-                        <Webhook className="w-4 h-4" />
-                        <span>Webhooks</span>
-                      </div>
-                    </div>
-                  </div>
+          <div className="max-w-4xl mx-auto mb-16 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">The Problem with <span className="text-[#975E08]">Current Solutions</span></h2>
+            <div className="grid md:grid-cols-2 gap-6 mt-12 text-left">
+              <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-[#975E08] mb-4 flex items-center gap-2"><CheckCircle className="w-6 h-6" /> What You Actually Need</h3>
+                <ul className="space-y-3 text-slate-300">
+                  <li className="flex items-center gap-3"><div className="w-2 h-2 bg-[#975E08] rounded-full" /> Uptime monitoring + SSL</li>
+                  <li className="flex items-center gap-3"><div className="w-2 h-2 bg-[#975E08] rounded-full" /> Mobile Push Notifications</li>
+                </ul>
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {['Android', 'iOS', 'Discord', 'Slack', 'Telegram', 'Webhooks'].map(item => (
+                    <div key={item} className="px-3 py-1 bg-white/10 text-slate-300 rounded-lg text-sm border border-white/15">{item}</div>
+                  ))}
                 </div>
               </div>
-
-              {/* What Industry Delivers */}
-              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
-                  <h3 className="text-lg font-bold text-red-400">What Industry Delivers</h3>
-                </div>
+              <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-slate-400 mb-4 flex items-center gap-2"><AlertTriangle className="w-6 h-6" /> What Industry Delivers</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
-                    <span className="text-slate-300 text-sm">Mobile apps</span>
-                    <span className="text-red-400 font-bold text-sm">$20/mo</span>
-                  </div>
-                  <div className="flex items-center justify-between p-2 bg-red-500/10 rounded border border-red-500/20">
-                    <span className="text-slate-300 text-sm">API access</span>
-                    <span className="text-red-400 font-bold text-sm">$10/mo</span>
-                  </div>
-
-                  <div className="pt-2 border-t border-red-500/20">
-                    <div className="flex items-center justify-between">
-                      <span className="text-red-300 font-medium">Total yearly cost</span>
-                      <span className="text-red-400 font-bold text-lg">$360+</span>
-                    </div>
-                  </div>
+                  <div className="flex justify-between p-2 bg-white/5 rounded border border-white/10 text-sm"><span>Mobile apps</span><span>$20/mo</span></div>
+                  <div className="flex justify-between p-2 bg-white/5 rounded border border-white/10 text-sm"><span>API access</span><span>$10/mo</span></div>
+                  <div className="pt-2 border-t border-white/10 flex justify-between font-bold"><span>Total yearly</span><span className="text-white">$360+</span></div>
                 </div>
               </div>
             </div>
-
           </div>
 
-          
-          {/* Comparison Chart Section */}
+          {/* Comparison */}
           <div className="mb-24">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-500/20 shadow-lg">
-                <Server className="w-4 h-4" />
-                Head-to-Head Comparison
+              <div className="inline-flex items-center gap-2 bg-white/5 text-slate-300 px-4 py-2 rounded-full text-sm border border-white/10 shadow-lg mb-6">Head-to-Head Comparison</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4"><span className="text-[#975E08]">BareUptime</span> vs <span className="text-slate-500">UptimeRobot</span></h2>
+            </div>
+            <Card className="bg-black/70 border border-white/10 shadow-2xl rounded-xl overflow-hidden max-w-6xl mx-auto">
+              <div className="h-1.5 bg-[#975E08] w-full" />
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead className="bg-white/5 text-slate-400">
+                    <tr>
+                      <th className="py-6 px-6">Feature</th>
+                      <th className="py-6 px-6 text-center text-primary">BareUptime (Free)</th>
+                      <th className="py-6 px-6 text-center text-primary">BareUptime (Paid)</th>
+                      <th className="py-6 px-6 text-center">UptimeRobot</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-300">
+                    <tr className="border-b border-white/5">
+                      <td className="py-5 px-6">Monitors</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">10</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">50</td>
+                      <td className="py-5 px-6 text-center">30</td>
+                    </tr>
+                    <tr className="border-b border-white/5">
+                      <td className="py-5 px-6">Frequency</td>
+                      <td className="py-5 px-6 text-center text-[#975E08]">10min+</td>
+                      <td className="py-5 px-6 text-center text-[#975E08]">1min+</td>
+                      <td className="py-5 px-6 text-center">5min+</td>
+                    </tr>
+                    <tr className="border-b border-white/5 bg-white/5">
+                      <td className="py-5 px-6 font-bold">SSL Monitor</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">Free</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">Free</td>
+                      <td className="py-5 px-6 text-center text-slate-500">Paid only</td>
+                    </tr>
+                    <tr className="border-b border-[#975E08]/30 bg-[#975E08]/10 relative">
+                      <td className="py-5 px-6 font-bold">
+                        <Link href="/blogs/ai-monitors-guide" className="inline-flex items-center gap-2 text-[#975E08] hover:underline">
+                          AI Monitors
+                          <span className="text-xs bg-[#975E08] text-black px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">New</span>
+                        </Link>
+                      </td>
+                      <td className="py-5 px-6 text-center text-slate-500">—</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold text-lg">✓</td>
+                      <td className="py-5 px-6 text-center text-red-400 font-bold">✗</td>
+                    </tr>
+                    <tr className="border-b border-white/5 bg-white/5">
+                      <td className="py-5 px-6 font-bold">Blacklist Monitoring</td>
+                      <td className="py-5 px-6 text-center text-slate-500">—</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
+                      <td className="py-5 px-6 text-center text-slate-500">✗</td>
+                    </tr>
+                    <tr className="border-b border-white/5">
+                      <td className="py-5 px-6 font-bold">Email Monitoring (SPF, DKIM, DMARC)</td>
+                      <td className="py-5 px-6 text-center text-slate-500">—</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
+                      <td className="py-5 px-6 text-center text-slate-500">✗</td>
+                    </tr>
+                    <tr className="border-b border-white/5 bg-white/5">
+                      <td className="py-5 px-6 font-bold">Domain Expiry Monitoring</td>
+                      <td className="py-5 px-6 text-center text-slate-500">—</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
+                      <td className="py-5 px-6 text-center text-slate-500">Paid only</td>
+                    </tr>
+                    <tr className="bg-white/10 font-bold">
+                      <td className="py-6 px-6 text-white">Annual Pricing</td>
+                      <td className="py-6 px-6 text-center text-[#975E08] text-2xl">$0</td>
+                      <td className="py-6 px-6 text-center text-[#975E08] text-2xl">$180</td>
+                      <td className="py-6 px-6 text-center">$360+</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">BareUptime</span> vs{" "}
-                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">UptimeRobot</span>
-              </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                See how we compare to the most popular uptime monitoring service
-              </p>
-            </div>
-
-            <div className="relative max-w-6xl mx-auto">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-lg"></div>
-              <Card className="bg-black/70 backdrop-blur-sm border border-white/10 shadow-2xl rounded-xl overflow-hidden">
-                <div className="h-1.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 w-full"></div>
-                
-                <CardContent className="p-0">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="border-b border-white/10 bg-gradient-to-r from-blue-950/30 to-purple-950/30">
-                          <th className="text-left py-6 px-6 text-slate-400 font-medium text-lg">Feature</th>
-                          <th className="text-center py-6 px-6">
-                            <div className="flex flex-col items-center">
-                              <div className="flex items-center gap-2 mb-2">
-                                <ActivityIcon className="w-5 h-5 text-blue-400" />
-                                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
-                              </div>
-                              <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">Free Plan</Badge>
-                            </div>
-                          </th>
-                          <th className="text-center py-6 px-6">
-                            <div className="flex flex-col items-center">
-                              <div className="flex items-center gap-2 mb-2">
-                                <ActivityIcon className="w-5 h-5 text-indigo-400" />
-                                <span className="text-lg font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">BareUptime</span>
-                              </div>
-                              <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs">Paid Plan</Badge>
-                            </div>
-                          </th>
-                          <th className="text-center py-6 px-6">
-                            <div className="flex flex-col items-center">
-                              <div className="flex items-center gap-2 mb-2">
-                                <div className="w-5 h-5 bg-green-500 rounded-full"></div>
-                                <span className="text-lg font-bold text-green-400">UptimeRobot</span>
-                              </div>
-                              <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">Free Plan</Badge>
-                            </div>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-slate-300">
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Free Plan Monitors
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">10</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">50 </span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">30 </span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Request Type
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-4 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">HEAD, GET, PING</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-4 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">POST, PUT, DELETE</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-mono text-yellow-400">Head</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Globe className="w-4 h-4 text-blue-400 mr-3" />
-                            Frequency 
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400 text-lg">10min, 30min, 1hr</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400 text-lg">1min, 5min</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
-                              <span className="font-mono text-white">5min, 10min, 15min</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            SSL Monitor
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <AlertTriangle className="w-5 h-5 text-red-400 mr-2" />
-                                <span className="text-red-400">Not available(Free)</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            Global Monitoring Network (Free)
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Germany, USA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Canada, India</span>
-                            </div>
-                            <div className="flex items-center justify-center">
-                              {/* <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" /> */}
-                              <span className="font-bold text-indigo-400">Australia</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-bold text-yellow-400">USA</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors bg-blue-500/5">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />
-                            OnCall Alerts (iOS/Android)
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Free</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Server className="w-4 h-4 text-blue-400 mr-3" />
-                            Free Notification Channels
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex flex-col items-center gap-3">
-                              <div className="flex flex-wrap justify-center gap-2">
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-xs font-medium border border-emerald-500/30">
-                                  <AndroidIcon className="w-3.5 h-3.5" />
-                                  <span>Android</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-xs font-medium border border-emerald-500/30">
-                                  <IOSIcon className="w-3.5 h-3.5" />
-                                  <span>iOS</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-500/20 text-slate-300 rounded-lg text-xs font-medium border border-slate-500/30">
-                                  <Globe className="w-3.5 h-3.5" />
-                                  <span>Email</span>
-                                </div>
-                              </div>
-                              <div className="flex flex-wrap justify-center gap-2">
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-indigo-500/20 text-indigo-300 rounded-lg text-xs font-medium border border-indigo-500/30">
-                                  <SlackIcon className="w-3.5 h-3.5" />
-                                  <span>Slack</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg text-xs font-medium border border-cyan-500/30">
-                                  <TelegramIcon className="w-3.5 h-3.5" />
-                                  <span>Telegram</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 px-3 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-xs font-medium border border-orange-500/30">
-                                  <Webhook className="w-3.5 h-3.5" />
-                                  <span>Webhook</span>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Same as Free</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="flex items-center justify-center">
-                                <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                                <span className="text-yellow-400">Email and Phone</span>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            MCP Support
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">Yes</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">Yes</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <X className="w-5 h-5 text-red-400 mr-2" />
-                              <span className="font-bold text-red-400">No</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Setup Complexity
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">10 seconds</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">10 seconds</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold ">30 seconds</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Support
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">6 x 7*</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">24 x 7*</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold">Basic Support</span>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="py-5 px-6 font-medium flex items-center">
-                            <Code className="w-4 h-4 text-blue-400 mr-3" />
-                            Maintenance Downtime
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mr-2" />
-                              <span className="font-bold text-emerald-400">99.9% SLA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-indigo-400 mr-2" />
-                              <span className="font-bold text-indigo-400">99.9% SLA</span>
-                            </div>
-                          </td>
-                          <td className="py-5 px-6 text-center">
-                            <div className="flex items-center justify-center">
-                              <CheckCircle className="w-5 h-5 text-yellow-400 mr-2" />
-                              <span className="font-bold text-yellow-400">99.6% SLA</span>
-                            </div>
-                          </td>
-                        </tr>
-
-                       
-                       
-                          <tr className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
-                          <td className="py-6 px-6 font-bold text-white text-lg flex items-center">
-                            <DollarSign className="w-5 h-5 text-emerald-400 mr-3" />
-                            Annual Pricing
-                          </td>
-                          <td className="py-6 px-6 text-center">
-                            <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-emerald-400">$0 / Year</span>
-                              <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 mt-2 text-xs">98% Savings</Badge>
-                            </div>
-                          </td>
-                          <td className="py-6 px-6 text-center">
-                            <div className="flex flex-col items-center">
-                              <span className="text-3xl font-bold text-indigo-400">$180 / Year</span>
-                              <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 mt-2 text-xs">Enterprise Features</Badge>
-                            </div>
-                          </td>
-                          <td className="py-6 px-6 text-center">
-                            <div className="flex flex-col items-center">
-                              <span className="text-2xl font-bold text-slate-300">$360+ / Year</span>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-
-                </CardContent>
-              </Card>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
-
-      {/* About Section */}
+      {/* About */}
       <section id="about" className="py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-950/20 to-black/0"></div>
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-        
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
         <div className="max-w-6xl mx-auto px-4 relative">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-500/20 shadow-lg">
-              <ActivityIcon className="w-4 h-4" />
-              Teams
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Engineering Team</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Meet the <span className="text-[#975E08]">Engineering Team</span></h2>
           </div>
-
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-5/12">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-lg rounded-2xl"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-                  <div className="h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 w-full"></div>
-                  <div className="p-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Sunil Agrwal</h3>
-                    <p className="text-blue-400 font-medium mb-5">Bareuptime, Ex-InMobi</p>
-                    
-                    <div className="flex items-center gap-2 mb-6">
-                      <a 
-                        href="https://www.linkedin.com/in/sunilagwl5/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="LinkedIn Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
-                        </svg>
-                      </a>
-                      <a 
-                        href="https://github.com/sumansaurabh" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
-                        aria-label="GitHub Profile"
-                      >
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                    
-                    <div className="grid grid-cols-3 gap-4 mt-8 mb-2">
-                      <div className="text-center p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                        <div className="text-2xl font-bold text-white">10+</div>
-                        <div className="text-sm text-slate-400">Years Enterprise Experience</div>
-                      </div>
-                      <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                        <div className="text-2xl font-bold text-white">1</div>
-                        <div className="text-sm text-slate-400">Weekend MVP Development</div>
-                      </div>
-                      <div className="text-center p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-                        <div className="text-2xl font-bold text-white">99.9%</div>
-                        <div className="text-sm text-slate-400">Uptime Guarantee</div>
-                      </div>
-                    </div>
+              <Card className="bg-black/40 border border-white/10 rounded-xl overflow-hidden shadow-2xl p-8">
+                <div className="w-20 h-20 bg-[#975E08] rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold">SS</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Sunil Agrwal</h3>
+                <p className="text-[#975E08] font-medium mb-5">Bareuptime, Ex-InMobi</p>
+                <div className="grid grid-cols-3 gap-4 mt-8">
+                  <div className="text-center p-2 bg-white/5 rounded">
+                    <div className="font-bold text-white">10+</div>
+                    <div className="text-[10px] text-slate-400">Years Exp</div>
+                  </div>
+                  <div className="text-center p-2 bg-white/5 rounded">
+                    <div className="font-bold text-white">1</div>
+                    <div className="text-[10px] text-slate-400">Weekend MVP</div>
+                  </div>
+                  <div className="text-center p-2 bg-white/5 rounded">
+                    <div className="font-bold text-white">99.9%</div>
+                    <div className="text-[10px] text-slate-400">Uptime</div>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
-            
-            <div className="md:w-7/12 space-y-8">
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Code className="w-5 h-5 text-purple-400" />
-                  </div>
-                  The Genesis of BareUptime
-                </h3>
-                <p className="text-slate-300">
-                  After launching <a href="https://www.penify.dev/" target="_blank">Penify</a>, we needed reliable monitoring for our services. The market offered two choices: complex enterprise solutions or build a custom solution.
-                </p>
-                <p className="text-slate-300 mt-4">
-                  So we engineered BareUptime — a robust, efficient monitoring system that delivers enterprise reliability. We're opening our architecture and deployment strategy to help organizations build better monitoring solutions.
-                </p>
-              </div>
+            <div className="md:w-7/12 bg-black/40 border border-white/10 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3"><Code className="text-[#975E08]" /> The Genesis</h3>
+              <p className="text-slate-300">After launching Penify, we needed reliable monitoring. The market offered complex enterprise tools or DIY. We built BareUptime to deliver enterprise reliability without the overhead.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-blue-950/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzRoLTZ2LTZoNnYtNmg2djZoNnY2aC02eiIvPjwvZz48L2c+PC9zdmc+')] bg-[size:30px_30px] opacity-10"></div>
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-xl"></div>
-        
-        <div className="max-w-5xl mx-auto px-4 relative">
-          <div className="bg-gradient-to-r from-blue-500/5 to-indigo-500/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm">
-            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
-              <div className="md:w-3/5">
-                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-blue-500/20">
-                  <ActivityIcon className="w-5 h-5 text-blue-400" />
-                  Stay Updated
-                </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Start</span> <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Monitoring</span> Today!
-                </h2>
-                <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                  BareUptime is live! Subscribe to our newsletter for product updates, monitoring tips, and exclusive insights.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>No Spam, Just Updates</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg text-sm text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400" />
-                    <span>Monitoring Tips & Insights</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="md:w-2/5">
-                <Card className="bg-black/50 border-blue-500/20 shadow-xl overflow-hidden">
-                  <div className="h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-white mb-4">Subscribe to Newsletter</h3>
-                    <form onSubmit={handleSubmit}>
-                      <div className="space-y-4">
-                        <Input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-400 transition-colors"
-                          required
-                        />
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting || !email}
-                          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-2.5 rounded-lg shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          {isSubmitting ? "Subscribing..." : "Subscribe Now"}
-                        </Button>
-                        {message && (
-                          <div className={`text-center text-sm ${
-                            messageType === "success" ? "text-green-400" : "text-red-400"
-                          }`}>
-                            {message}
-                          </div>
-                        )}
-                      </div>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-5xl mx-auto px-4 relative bg-white/5 border border-white/10 rounded-2xl p-12 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Stay Updated</h2>
+          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for product updates and monitoring insights.</p>
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col gap-4">
+            <Input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-white/10 border-white/20 text-white focus:border-[#975E08]" required />
+            <Button type="submit" disabled={isSubmitting || !email} className="bg-[#975E08] hover:bg-[#975E08]/90 text-white py-3">
+              {isSubmitting ? "Subscribing..." : "Subscribe Now"}
+            </Button>
+            {message && <div className={`text-sm ${messageType === "success" ? "text-[#975E08]" : "text-red-400"}`}>{message}</div>}
+          </form>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10 bg-black/40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-8 md:mb-0">
-              <div className="flex items-center justify-center md:justify-start mb-4">
-                <ActivityIcon className="w-6 h-6 text-blue-400 mr-2" />
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">BareUptime</span>
-              </div>
-              <p className="text-slate-400 max-w-md text-center md:text-left">
-                Enterprise-grade monitoring infrastructure for modern applications.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-white font-medium mb-3">Resources</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><a href="#features" className="text-slate-400 hover:text-blue-400 transition-colors">Features</a></li>
-                  <li><a href="#about" className="text-slate-400 hover:text-blue-400 transition-colors">About</a></li>
-                  <li><a href="/support" className="text-slate-400 hover:text-blue-400 transition-colors">Support</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="text-white font-medium mb-3">Connect</h4>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <a 
-                      href="https://github.com/sumansaurabh/bareuptime" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                      </svg>
-                      GitHub
-                    </a>
-                  </li>
-                  <li>
-                    <a 
-                      href="https://www.linkedin.com/in/sunilagwl5/" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
-                      </svg>
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="col-span-2 md:col-span-1">
-                <h4 className="text-white font-medium mb-3">Legal</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><a href="/privacy-policy" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                  <li><a href="/terms-of-service" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-slate-500 mb-4 md:mb-0">
-              &copy; Bareuptime Associates and Co. All rights reserved.
-            </p>
-            <p className="text-sm text-slate-500">
-              Built by enterprise engineers, for organizations that need reliable monitoring.
-            </p>
-          </div>
+      <footer className="py-16 border-t border-white/10 bg-black/40 text-center">
+        <div className="flex items-center justify-center mb-4 gap-2">
+          <ActivityIcon className="text-[#975E08]" />
+          <span className="text-xl font-bold text-[#975E08]">BareUptime</span>
+        </div>
+        <p className="text-slate-500 text-sm">© 2026 Bareuptime Associates and Co. Built for reliable organizations.</p>
+        <div className="flex justify-center gap-6 mt-6 text-sm text-slate-400">
+          <a href="/privacy-policy" className="hover:text-[#975E08]">Privacy</a>
+          <a href="/terms-of-service" className="hover:text-[#975E08]">Terms</a>
         </div>
       </footer>
     </main>
-    
-    {/* Structured Data for SEO */}
-    <Script
-      id="main-structured-data"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData)
-      }}
-    />
-    
-    <Script
-      id="faq-structured-data"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(faqStructuredData)
-      }}
-    />
     </>
   )
 }

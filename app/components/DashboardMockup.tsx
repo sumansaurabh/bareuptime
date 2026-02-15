@@ -20,28 +20,28 @@ const ActivityIcon = ({ className }: { className?: string }) => (
 // Memoized dashboard component for better performance
 const DashboardMockup = memo(() => {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-2xl p-1 will-change-transform">
+    <div className="w-full h-full bg-white/5 rounded-2xl p-1 will-change-transform">
       <div className="bg-black/40 backdrop-blur-sm rounded-xl border border-white/10 shadow-2xl overflow-hidden">
         {/* Browser-style header */}
         <div className="flex items-center justify-between p-4 bg-black/30 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
           </div>
           <div className="text-xs text-slate-400 bg-white/5 px-2 py-1 rounded">Dashboard Preview</div>
         </div>
 
         {/* Dashboard Header */}
-        <div className="p-4 bg-gradient-to-r from-blue-950/50 to-indigo-950/50 border-b border-white/5">
+        <div className="p-4 bg-white/5 border-b border-white/5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#975E08] rounded-lg flex items-center justify-center">
                 <ActivityIcon className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="text-sm font-semibold text-white">BareUptime</div>
-                <div className="text-xs text-slate-400">Monitoring Dashboard</div>
+                <div className="text-xs text-slate-400">Dashboard</div>
               </div>
             </div>
           </div>
@@ -50,92 +50,55 @@ const DashboardMockup = memo(() => {
         {/* Stats Overview */}
         <div className="p-4 border-b border-white/5">
           <div className="grid grid-cols-3 gap-3">
-            <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-2 text-center">
-              <div className="text-lg font-bold text-green-400">2</div>
-              <div className="text-xs text-green-300/80">Online</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-2 text-center">
+              <div className="text-lg font-bold text-white">2</div>
+              <div className="text-[10px] text-slate-400">Online</div>
             </div>
-            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-2 text-center">
-              <div className="text-lg font-bold text-red-400">1</div>
-              <div className="text-xs text-red-300/80">Down</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-2 text-center">
+              <div className="text-lg font-bold text-white">1</div>
+              <div className="text-[10px] text-slate-400">Down</div>
             </div>
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-2 text-center">
-              <div className="text-lg font-bold text-blue-400">99.2%</div>
-              <div className="text-xs text-blue-300/80">Uptime</div>
+            <div className="bg-[#975E08]/10 border border-[#975E08]/20 rounded-lg p-2 text-center">
+              <div className="text-lg font-bold text-[#975E08]">99.2%</div>
+              <div className="text-[10px] text-[#975E08]/80">Uptime</div>
             </div>
           </div>
         </div>
 
         {/* Service List */}
         <div className="p-4 space-y-2">
-          <div className="text-xs font-medium text-slate-400 mb-3">Your Services</div>
-          
-          {/* Service Items - Reduced animations for performance */}
-          <div className="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
+          <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-300 rounded-full"></div>
-              </div>
-              <div>
-                <div className="text-sm font-medium text-white">api.example.com</div>
-                <div className="text-xs text-slate-400">Last checked 30s ago</div>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[#975E08]"></div>
+              <div className="text-sm text-white font-medium">api.example.com</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="text-xs text-green-400 font-medium">200ms</div>
-              <div className="text-xs text-green-400 font-bold">99.9%</div>
-            </div>
+            <div className="text-xs text-[#975E08] font-bold">99.9%</div>
           </div>
 
-          <div className="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors">
+          <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-300 rounded-full"></div>
-              </div>
-              <div>
-                <div className="text-sm font-medium text-white">app.example.com</div>
-                <div className="text-xs text-slate-400">Last checked 45s ago</div>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[#975E08]"></div>
+              <div className="text-sm text-white font-medium">app.example.com</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="text-xs text-green-400 font-medium">150ms</div>
-              <div className="text-xs text-green-400 font-bold">100%</div>
-            </div>
+            <div className="text-xs text-[#975E08] font-bold">100%</div>
           </div>
 
-          {/* Service Item 3 - Error State with reduced animations */}
-          <div className="flex items-center justify-between p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 border-dashed">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-4 h-4 rounded-full bg-red-500"></div>
-                <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-300 rounded-full"></div>
-              </div>
-              <div>
-                <div className="text-sm font-medium text-white">db.example.com</div>
-                <div className="text-xs text-red-400">Down for 2m 15s</div>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-slate-600"></div>
+              <div className="text-sm text-slate-400 font-medium">db.example.com</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="text-xs text-red-400 font-medium">Timeout</div>
-              <div className="text-xs text-red-400 font-bold">98.1%</div>
-            </div>
+            <div className="text-xs text-slate-500">Offline</div>
           </div>
         </div>
 
         {/* Bottom Action Bar */}
-        <div className="p-4 bg-gradient-to-r from-blue-950/30 to-indigo-950/30 border-t border-white/10">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-              <div className="text-xs text-green-400 font-semibold">First 50 Monitors are Free</div>
-            </div>
+        <div className="p-4 bg-white/5 border-t border-white/10">
+          <div className="flex items-center justify-between text-[10px]">
+            <span className="text-slate-400">Powered by BareUptime</span>
             <div className="flex items-center gap-1">
-              <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
-              <div className="w-1 h-2 bg-blue-400/60 rounded-full"></div>
-              <div className="w-1 h-4 bg-blue-400 rounded-full"></div>
-              <div className="w-1 h-2 bg-blue-400/60 rounded-full"></div>
-              <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
+              <div className="w-4 h-1 bg-[#975E08] rounded-full"></div>
+              <div className="w-2 h-1 bg-white/20 rounded-full"></div>
             </div>
           </div>
         </div>

@@ -146,7 +146,7 @@ export default function FeaturesDropdown() {
       onMouseLeave={handleMouseLeave}
     >
       <button 
-        className="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
+        className="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#975E08] focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1"
         aria-label="Features menu"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
@@ -156,9 +156,9 @@ export default function FeaturesDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-96 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden">
+        <div className="absolute top-full left-0 mt-2 w-96 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden">
           <div className="p-2">
-            <div className="grid grid-cols-1 gap-1">
+            <div className="grid grid-cols-1 gap-1 max-h-[60vh] overflow-y-auto">
               {featuresData.map((feature, index) => {
                 const IconComponent = feature.icon;
                 return (
@@ -169,10 +169,10 @@ export default function FeaturesDropdown() {
                     onClick={() => handleFeatureClick(feature)}
                   >
                     <div className="flex-shrink-0 mt-0.5">
-                      <IconComponent className="w-4 h-4 text-blue-400 group-hover:text-blue-300" />
+                      <IconComponent className="w-4 h-4 text-[#975E08] group-hover:text-[#975E08]/80" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium text-white group-hover:text-blue-100">
+                      <div className="text-sm font-medium text-white group-hover:text-[#975E08]">
                         {feature.title}
                       </div>
                       <div className="text-xs text-slate-400 group-hover:text-slate-300 mt-0.5">
@@ -187,7 +187,7 @@ export default function FeaturesDropdown() {
             <div className="border-t border-white/10 mt-3 pt-3 space-y-1">
               <Link
                 href="/features"
-                className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-lg transition-colors"
+                className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-[#975E08] hover:text-[#975E08]/80 hover:bg-white/5 rounded-lg transition-colors"
                 onClick={() => {
                   trackWithSource.navigation('view_all_features', 'features_dropdown');
                   setIsOpen(false);
@@ -200,7 +200,7 @@ export default function FeaturesDropdown() {
               </Link>
               <Link
                 href="/enterprise"
-                className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors"
+                className="flex items-center justify-center gap-2 w-full p-2 text-sm font-medium text-[#975E08] hover:text-[#975E08]/80 hover:bg-white/5 rounded-lg transition-colors"
                 onClick={() => {
                   trackWithSource.navigation('enterprise_features', 'features_dropdown');
                   setIsOpen(false);
