@@ -545,8 +545,8 @@ export default function HomePage() {
                     <tr className="bg-white/10 font-bold">
                       <td className="py-6 px-6 text-white">Annual Pricing</td>
                       <td className="py-6 px-6 text-center text-[#975E08] text-2xl">$0</td>
-                      <td className="py-6 px-6 text-center text-[#975E08] text-2xl">$180</td>
-                      <td className="py-6 px-6 text-center">$360+</td>
+                      <td className="py-6 px-6 text-center text-[#975E08] text-2xl">$60</td>
+                      <td className="py-6 px-6 text-center">$180+</td>
                     </tr>
                   </tbody>
                 </table>
