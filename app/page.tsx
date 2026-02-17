@@ -509,7 +509,7 @@ export default function HomePage() {
                     </tr>
                     <tr className="border-b border-[#975E08]/30 bg-[#975E08]/10 relative">
                       <td className="py-5 px-6 font-bold">
-                        <Link href="/blogs/ai-monitors-guide" className="inline-flex items-center gap-2 text-[#975E08] hover:underline">
+                        <Link href="/blogs/ai-monitors-guide" className="inline-flex items-center gap-2 text-[#975E08] underline underline-offset-2">
                           AI Monitors
                           <span className="text-xs bg-[#975E08] text-black px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">New</span>
                         </Link>
@@ -532,7 +532,13 @@ export default function HomePage() {
                     </tr>
                     <tr className="border-b border-white/5 bg-white/5">
                       <td className="py-5 px-6 font-bold">Domain Expiry Monitoring</td>
-                      <td className="py-5 px-6 text-center text-slate-500">—</td>
+                      <td className="py-5 px-6 text-center text-slate-500">✓</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
+                      <td className="py-5 px-6 text-center text-slate-500">Paid only</td>
+                    </tr>
+                    <tr className="border-b border-white/5">
+                      <td className="py-5 px-6 font-bold">REST API (GET, POST, PUT, DELETE)</td>
+                      <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
                       <td className="py-5 px-6 text-center text-[#975E08] font-bold">✓</td>
                       <td className="py-5 px-6 text-center text-slate-500">Paid only</td>
                     </tr>
