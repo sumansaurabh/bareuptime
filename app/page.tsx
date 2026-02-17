@@ -343,7 +343,7 @@ export default function HomePage() {
 
   return (
     <>
-    <main className={`min-h-screen bg-background text-foreground will-change-scroll ${inter.className}`} itemScope itemType="https://schema.org/WebPage">
+    <main className={`min-h-screen bg-black text-slate-100 will-change-scroll ${inter.className}`} itemScope itemType="https://schema.org/WebPage">
       <header className="w-full py-3 px-4 bg-black sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
