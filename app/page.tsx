@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X } from "lucide-react"
+import { CheckCircle, AlertTriangle, DollarSign, Server, Code, Globe, Clock, Smartphone, MessageSquare, Webhook, Users, BookOpen, TrendingDown, Brain, Cloud, Shield, X, ArrowRight } from "lucide-react"
 import { trackWithSource } from '@/components/google-analytics'
 import FeaturesDropdown from '@/components/FeaturesDropdown'
 import { IBM_Plex_Sans_Condensed, Inter } from 'next/font/google'
@@ -551,6 +551,57 @@ export default function HomePage() {
                   </tbody>
                 </table>
               </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="pb-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-white/5 text-slate-300 px-4 py-2 rounded-full text-sm border border-white/10 mb-4">
+              <BookOpen className="w-4 h-4 text-[#975E08]" />
+              From the Blog
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Pricing That Beats <span className="text-[#975E08]">UptimeRobot</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-white/5 border border-[#975E08]/30 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="h-1.5 bg-[#975E08] w-full" />
+              <CardContent className="p-7">
+                <Badge className="bg-[#975E08]/20 text-[#975E08] border-[#975E08]/30 mb-4">New Pricing Blog</Badge>
+                <h3 className="text-2xl font-bold text-white mb-3">All UptimeRobot Features + AI Monitors</h3>
+                <p className="text-slate-300 mb-6">
+                  Explore Free, Solo, Team, and Enterprise plans with aggressive pricing designed to beat UptimeRobot on value.
+                </p>
+                <Link href="/blogs/bareuptime-pricing-vs-uptimerobot-2026">
+                  <Button className="bg-[#975E08] hover:bg-[#975E08]/90 text-white">
+                    Read Pricing Breakdown
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="h-1.5 bg-white/20 w-full" />
+              <CardContent className="p-7">
+                <Badge className="bg-white/10 text-slate-300 border-white/20 mb-4">Product Guide</Badge>
+                <h3 className="text-2xl font-bold text-white mb-3">AI Monitors: Prompt-Driven Checks</h3>
+                <p className="text-slate-300 mb-6">
+                  See how AI monitors run full browser workflows so you catch user-facing failures before customers report them.
+                </p>
+                <Link href="/blogs/ai-monitors-guide">
+                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                    Read AI Monitors Guide
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </CardContent>
             </Card>
           </div>
         </div>

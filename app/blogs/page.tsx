@@ -9,6 +9,17 @@ import Link from 'next/link'
 export default function BlogsPage() {
   const blogPosts = [
     {
+      id: 'bareuptime-pricing-vs-uptimerobot-2026',
+      title: 'BareUptime Pricing in 2026: Every Core UptimeRobot Feature + AI Monitors',
+      excerpt: 'Clear, competitive plans built to beat UptimeRobot on value. Get core monitoring features plus AI monitors at startup-friendly pricing.',
+      author: 'BareUptime Team',
+      publishDate: 'February 17, 2026',
+      readTime: '6 min read',
+      category: 'Pricing',
+      featured: true,
+      tags: ['Pricing', 'UptimeRobot Alternative', 'AI Monitors'],
+    },
+    {
       id: 'ai-monitors-guide',
       title: 'AI Monitors: Prompt-Driven Browser Monitoring with BareUptime',
       excerpt: 'Write a prompt, BareUptime opens a real browser and performs the actions you described — clicking buttons, filling forms, testing login flows. Like having a QA tester checking your site on autopilot.',
