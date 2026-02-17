@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Globe, Shield, Clock, Activity, Lock, Smartphone, Webhook, MapPin, Search, Server } from 'lucide-react';
+import { ChevronDown, Globe, Shield, Clock, Activity, Lock, Smartphone, Webhook, MapPin, Search, Server, Brain, LogIn, MousePointerClick, ShoppingCart, FormInput, Navigation, Eye } from 'lucide-react';
 import { trackWithSource } from '@/components/google-analytics';
 
 interface FeatureItem {
@@ -20,6 +20,55 @@ const featuresData: FeatureItem[] = [
     icon: Globe,
     href: "/features#api-monitoring",
     category: "Uptime monitoring"
+  },
+  {
+    title: "AI Monitors",
+    description: "Prompt-driven browser monitoring — real browser, NLP prompts, screenshots & action logs",
+    icon: Brain,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Login Flow Monitoring",
+    description: "Verify login forms, credentials and dashboard rendering",
+    icon: LogIn,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Button & Link Verification",
+    description: "Click nav links and CTAs — detect 404s and broken buttons",
+    icon: MousePointerClick,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Checkout Flow Monitoring",
+    description: "Simulate shopping journeys and verify checkout pages",
+    icon: ShoppingCart,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Form Submission Testing",
+    description: "Fill and submit forms, verify success confirmations",
+    icon: FormInput,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Multi-Page Navigation",
+    description: "Navigate across pages and verify elements along the path",
+    icon: Navigation,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
+  },
+  {
+    title: "Action Logs & Screenshots",
+    description: "Get step-by-step action logs and screenshots for every run",
+    icon: Eye,
+    href: "/features#ai-monitoring",
+    category: "AI monitoring"
   },
   {
     title: "Website & Endpoint Monitoring",

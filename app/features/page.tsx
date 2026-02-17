@@ -16,6 +16,7 @@ import {
   MapPin, 
   Search,
   Server,
+  Brain,
   AlertTriangle,
   CheckCircle,
   ArrowLeft
@@ -24,7 +25,23 @@ import {
 export default function FeaturesPage() {
   const features = [
     {
+      icon: Brain,
+      slug: "ai-monitoring",
+      title: "AI Monitors",
+      description: "Prompt-driven browser monitoring that opens a real browser, executes user flows, and returns screenshots, action logs, and pass/fail results.",
+      category: "AI monitoring",
+      features: [
+        "Natural-language prompts — no code",
+        "Real browser execution (click, type, navigate)",
+        "Login & checkout flow testing",
+        "Screenshots & step-by-step action logs",
+        "Instant alerts on failure",
+        "Easy setup in under 2 minutes"
+      ]
+    },
+    {
       icon: Globe,
+      slug: "website-monitoring",
       title: "Website & Endpoint Monitoring",
       description: "Monitor HTTP/HTTPS endpoints, websites, and APIs with comprehensive health checks.",
       category: "Uptime monitoring",
@@ -32,6 +49,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Search,
+      slug: "keyword-monitoring",
       title: "Keyword Monitoring", 
       description: "Ensure your website content is displaying correctly by monitoring for specific keywords.",
       category: "Monitoring features",
@@ -39,6 +57,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Activity,
+      slug: "ping-monitoring",
       title: "Ping Monitoring",
       description: "Monitor server connectivity and network latency with ICMP ping monitoring.",
       category: "Uptime monitoring", 
@@ -46,6 +65,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Server,
+      slug: "port-monitoring",
       title: "Port Monitoring",
       description: "Monitor specific TCP/UDP ports to ensure your services are running.",
       category: "Uptime monitoring",
@@ -53,6 +73,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Lock,
+      slug: "ssl-monitoring",
       title: "SSL Monitoring", 
       description: "Monitor SSL certificate expiration and validity to ensure secure connections.",
       category: "Monitoring features",
@@ -60,6 +81,7 @@ export default function FeaturesPage() {
     },
     {
       icon: Webhook,
+      slug: "integrations",
       title: "Integrations",
       description: "Connect with your favorite tools through webhooks, Slack, Discord, and more.",
       category: "Integrations", 
@@ -101,7 +123,7 @@ export default function FeaturesPage() {
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <Card key={index} className="bg-black/40 border-white/10 hover:border-[#975E08]/50 transition-all duration-300">
+              <Card id={feature.slug} key={index} className="bg-black/40 border-white/10 hover:border-[#975E08]/50 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-3 rounded-lg bg-white/5">
